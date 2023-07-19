@@ -8,14 +8,9 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - As a user, I want to know what VMware events are available so that I can register for or follow those.
 
-<!-- ## Features  -->
-
-
+## Features 
 
 <!-- ### Existing Features -->
-
-
-
 ### Features Left to Implement
 
 - __Navigation Bar__
