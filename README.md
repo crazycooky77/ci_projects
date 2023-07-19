@@ -57,6 +57,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 ### Content 
 
 - The base template was cloned from the [Code Institute GitHub repository](https://github.com/Code-Institute-Org/ci-full-template)
+- The basic readme and HTML templates were copied from [CluelessBiker's mentoring repository](https://github.com/CluelessBiker/mentoring/tree/main)
 - The majority of text content (blog posts) was taken from https://fbuechsel.eu/
 <!-- - All social media icons were taken from [Font Awesome](https://fontawesome.com/) -->
 
