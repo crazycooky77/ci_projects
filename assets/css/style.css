@@ -1,0 +1,11 @@
+h1 {
+	display: flex;
+	justify-content: center;
+}
+
+nav {
+	margin: 0 20px 0 0;
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+}
