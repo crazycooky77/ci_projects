@@ -1,39 +1,68 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# fbuechsel's Blog
 
-Welcome,
+This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well.
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## User Stories
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
+- As a user, I want to view the various blog posts so that I can learn more about topics included in VMware certifications.
 
-## Codeanywhere Reminders
+- As a user, I want to know what VMware events are available so that I can register for or follow those.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+<!-- ## Features  -->
 
-`python3 -m http.server`
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+<!-- ### Existing Features -->
 
-`http_server`
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### Features Left to Implement
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- __Navigation Bar__
 
-To log into the Heroku toolbelt CLI:
+- __Homepage__ 
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- __Blog Page__
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- __Featured Posts__ 
 
----
+- __Blog Categories__ 
 
-Happy coding!
+- __Blog Tags__ 
+
+- __Videos Page__ 
+
+- __Videos Category Links__ 
+
+- __Events Page__ 
+
+- __Event Links__
+
+- __About Me Page__ 
+
+- __Follow Me Pop-ups__ 
+
+- __Landing Page Image__
+
+- __Newsletter Signup__
+
+- __Footer__
+
+<!-- ## Testing  -->
+
+
+<!-- ### Validator Testing  -->
+
+
+<!-- ## Deployment -->
+
+
+## Credits 
+
+### Content 
+
+- The base template was cloned from the [Code Institute GitHub repository](https://github.com/Code-Institute-Org/ci-full-template)
+- The majority of text content (blog posts) was taken from https://fbuechsel.eu/
+<!-- - All social media icons were taken from [Font Awesome](https://fontawesome.com/) -->
+
+<!-- ### Media -->
