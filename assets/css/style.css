@@ -45,3 +45,10 @@ nav > a:hover {
 	background-color: #28176e;
 	border: #150d36 2px solid;
 }
+
+/* Hero Image */
+#hero {
+	background: url('../images/hero-image.png');
+	height: 540px;
+	width: 100%;
+}
