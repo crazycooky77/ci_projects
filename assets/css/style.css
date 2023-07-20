@@ -6,32 +6,46 @@
     border: none;
     font-family: 'Share Tech', sans-serif;
     color: white;
-    background-color: #070f1c;
+}
+
+body {
+	background-color: #070f1c;
 }
 
 /* Header */
 h1 {
 	display: flex;
 	justify-content: center;
+	position: relative;
+	top: 440px;
+	font-size: 60px;
+	z-index: 1;
+	-webkit-text-stroke: 0.1px white;
+  	-webkit-text-fill-color: transparent;  
 }
 
 /* Navigation */
 nav {
-	margin: 0 20px 0 0;
+	margin: -15px 20px 10px 0;
 	display: flex;
 	justify-content: flex-end;
 	gap: 15px;
+	position: relative;
+	top: 520px;
+	right: 20px;
+	z-index: 1;
 }
 
-nav > a {
+button {
 	background-color: #28176e;
 	border: #150d36 2px solid;
 	padding: 10px 15px;
 	border-radius: 15px;
 	color: #ffffff;
+	font-size: 18px;
 }
 
-nav > a:hover {
+button:hover {
 	background-color: #150d36;
 	border: #28176e 2px solid;
 }
@@ -47,8 +61,22 @@ nav > a:hover {
 }
 
 /* Hero Image */
-#hero {
-	background: url('../images/hero-image.png');
+/*#hero-outer {
 	height: 540px;
 	width: 100%;
+	overflow: hidden;
+	position: relative;*/
+/*}*/
+
+#hero {
+	background: url('../images/hero-image.png') no-repeat center center;
+	height: 540px;
+	width: 100%;
+	position: relative;
+	top: 0;
+}
+
+h2 {
+	position: absolute;
+/*	bottom: 0px;*/
 }
