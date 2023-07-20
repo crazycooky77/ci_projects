@@ -5,16 +5,43 @@
     padding: 0;
     border: none;
     font-family: 'Share Tech', sans-serif;
+    color: white;
+    background-color: #070f1c;
 }
 
+/* Header */
 h1 {
 	display: flex;
 	justify-content: center;
 }
 
+/* Navigation */
 nav {
 	margin: 0 20px 0 0;
 	display: flex;
 	justify-content: flex-end;
 	gap: 15px;
+}
+
+nav > a {
+	background-color: #28176e;
+	border: #150d36 2px solid;
+	padding: 10px 15px;
+	border-radius: 15px;
+	color: #ffffff;
+}
+
+nav > a:hover {
+	background-color: #150d36;
+	border: #28176e 2px solid;
+}
+
+.active {
+	background-color: #150d36;
+	border: #28176e 2px solid;
+}
+
+.active:hover {
+	background-color: #28176e;
+	border: #150d36 2px solid;
 }
