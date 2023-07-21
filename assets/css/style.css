@@ -17,7 +17,7 @@ h1 {
 	display: flex;
 	justify-content: center;
 	position: relative;
-	top: 440px;
+	top: 330px;
 	font-size: 60px;
 	z-index: 1;
 	-webkit-text-stroke: 0.1px white;
@@ -31,7 +31,7 @@ nav {
 	justify-content: flex-end;
 	gap: 15px;
 	position: relative;
-	top: 520px;
+	top: 410px;
 	right: 20px;
 	z-index: 1;
 }
