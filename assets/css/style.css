@@ -61,13 +61,6 @@ button:hover {
 }
 
 /* Hero Image */
-/*#hero-outer {
-	height: 540px;
-	width: 100%;
-	overflow: hidden;
-	position: relative;*/
-/*}*/
-
 #hero {
 	background: url('../images/hero-image.png') no-repeat center center;
 	height: 540px;
@@ -76,10 +69,31 @@ button:hover {
 	top: 0;
 }
 
+/* Main Page Content */
 h2 {
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
 	font-size: 40px;
+	text-decoration: underline;
+}
+
+#main-content {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+#left-panel {
+	margin: 0 auto;
+}
+
+#center-panel {
+	margin: 0 auto;
+	
+}
+
+#right-panel {
+	margin: 0 auto;
+}
+
+.title {
 	text-decoration: underline;
 }
