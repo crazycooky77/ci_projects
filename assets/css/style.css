@@ -32,8 +32,8 @@ nav {
 	gap: 15px;
 	position: relative;
 	top: 410px;
-	right: 20px;
 	z-index: 1;
+	max-width: 1920px;
 }
 
 button {
@@ -77,6 +77,8 @@ button:hover {
 }
 
 h2 {
-	position: absolute;
-/*	bottom: 0px;*/
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	font-size: 40px;
 }
