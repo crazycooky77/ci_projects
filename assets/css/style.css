@@ -77,23 +77,25 @@ h2 {
 
 #main-content {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	margin-top: 30px;
 }
 
-#left-panel {
-	margin: 0 auto;
-}
-
-#center-panel {
-	margin: 0 auto;
-	
-}
-
-#right-panel {
+#left-panel, #center-panel, #right-panel {
+	display: flex;
+	justify-content: center;
+	width: calc(100%/3);
+	flex-wrap: wrap;
 	margin: 0 auto;
 }
 
 .title {
+	display: flex;
 	text-decoration: underline;
+	margin-bottom: 60px;
+}
+
+.content {
+	display: flex;
+	margin-bottom: 60px;
 }
