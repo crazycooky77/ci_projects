@@ -75,10 +75,23 @@ h2 {
 	text-decoration: underline;
 }
 
-#main-content {
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
+label {
+	margin-left: 5px;
+}
+
+form {
+	margin-top: 50px;
+}
+
+form > input {
+	padding: 5px;
+	background-color: #150d36;
+	border: #28176e 2px solid;
+	border-radius: 5px;
+}
+
+form > #email {
+	margin-right: 10px;
 }
 
 #left-panel, #center-panel, #right-panel {
@@ -89,13 +102,29 @@ h2 {
 	margin: 0 auto;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
 .title {
 	display: flex;
 	text-decoration: underline;
-	margin-bottom: 60px;
+	margin-bottom: 10px;
+}
+
+.title > p {
+	border: 1px solid #ffffff;
+	padding: 7px;
+	border-radius: 5px;
 }
 
 .content {
 	display: flex;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
+}
+
+.nostyle {
+	list-style: none;
 }
