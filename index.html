@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang='en'>
     <head>
+<!-- jquery script to load other HTML files -->
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+          $(function() {
+             $("#latestblog").load("assets/blog_posts/20220731.html");
+          });
+        </script>
+        
         <meta charset='UTF-8'>
         <meta name='description' content='Blog for those interested in learning about VMware certification tracks'>
         <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
@@ -39,6 +47,7 @@
                 </div>
                 <div id='center-panel'>
                     <h2>Latest Blog Post</h2>
+                    <div id='latestblog'></div>
                 </div>
                 <div id='right-panel'>
                     <div id='right-column'>

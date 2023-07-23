@@ -59,6 +59,9 @@ This site is to help people learn more about VMware topics, particularly relatin
 - The base template was cloned from the [Code Institute GitHub repository](https://github.com/Code-Institute-Org/ci-full-template)
 - The basic readme and HTML templates were copied from [CluelessBiker's mentoring repository](https://github.com/CluelessBiker/mentoring/tree/main)
 - The majority of text content (blog posts) was taken from https://fbuechsel.eu/
+- Font used from [Google Fonts](https://fonts.google.com/specimen/Share+Tech)
+- Script for including HTML files within other files taken from https://www.tutorialspoint.com/how-to-include-another-html-file-in-an-html-file
+- Scalable image sizing modified from https://support.glitch.com/t/how-can-i-incorporate-css-to-expand-my-image-on-click-html-css-javascript/30610
 <!-- - All social media icons were taken from [Font Awesome](https://fontawesome.com/) -->
 
 <!-- ### Media -->

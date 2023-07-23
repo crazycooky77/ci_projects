@@ -36,7 +36,7 @@ nav {
 	max-width: 1920px;
 }
 
-button {
+nav button {
 	background-color: transparent;
 	border: #150d36 2px solid;
 	padding: 10px 15px;
@@ -45,7 +45,7 @@ button {
 	font-size: 18px;
 }
 
-button:hover {
+nav button:hover {
 	background-color: #150d36;
 	border: #28176e 2px solid;
 }
@@ -127,4 +127,35 @@ form > #email {
 
 .nostyle {
 	list-style: none;
+}
+
+/* Blog Pages */
+h3 {
+	margin-top: 20px;
+	font-size: 28px;
+	text-align: center;
+}
+
+#latestblog {
+	max-width: 100%;
+	font-size: 20px;
+}
+
+.img_desc {
+	font-style: italic;
+	font-size: 15px;
+}
+
+.img_scale {
+	border: none;
+	background: none;
+}
+
+.img_scale img {
+	max-width: 100%;
+}
+
+/*TO DO: Update image scaling styling*/
+.img_scale:active img, .img_scale:focus img {
+	max-width: 300%;
 }
