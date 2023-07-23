@@ -1,0 +1,17 @@
+<p>When deploying a v2 cluster you may notice that an input field for the capv user password is missing. To be able to set a password you will have to deploy the systemsettings cluster add-on, however with following the default wizard settings the add-on deployment gets stuck.</p>
+<br>
+<p>Not only does the add-on deployment get stuck, but also none of the settings get applied to the actual cluster. The main symptom can be seen in the picture below.</p>
+<div class='blog_img'><img src='../images/blog_images/20220731-1.png'></div>
+<p style='font-style: italic'>Figure 1: Systemsettings add-on stuck in processing state</p>
+<br>
+<p>The most likely cause is that during the configuration of the add-on the wizard was filled out in the following fashion:</p>
+<div class='blog_img'><img src='../images/blog_images/20220731-2.png'></div>
+<p style='font-style: italic'>Figure 2: Systemsettings add-on wizard</p>
+<br>
+<p>Notice the empty field for a syslog server, if you intended to configure the new fluentbit add-on for syslog a configuration like this should make sense, however this causes some internal issues with empty yaml strings. Next to the port entry field you can see a red x which lets you delete the whole syslog configuration like shown in the picture below.</p>
+<div class='blog_img'><img src='../images/blog_images/20220731-3.png'></div>
+<p style='font-style: italic'>Figure 3: Systemsettings syslog configuration removed</p>
+<br>
+<p>Once this is corrected (this can be done prior to deploying the add-on or by editing the add-on), the settings will eventually reconcile and the passwword set correctly on the cluster.</p>
+<div class='blog_img'><img src='../images/blog_images/20220731-4.png'></div>
+<p style='font-style: italic'>Figure 4: Successfully provisioned Systemsettings add-on</p>
