@@ -2,16 +2,32 @@
 <html lang='en'>
     <head>
 <!-- jquery script to load other HTML files -->
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
         <script>
           $(function() {
-             $("#latestblog").load("assets/blog_posts/20220731.html");
+             $('#latestblog').load('assets/blog_posts/20220731.html');
           });
         </script>
         
+<!-- Font Awesome script -->
+        <script src='https://kit.fontawesome.com/3e8d6f7307.js' crossorigin='anonymous'></script>
         <meta charset='UTF-8'>
         <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
         <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
+
+<!-- Script to copy blog post link to clipboard -->
+        <script>
+            function copyMe(url) {
+              navigator.clipboard.writeText(url).then(
+                () => {
+                  /* clipboard successfully set */
+                },
+                () => {
+                  /* clipboard write failed */
+                },
+              );
+            }
+        </script>
 
         <link rel='stylesheet' href='assets/css/style.css'>
         <title>vUnhandledException</title>
@@ -97,6 +113,7 @@
         <footer>
             <p>Copyright © 2023 vUnhandledException. All Rights Reserved</p>
         </footer>
+
     </body>
 
 </html>
