@@ -125,6 +125,10 @@ form > #email {
 	margin-bottom: 30px;
 }
 
+.list {
+	margin-left: 13px;
+}
+
 .nostyle {
 	list-style: none;
 }
@@ -155,7 +159,6 @@ h3 {
 	max-width: 100%;
 }
 
-/*TO DO: Update image scaling styling*/
 .img_scale:active img, .img_scale:focus img {
 	max-width: 200%;
 	margin-left: -50%;
