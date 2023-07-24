@@ -62,6 +62,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Font used from [Google Fonts](https://fonts.google.com/specimen/Share+Tech)
 - Script for including HTML files within other files taken from https://www.tutorialspoint.com/how-to-include-another-html-file-in-an-html-file
 - Scalable image sizing modified from https://support.glitch.com/t/how-can-i-incorporate-css-to-expand-my-image-on-click-html-css-javascript/30610
-<!-- - All social media icons were taken from [Font Awesome](https://fontawesome.com/) -->
+- Social media, calendar, and copy icons were taken from [Font Awesome](https://fontawesome.com/)
+- Script for copying to clipboard modified from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
 
 <!-- ### Media -->
