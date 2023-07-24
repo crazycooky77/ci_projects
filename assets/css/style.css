@@ -180,10 +180,13 @@ i {
 }
 
 .blog_meta > button {
-	border: 1px white;
-/*	margin: 5px;*/
-	border-radius: 25px;
-	background: transparent;
+	background-color: transparent;
+}
+
+.blog_meta > button:hover {
+	text-decoration: underline;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 .fa-copy {
