@@ -69,6 +69,7 @@ nav button:hover {
 h2 {
 	font-size: 40px;
 	text-decoration: underline;
+	margin-bottom: 20px;
 }
 
 label {
@@ -131,7 +132,6 @@ form > #email {
 
 /* Blog Pages */
 h3 {
-	margin-top: 20px;
 	font-size: 28px;
 	text-align: center;
 }
@@ -195,4 +195,9 @@ i {
 footer {
 	margin: 25px 10px 10px 10px;
 	font-size: 15px;
+}
+
+/* About Page */
+#about > p {
+	font-size: 20px;
 }
