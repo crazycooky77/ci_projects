@@ -48,6 +48,7 @@ nav button {
 nav button:hover {
 	background-color: #150d36;
 	border: #28176e 2px solid;
+	cursor: pointer;
 }
 
 .active {
