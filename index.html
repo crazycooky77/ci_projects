@@ -38,6 +38,14 @@
             });
         </script>
 
+<!-- Script to show a message and reset the form on submission (newsletter signup) -->
+        <script>
+            function signedUp() {
+                document.getElementById('newsletter').reset();
+                return confirm('Thank you for signing up! Use the Unsubscribe link in the email if you change your mind.')
+            }
+        </script>
+
         <link rel='stylesheet' href='assets/css/style.css'>
         <title>vUnhandledException</title>
     </head>
@@ -63,10 +71,11 @@
                     <div class='left-column'>
                         <p>Frank Escaros-Buechsel</p>
                         <p style='font-style:italic'>Fixer of broken reality @ VMware, Global Telco Architect</p>
-                        <form method='POST' id='newsletter' onsubmit='return confirm("Thank you for signing up! Use the Unsubscribe link in the email if you change your mind.")'>
+                        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                        <form method='POST' id='newsletter' action='SELF' target='dummyframe' onsubmit=signedUp()>
                             <p>Sign up to get notified of new blog posts, videos, and events!</p>
                             <br>
-                            <input type='email' id='email' class='email'><input type='submit' id='signup' value='Sign Up'>
+                            <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
                         </form>
                     </div>
                 </div>
