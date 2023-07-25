@@ -64,5 +64,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Scalable image sizing modified from https://support.glitch.com/t/how-can-i-incorporate-css-to-expand-my-image-on-click-html-css-javascript/30610
 - Social media, calendar, and copy icons were taken from [Font Awesome](https://fontawesome.com/)
 - Script for copying to clipboard modified from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
+- Script to listen for Escape key press taken from https://www.geeksforgeeks.org/how-to-detect-escape-key-press-using-jquery/
+- Action to remove focus from active element taken from https://bobbyhadz.com/blog/javascript-remove-focus-from-element
 
 <!-- ### Media -->
