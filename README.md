@@ -60,11 +60,12 @@ This site is to help people learn more about VMware topics, particularly relatin
 - The basic readme and HTML templates were copied from [CluelessBiker's mentoring repository](https://github.com/CluelessBiker/mentoring/tree/main)
 - The majority of text content (blog posts) was taken from https://fbuechsel.eu/
 - Font used from [Google Fonts](https://fonts.google.com/specimen/Share+Tech)
+- Social media, calendar, and copy icons were taken from [Font Awesome](https://fontawesome.com/)
 - Script for including HTML files within other files taken from https://www.tutorialspoint.com/how-to-include-another-html-file-in-an-html-file
 - Scalable image sizing modified from https://support.glitch.com/t/how-can-i-incorporate-css-to-expand-my-image-on-click-html-css-javascript/30610
-- Social media, calendar, and copy icons were taken from [Font Awesome](https://fontawesome.com/)
 - Script for copying to clipboard modified from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
 - Script to listen for Escape key press taken from https://www.geeksforgeeks.org/how-to-detect-escape-key-press-using-jquery/
 - Action to remove focus from active element taken from https://bobbyhadz.com/blog/javascript-remove-focus-from-element
+- Dummyframe for newsletter submission taken from https://stackoverflow.com/questions/25983603/how-to-submit-an-html-form-without-redirection
 
 <!-- ### Media -->
