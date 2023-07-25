@@ -153,6 +153,7 @@ h3 {
 .img_scale {
 	border: none;
 	background: none;
+	cursor: pointer
 }
 
 .img_scale img {
@@ -164,6 +165,7 @@ h3 {
 	margin-left: -50%;
 	z-index: 2;
 	position: relative;
+	cursor: auto;
 }
 
 /* Blog Metadata */
