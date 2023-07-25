@@ -29,6 +29,15 @@
             }
         </script>
 
+<!-- Script to remove active focus using Escape key -->
+        <script>
+            $(document).on('keydown', function(event) {
+                if (event.key == "Escape") {
+                    document.activeElement.blur();
+                }
+            });
+        </script>
+
         <link rel='stylesheet' href='assets/css/style.css'>
         <title>vUnhandledException</title>
     </head>
