@@ -12,7 +12,7 @@ body {
 	background-color: #070f1c;
 }
 
-/* Header */
+/* Headers */
 h1 {
 	display: flex;
 	justify-content: center;
@@ -22,6 +22,17 @@ h1 {
 	z-index: 1;
 	-webkit-text-stroke: 0.1px white;
   	-webkit-text-fill-color: transparent;  
+}
+
+h2 {
+	font-size: 40px;
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 28px;
+	text-align: center;
 }
 
 /* Navigation */
@@ -56,22 +67,12 @@ nav button:hover {
 	border: #28176e 2px solid;
 }
 
-/* Hero Image */
-#hero {
-	background: url('../images/hero-image.png') no-repeat center center;
-	height: 540px;
-	width: 100%;
-	position: relative;
-	top: 0;
+/* Font Awesome Images */
+i {
+	margin-right: 5px;
 }
 
-/* Main Page Content */
-h2 {
-	font-size: 40px;
-	text-decoration: underline;
-	margin-bottom: 20px;
-}
-
+/* Newsletter */
 label {
 	margin-left: 5px;
 }
@@ -91,6 +92,16 @@ form > #email {
 	margin-right: 10px;
 }
 
+/* Hero Image */
+#hero {
+	background: url('../images/hero-image.png') no-repeat center center;
+	height: 540px;
+	width: 100%;
+	position: relative;
+	top: 0;
+}
+
+/* Main Page Content */
 #left-panel, #center-panel, #right-panel {
 	display: flex;
 	justify-content: center;
@@ -131,11 +142,6 @@ form > #email {
 }
 
 /* Blog Pages */
-h3 {
-	font-size: 28px;
-	text-align: center;
-}
-
 #latestblog {
 	max-width: 100%;
 	font-size: 20px;
@@ -165,10 +171,6 @@ h3 {
 }
 
 /* Blog Metadata */
-i {
-	margin-right: 5px;
-}
-
 .blog_meta {
 	margin: 15px;
 	font-size: 15px;
@@ -191,28 +193,32 @@ i {
 	cursor: pointer;
 }
 
-/* Footer */
-footer {
-	margin: 25px 10px 10px 10px;
-	font-size: 15px;
-}
-
 /* About Page */
 #about > p {
 	margin-top: 20px;
 	font-size: 20px;
 }
 
-/* Events Page */
-#events > p {
+/* Events and Videos Pages */
+#events > p, #videos > p {
 	font-size: 20px;
 	margin-bottom: 20px;
 }
 
-.event_list > li {
+.event_list > li, .video_list > li {
 	margin-bottom: 8px;
 }
 
-.event_list > li a i {
+.event_list > li a i, .video_list > li a i {
 	padding-left: 8px;
+}
+
+#videos iframe {
+	margin: 20px 0;
+}
+
+/* Footer */
+footer {
+	margin: 25px 10px 10px 10px;
+	font-size: 15px;
 }
