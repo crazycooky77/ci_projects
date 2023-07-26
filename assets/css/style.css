@@ -202,3 +202,17 @@ footer {
 	margin-top: 20px;
 	font-size: 20px;
 }
+
+/* Events Page */
+#events > p {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.event_list > li {
+	margin-bottom: 8px;
+}
+
+.event_list > li a i {
+	padding-left: 8px;
+}

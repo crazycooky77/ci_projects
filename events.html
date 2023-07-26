@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+<!-- Script to show a message and reset the form on submission (newsletter signup) -->
+        <script>
+            function signedUp() {
+                document.getElementById('newsletter').reset();
+                return confirm('Thank you for signing up! Use the Unsubscribe link in the email if you change your mind.')
+            }
+        </script>
+
+<!-- Font Awesome script -->
+        <script src='https://kit.fontawesome.com/3e8d6f7307.js' crossorigin='anonymous'></script>
+
+        <link rel='stylesheet' href='assets/css/style.css'>
+        <title>vUnhandledException</title>
+    </head>
+
+    <body>
+        <header>
+            <div id='hero'>
+            <h1>vUnhandledException</h1>
+            <nav>
+                <a href='index.html'><button>Home</button></a>
+                <a href='#'><button>Blog</button></a>
+                <a href='#'><button>Videos</button></a>
+                <a href='events.html'><button class='active'>Events</button></a>
+                <a href='about.html'><button>About Me</button></a>
+                <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter'><button>Follow Me</button></a>
+            </nav>
+        </div>
+        </header>
+
+        <main>
+            <section class='container'>
+                <div id='left-panel'>
+                    <div class='left-column'>
+                        <p>Frank Escaros-Buechsel</p>
+                        <p style='font-style:italic'>Fixer of broken reality @ VMware, Global Telco Architect</p>
+                        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                        <form method='POST' id='newsletter' action='SELF' target='dummyframe' onsubmit=signedUp()>
+                            <p>Sign up to get notified of new blog posts, videos, and events!</p>
+                            <br>
+                            <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
+                        </form>
+                    </div>
+                </div>
+                <div id='center-panel'>
+                    <h2>Featured Event</h2>
+                    <div id='events'>
+                        <p>See me in Las Vegas to learn more about balancing risk and performance in your ICT network.</p>
+                        <center><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7084918132254920704" height="447" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></center>
+                    </div>
+                </div>
+                <div id='right-panel'>
+                    <div id='right-column'>
+                        <div class='title'>
+                            <p>Events</p>
+                        </div>
+                        <div class='content'>
+                            <ul class='list event_list'>
+                                <li><a href='https://www.vmware.com/company/events.html' rel='noopener' target='_blank' aria-label="Go to VMware's website for events (opens in a new tab)">VMware Events</a></li>
+                                <li><a href='https://www.linkedin.com/company/vmware/' rel='noopener' target='_blank' aria-label="Go to the Linkedin page for VMware (opens in a new tab)">VMware<i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a></li>
+                                <li><a href='https://www.linkedin.com/showcase/vmware-nfv/' rel='noopener' target='_blank' aria-label="Go to the Linkedin page for VMware Telco Cloud (opens in a new tab)">VMware Telco Cloud<i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a></li>
+                                <li><a href='https://www.linkedin.com/newsletters/7046941944727437312/' rel='noopener' target='_blank' aria-label="Go to the Linkedin page for VMware Telco Cloud newsletter (opens in a new tab)">VMware Telco Cloud Newsletter<i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright © 2023 vUnhandledException. All Rights Reserved</p>
+        </footer>
+
+    </body>
+
+</html>
