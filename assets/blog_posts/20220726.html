@@ -1,0 +1,112 @@
+<h3>TCA 2.1 What's new - Appliance sizing changes</h3>
+<div class='blog_meta'>
+	<p><i class='fa-regular fa-calendar'></i> Jul 26, 2022</p>
+	<button>TCA</button>
+	<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20What%27s%20new%20-%20Appliance%20sizing%20changes&url=https%3a%2f%2ffbuechsel.eu%2fpost%2fnfv%2ftca21sizing%2f&tw_p=tweetbutton' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2ffbuechsel.eu%2fpost%2fnfv%2ftca21sizing%2f&t=TCA%202.1%20What%27s%20new%20-%20Appliance%20sizing%20changes' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ffbuechsel.eu%2Fpost%2Fnfv%2Ftca21sizing%2F' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+		<i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://fbuechsel.eu/post/nfv/tca21sizing/")' title='Copy link' aria-label='Copy the link to this blog post to your clipboard'></i></p>
+</div>
+<div>
+	<p>As the amount of features delivered by Telco Cloud Automation increases there is going to be an impact on the sizing of the appliances. This post is going to explore what exactly has changed between 2.0 and 2.1 from a sizing perspective.</p>
+	<br>
+	<p>The following table summarizes the sizing requirements for each of the components in a production based deployment for Telco Cloud Automation 2.0. You would either choose a VM based or a CNA based deployment.</p>
+	<table>
+		<tr>
+			<th>Component</th>
+			<th>vCPU</th>
+			<th>Memory</th>
+			<th>Disk Space</th>
+		</tr>
+		<tr>
+			<td>TCA Manager - VM</td>
+			<td>4</td>
+			<td>12 GB</td>
+			<td>60 GB</td>
+		</tr>
+		<tr>
+			<td>TCA CP - VM</td>
+			<td>4</td>
+			<td>12 GB</td>
+			<td>60 GB</td>
+		</tr>
+		<tr>
+			<td>Control Plane 3x - CNA</td>
+			<td>8</td>
+			<td>16 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Worker Nodes 3x - CNA</td>
+			<td>8</td>
+			<td>16 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Bootstrap CP 1x - CNA</td>
+			<td>2</td>
+			<td>4 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Bootstrap Worker 1x - CNA</td>
+			<td>2</td>
+			<td>4 GB</td>
+			<td>50 GB</td>
+		</tr>
+	</table>
+	<br>
+	<p>In a VM based deployment you require at least one TCA Manager and one TCA CP VM, depending on the amount of Kubernetes clusters which are to be deployed and the amount of vCenter Servers backing the physical hosts additional TCA CP VMs may be required in a specific design. In addition to CaaS Management, when a VIM is to be integrated, like VMware Cloud Director or VMware Integrated OpenStack, additional TCA CP VMs also need to be accounted for. A future post will explore how a multi-cloud / VIM deployment will impact the design choices and how current scale can work in deployments requiring thousands of ESXi hosts like you would have in a larger scale RAN deployment and how a possible Telco Cloud Automation architecture could look like.</p>
+	<br>
+	<p>For a Cloud Native based deployment the deployment consideration changes due to the need of having to run a highly available control plane, e.g. 3 etcd nodes, as well as highly availabe worker nodes. This bumps up a minimal production deployment to at least 6 virtual machines on which the TCA Manager and CP pods can be deployed then. In the case of additional TCA CPs being required as with the examples given above, a new Kubernetes cluster is required today as the pods are deployed into a predetermined namespace (tca-system).</p>
+	<br>
+	<p>In addition to the Kubernetes Cluster to run the TCA workloads resouces also need to be planned for and allocated for a temporary bootstrap cluster which gets deployed whenever lifecycle operatiosn on a management cluster are necessary. This is not required in a VM based deployment, as the temporary cluster is simply spun up via kind (Kubernetes in Docker) on the TCA-CP. While these 2 virtual machines are transient in nature for proper performance they should be accounted for from a capacity planning perspective.</p>
+	<br>
+	<p>As mentioned before Telco Cloud Automation has slightly different resource requirements as new functionality was added. The table below outlines the new requirements for both the virtual machine based deployment as well as the cloud native deployment model.</p>
+	<table>
+		<tr>
+			<th>Component</th>
+			<th>vCPU</th>
+			<th>Memory</th>
+			<th>Disk Space</th>
+		</tr>
+		<tr>
+			<td>TCA Manager - VM</td>
+			<td>6</td>
+			<td>18 GB</td>
+			<td>200 GB</td>
+		</tr>
+		<tr>
+			<td>TCA CP - VM</td>
+			<td>6</td>
+			<td>18 GB</td>
+			<td>200 GB</td>
+		</tr>
+		<tr>
+			<td>Control Plane 3x - CNA</td>
+			<td>2</td>
+			<td>8 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Worker Nodes 3x - CNA</td>
+			<td>8</td>
+			<td>16 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Bootstrap CP 1x - CNA</td>
+			<td>2</td>
+			<td>4 GB</td>
+			<td>50 GB</td>
+		</tr>
+		<tr>
+			<td>Bootstrap Worker 1x - CNA</td>
+			<td>2</td>
+			<td>4 GB</td>
+			<td>50 GB</td>
+		</tr>
+	</table>
+	<br>
+	<p>As can be seen the most bump in resources happened on the disk space for the virtual machine based deployment as well as some additional memory and CPU requirements now. When upgrading from an older release of Telco Cloud Automation you will have to perform the update as necessary, perform a backup and then a restore into a freshly deployed pair of appliances for a virtual machine based deployment, as today expanding the partitions is not supported on an existing deployment.</p>
+</div>
