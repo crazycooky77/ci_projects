@@ -10,12 +10,37 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 ## Features 
 
-<!-- ### Existing Features -->
-### Features Left to Implement
-
 - __Navigation Bar__
+A navigation bar is available on all pages of the site to let the user easily switch between pages.
+
+- __Side Bar__
+Relevant, customised side bars are added to each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page.
 
 - __Homepage__ 
+The Homepage shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
+
+- __Videos Page__ 
+The Videos page has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
+
+- __Events Page__ 
+The main featured event - typically a speaking engagement of the blog owner - is highlighted on this page, with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
+
+- __About Me Page__ 
+The user can learn more about the blog owner on the About Me page.
+
+- __Follow Me Button__ 
+The last button in the navigation bar is a Follow Me button that will redirect the user to the blog owner's Twitter page.
+
+- __Landing Page Image__
+The landing page image should show users that the site is about data and cloud computing.
+
+- __Footer__
+The footer shows copyright information for the website.
+
+### Features Left to Implement
+
+- __Newsletter Signup__
+There's a newsletter signup option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
 
 - __Blog Page__
 
@@ -24,24 +49,6 @@ This site is to help people learn more about VMware topics, particularly relatin
 - __Blog Categories__ 
 
 - __Blog Tags__ 
-
-- __Videos Page__ 
-
-- __Videos Category Links__ 
-
-- __Events Page__ 
-
-- __Event Links__
-
-- __About Me Page__ 
-
-- __Follow Me Pop-ups__ 
-
-- __Landing Page Image__
-
-- __Newsletter Signup__
-
-- __Footer__
 
 <!-- ## Testing  -->
 
@@ -68,4 +75,26 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Action to remove focus from active element taken from https://bobbyhadz.com/blog/javascript-remove-focus-from-element
 - Dummyframe for newsletter submission taken from https://stackoverflow.com/questions/25983603/how-to-submit-an-html-form-without-redirection
 
-<!-- ### Media -->
+## Media
+
+### Wireframes
+
+I created basic wireframes to plan out the layout for the website. The final version of the acutal website differs slightly, as some other styling options looked better than those initially planned. Some differences include the left-side page title, which was deemed unnecessary with button highlighting and actual headers replacing it. Also, a Follow Me button was planned in the navigation, but also some social links in the footer. As both are not needed, those in the footer were discarded.
+
+#### Planning
+<img src='assets/images/site_layout/planning.png' alt='Wireframe for the initial site planning'/>
+
+#### Homepage
+<img src='assets/images/site_layout/home.png' alt='Wireframe for the initial planning for the homepage'/>
+
+#### Blog
+<img src='assets/images/site_layout/blog.png' alt='Wireframe for the initial planning for the blog page'/>
+
+#### Videos
+<img src='assets/images/site_layout/videos.png' alt='Wireframe for the initial planning for the videos page'/>
+
+#### Events
+<img src='assets/images/site_layout/events.png' alt='Wireframe for the initial planning for the events page'/>
+
+#### About
+<img src='assets/images/site_layout/about.png' alt='Wireframe for the initial planning for the about page'/>
