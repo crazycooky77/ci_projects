@@ -10,37 +10,27 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 ## Features 
 
-- __Navigation Bar__
-A navigation bar is available on all pages of the site to let the user easily switch between pages.
+- __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.
 
-- __Side Bar__
-Relevant, customised side bars are added to each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page.
+- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page.
 
-- __Homepage__ 
-The Homepage shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
+- __Homepage__ shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
 
-- __Videos Page__ 
-The Videos page has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
+- __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
 
-- __Events Page__ 
-The main featured event - typically a speaking engagement of the blog owner - is highlighted on this page, with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
+- __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
 
-- __About Me Page__ 
-The user can learn more about the blog owner on the About Me page.
+- __About Me Page__ has information on the blog owner so the user can learn more about them.
 
-- __Follow Me Button__ 
-The last button in the navigation bar is a Follow Me button that will redirect the user to the blog owner's Twitter page.
+- __Follow Me Button__ will redirect the user to the blog owner's Twitter page.
 
-- __Landing Page Image__
-The landing page image should show users that the site is about data and cloud computing.
+- __Landing Page Image__ should show users that the site is about data and cloud computing.
 
-- __Footer__
-The footer shows copyright information for the website.
+- __Footer__ shows copyright information for the website.
 
 ### Features Left to Implement
 
-- __Newsletter Signup__
-There's a newsletter signup option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
+- __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
 
 - __Blog Page__
 
