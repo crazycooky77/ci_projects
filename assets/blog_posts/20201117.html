@@ -1,0 +1,48 @@
+<h3>How to figure out the vCenter name of a vCloud Director VM?</h3>
+<div class='blog_meta'>
+	<p><i class='fa-regular fa-calendar'></i> Nov 17, 2020</p>
+	<button>vCloud Director</button>
+	<p>Share on: <a href='https://twitter.com/intent/tweet?text=How%20to%20figure%20out%20the%20vCenter%20name%20of%20a%20vCloud%20Director%20VM%3f&url=https%3a%2f%2ffbuechsel.eu%2fpost%2fnfv%2fmapvcdnametovcentername%2f&tw_p=tweetbutton' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2ffbuechsel.eu%2fpost%2fnfv%2fmapvcdnametovcentername%2f&t=How%20to%20figure%20out%20the%20vCenter%20name%20of%20a%20vCloud%20Director%20VM%3f' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ffbuechsel.eu%2Fpost%2Fnfv%2Fmapvcdnametovcentername%2F' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+		<i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://fbuechsel.eu/post/nfv/mapvcdnametovcentername/")' title='Copy link' aria-label='Copy the link to this blog post to your clipboard'></i></p>
+</div>
+<div>
+	<p>There is a regular ask in various community channels on how to be able to map the vCloud Director virtual machine name to the exact VM in vCenter Server.</p>
+	<br>
+	<p>This blog post will look at an easy mechanism to do so since the Flash client is now either deprecated or completely gone depending on which vCloud Director verison you are actually running.</p>
+	<br>
+	<p>To quickly describe the problem let's look at 2 screenshots. The first one is the view in vCloud Director.</p>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-1.png'></button></div>
+	<p class='img_desc'>Figure 1: Virtual Machines from vCD</p>
+	<br>
+	<p>The second view is from vCenter Server.</p>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-2.png'></button></div>
+	<p class='img_desc'>Figure 2: vCenter Server VMs</p>
+	<br>
+	<p>How do you map these 2 now?</p>
+	<br>
+	<p>Since vCloud Director 10.2 it's actually quite simply, you can directly look it up in the properties of the virtual machine in vCloud Director as you used to be able to do in the vCloud Director Flash client. The field called "Name in vSphere" will tell you, if you have the correct permissions of course, what the actual virtual machine name is.</p>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-3.png'></button></div>
+	<p class='img_desc'>Figure 3: vCloud Director VM details</p>
+	<br>
+	<p>What if you are not running vCloud Director 10.2 or want a more programmable approach though?</p>
+	<br>
+	<p>PowerCLI will be able to help you out there by connecting to both vCloud Director as well as vCenter Server you can simply build a 2 liner which grabs the moref ID from vCloud Director and then queries the moref in the backing vCenter Server to get the virtual machine name.</p>
+	<br>
+	<p>We can see that we have 2 virtual machines called "web-paris" in this Org... further investigation shows one is part of a vApp called "web-cities" and the other is a standalone VM.</p>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-4.png'></button></div>
+	<p class='img_desc'>Figure 4: vCD PowerCLI results for virtual machines</p>
+	<br>
+	<p>Let's try to map the "web-paris" VM from the vApp to the actual vSphere VM. First as a system administrator we grab the vCenter Server moref link from the vCloud Extension data of the virtual machine object.</p>
+	<code>PS C:> $vcd_moref = (get-civapp web-cities | get-civm web-paris).ExtensionData.vCloudextension.any.vmvimobjectref.moref</code>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-5.png'></button></div>
+	<p class='img_desc'>Figure 5: PowerCLI step 1</p>
+	<br>
+	<p>And then in step 2 we query vCenter Server to find the appropriate moref and give us the VM name.</p>
+	<code>PS C:> $vc_vm = (get-vm -ID VirtualMachine-$vcd_moref).name</code>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201117-6.png'></button></div>
+	<p class='img_desc'>Figure 6: PowerCLI step 2</p>
+	<br>
+	<p>This can easily be scripted on a per Org basis to build out an inventory over hundreds of vApps and VMs to be able to map them in an automated fashion by simply using a couple of loops, I'll leave that exercise up to the reader though ;)</p>
+</div>
