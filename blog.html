@@ -100,10 +100,14 @@
                 <div id='center-panel'>
                     <h2>Blog Posts</h2>
                     <div id='20220731' class='active_blog'></div>
-                    <div id='20220727' class='active_blog'></div>   
-                    <div id='20220724' class='active_blog'></div> 
-                    <div id='20210312' class='active_blog'></div> 
-                    <div id='20201102' class='active_blog'></div> 
+                    <div id='20220727' class='active_blog'></div>
+                    <div id='20220726' class='active_blog'></div>
+                    <div id='20220725' class='active_blog'></div>
+                    <div id='20220724' class='active_blog'></div>
+                    <div id='20210312' class='active_blog'></div>
+                    <div id='20201117' class='active_blog'></div>
+                    <div id='20201102' class='active_blog'></div>
+                    <div id='20201021' class='active_blog'></div>
                 </div>
                 <div id='right-panel'>
                     <div id='right-column'>
@@ -123,7 +127,7 @@
                             <p>Categories</p>
                         </div>
                         <div class='content'>
-                            <input type='checkbox' id='tech' class='tech' value='Technology'>
+                            <input type='radio' id='tech' class='tech' value='Technology' name='tags'>
                             <label for='tech'>Technology</label>
                         </div>
                         <div class='title'>
@@ -131,18 +135,34 @@
                         </div>
                         <div class='content'>
                             <ul class='nostyle'>
-                                <li><input type='checkbox' id='tca' class='tca' value='TCA'>
+                                <li><input type='radio' id='tca' class='tca' value='TCA' name='tags'>
                                 <label for='tca'>TCA</label></li>
-                                <li><input type='checkbox' id='nfv' class='nfv' value='NFV'>
+                                <li><input type='radio' id='nfv' class='nfv' value='NFV' name='tags'>
                                 <label for='nfv'>NFV</label></li>
-                                <li><input type='checkbox' id='vio' class='vio' value='VIO'>
+                                <li><input type='radio' id='vio' class='vio' value='VIO' name='tags'>
                                 <label for='vio'>VIO</label></li>
-                                <li><input type='checkbox' id='ts' class='ts' value='Troubleshooting'>
+                                <li><input type='radio' id='ts' class='ts' value='Troubleshooting' name='tags'>
                                 <label for='ts'>Troubleshooting</label></li>
-                                <li><input type='checkbox' id='vcd' class='vcd' value='vCloud Director'>
+                                <li><input type='radio' id='vcd' class='vcd' value='vCloud Director' name='tags'>
                                 <label for='vcd'>vCloud Director</label></li>
-                                <li><input type='checkbox' id='windows' class='windows' value='Windows'>
+                                <li><input type='radio' id='windows' class='windows' value='Windows' name='tags'>
                                 <label for='windows'>Windows</label></li>
+                            </ul>
+                        </div>
+                        <div class='title'>
+                            <p>All Posts</p>
+                        </div>
+                        <div class='content' onclick='toggle_blog()'>
+                            <ul class='list'>
+                                <li><button id='b20220731'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
+                                <li><button id='b20220726'>TCA 2.1 What's new - Appliance sizing changes</button></li>
+                                <li><button id='b20220725'>TCA 2.1 What's new - CaaS Management Cluster options</button></li>
+                                <li><button id='b20220724'>TCA 2.1 What's new - AD authentication</button></li>
+                                <li><button id='b20210312'>Hooking into the RabbitMQ bus of VIO</button></li>
+                                <li><button id='b20201117'>How to figure out the vCenter name of a vCloud Director VM?</button></li>
+                                <li><button id='b20201102'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
+                                <li><button id='b20201021'>VMware Workstation drivers fighting over NICs – Windows is the clear loser</button></li>
                             </ul>
                         </div>
                     </div>
