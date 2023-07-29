@@ -175,6 +175,13 @@ form > #email {
 	display: none;
 }
 
+.list button {
+	background-color: transparent;
+	text-align: left;
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+
 .blog_meta {
 	margin: 15px;
 	font-size: 15px;
