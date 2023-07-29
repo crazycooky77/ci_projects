@@ -171,6 +171,10 @@ form > #email {
 }
 
 /* Blog Metadata */
+.active_blog {
+	display: none;
+}
+
 .blog_meta {
 	margin: 15px;
 	font-size: 15px;
