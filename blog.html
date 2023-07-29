@@ -25,8 +25,19 @@
 <!-- Script to toggle blog post visibility -->
         <script>
             function toggle_blog() {
-            var post = event.srcElement.id.slice(1);
-            $('.active_blog').hide().filter('#'+post).show();
+                var post = event.target.id.slice(1);
+                var tag = event.target.className;
+
+                if ($('input[name=tags]:checked').length > 0 && tag.length > 0) {
+                    $('.active_blog').hide().filter('.'+tag).show();
+                }
+                else if ($('input[name=tags]:checked').length > 0 && tag.length === 0) {
+                    $('input[name=tags]').prop('checked', false); 
+                    $('.active_blog').hide().filter('#'+post).show();
+                }
+                else {
+                    $('.active_blog').hide().filter('#'+post).show();
+                }
             }
         </script>
 
@@ -99,70 +110,63 @@
                 </div>
                 <div id='center-panel'>
                     <h2>Blog Posts</h2>
-                    <div id='20220731' class='active_blog'></div>
-                    <div id='20220727' class='active_blog'></div>
-                    <div id='20220726' class='active_blog'></div>
-                    <div id='20220725' class='active_blog'></div>
-                    <div id='20220724' class='active_blog'></div>
-                    <div id='20210312' class='active_blog'></div>
-                    <div id='20201117' class='active_blog'></div>
-                    <div id='20201102' class='active_blog'></div>
-                    <div id='20201021' class='active_blog'></div>
+                    <div id='20220731' class='active_blog tca'></div>
+                    <div id='20220727' class='active_blog tca'></div>
+                    <div id='20220726' class='active_blog tca'></div>
+                    <div id='20220725' class='active_blog tca'></div>
+                    <div id='20220724' class='active_blog tca'></div>
+                    <div id='20210312' class='active_blog nfv vio'></div>
+                    <div id='20201117' class='active_blog vcd'></div>
+                    <div id='20201102' class='active_blog nfv'></div>
+                    <div id='20201021' class='active_blog ts windows'></div>
                 </div>
                 <div id='right-panel'>
                     <div id='right-column'>
                         <div class='title'>
                             <p>Featured Posts</p>
                         </div>
-                        <div class='content' onclick='toggle_blog()'>
-                            <ul class='list'>
-                                <li><button id='b20220731'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
-                                <li><button id='b20220727'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
-                                <li><button id='b20220724'>TCA 2.1 What's new - AD authentication</button></li>
-                                <li><button id='b20210312'>Hooking into the RabbitMQ bus of VIO</button></li>
-                                <li><button id='b20201102'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
-                            </ul>
-                        </div>
-                        <div class='title'>
-                            <p>Categories</p>
-                        </div>
                         <div class='content'>
-                            <input type='radio' id='tech' class='tech' value='Technology' name='tags'>
-                            <label for='tech'>Technology</label>
+                            <ul class='list'>
+                                <li><button id='b20220731' onclick='toggle_blog()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727' onclick='toggle_blog()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
+                                <li><button id='b20220724' onclick='toggle_blog()'>TCA 2.1 What's new - AD authentication</button></li>
+                                <li><button id='b20210312' onclick='toggle_blog()'>Hooking into the RabbitMQ bus of VIO</button></li>
+                                <li><button id='b20201102' onclick='toggle_blog()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
+                            </ul>
                         </div>
                         <div class='title'>
                             <p>Tags</p>
                         </div>
                         <div class='content'>
                             <ul class='nostyle'>
-                                <li><input type='radio' id='tca' class='tca' value='TCA' name='tags'>
+                                <li><input type='radio' id='tca' class='tca' value='TCA' name='tags' onclick='toggle_blog()'>
                                 <label for='tca'>TCA</label></li>
-                                <li><input type='radio' id='nfv' class='nfv' value='NFV' name='tags'>
+                                <li><input type='radio' id='nfv' class='nfv' value='NFV' name='tags' onclick='toggle_blog()'>
                                 <label for='nfv'>NFV</label></li>
-                                <li><input type='radio' id='vio' class='vio' value='VIO' name='tags'>
+                                <li><input type='radio' id='vio' class='vio' value='VIO' name='tags' onclick='toggle_blog()'>
                                 <label for='vio'>VIO</label></li>
-                                <li><input type='radio' id='ts' class='ts' value='Troubleshooting' name='tags'>
+                                <li><input type='radio' id='ts' class='ts' value='Troubleshooting' name='tags' onclick='toggle_blog()'>
                                 <label for='ts'>Troubleshooting</label></li>
-                                <li><input type='radio' id='vcd' class='vcd' value='vCloud Director' name='tags'>
+                                <li><input type='radio' id='vcd' class='vcd' value='vCloud Director' name='tags' onclick='toggle_blog()'>
                                 <label for='vcd'>vCloud Director</label></li>
-                                <li><input type='radio' id='windows' class='windows' value='Windows' name='tags'>
+                                <li><input type='radio' id='windows' class='windows' value='Windows' name='tags' onclick='toggle_blog()'>
                                 <label for='windows'>Windows</label></li>
                             </ul>
                         </div>
                         <div class='title'>
                             <p>All Posts</p>
                         </div>
-                        <div class='content' onclick='toggle_blog()'>
+                        <div class='content'>
                             <ul class='list'>
-                                <li><button id='b20220731'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
-                                <li><button id='b20220727'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
-                                <li><button id='b20220726'>TCA 2.1 What's new - Appliance sizing changes</button></li>
-                                <li><button id='b20220725'>TCA 2.1 What's new - CaaS Management Cluster options</button></li>
-                                <li><button id='b20220724'>TCA 2.1 What's new - AD authentication</button></li>
-                                <li><button id='b20210312'>Hooking into the RabbitMQ bus of VIO</button></li>
-                                <li><button id='b20201117'>How to figure out the vCenter name of a vCloud Director VM?</button></li>
-                                <li><button id='b20201102'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
-                                <li><button id='b20201021'>VMware Workstation drivers fighting over NICs – Windows is the clear loser</button></li>
+                                <li><button id='b20220731' onclick='toggle_blog()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727' onclick='toggle_blog()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
+                                <li><button id='b20220726' onclick='toggle_blog()'>TCA 2.1 What's new - Appliance sizing changes</button></li>
+                                <li><button id='b20220725' onclick='toggle_blog()'>TCA 2.1 What's new - CaaS Management Cluster options</button></li>
+                                <li><button id='b20220724' onclick='toggle_blog()'>TCA 2.1 What's new - AD authentication</button></li>
+                                <li><button id='b20210312' onclick='toggle_blog()'>Hooking into the RabbitMQ bus of VIO</button></li>
+                                <li><button id='b20201117' onclick='toggle_blog()'>How to figure out the vCenter name of a vCloud Director VM?</button></li>
+                                <li><button id='b20201102' onclick='toggle_blog()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
+                                <li><button id='b20201021' onclick='toggle_blog()'>VMware Workstation drivers fighting over NICs – Windows is the clear loser</button></li>
                             </ul>
                         </div>
                     </div>
