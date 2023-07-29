@@ -64,7 +64,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Script to listen for Escape key press taken from https://www.geeksforgeeks.org/how-to-detect-escape-key-press-using-jquery/
 - Action to remove focus from active element taken from https://bobbyhadz.com/blog/javascript-remove-focus-from-element
 - Dummyframe for newsletter submission taken from https://stackoverflow.com/questions/25983603/how-to-submit-an-html-form-without-redirection
-- Toggling blog post visibility on blog.html written using the script examples in https://stackoverflow.com/questions/37985388/toggle-visibility-of-all-divs-at-once and https://stackoverflow.com/questions/19065133/using-a-javascript-variable-to-refer-to-an-element-with-id-containing-the-variab
+- Toggling blog post visibility on blog.html written using the script examples in 3 Stackoverflow posts: [one](https://stackoverflow.com/questions/37985388/toggle-visibility-of-all-divs-at-once), [two](https://stackoverflow.com/questions/19065133/using-a-javascript-variable-to-refer-to-an-element-with-id-containing-the-variab), [three](https://stackoverflow.com/questions/55603456/a-simple-way-to-show-one-div-and-hide-all-others)
 
 ## Media
 
