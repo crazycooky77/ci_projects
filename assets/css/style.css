@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&family=Source+Code+Pro&display=swap');
 
 * {
     margin: 0;
@@ -142,9 +143,14 @@ form > #email {
 }
 
 /* Blog Pages */
+h4 {
+	font-size: 24px;
+	text-decoration: underline;
+	margin-top: 25px;
+}
+
 #latestblog {
 	max-width: 100%;
-	font-size: 20px;
 }
 
 .img_desc {
@@ -156,6 +162,42 @@ form > #email {
 	border: none;
 	background: none;
 	cursor: pointer
+}
+
+.code {
+	font-family: 'Source Code Pro', monospace;
+	background-color: #142033;
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.active_blog {
+	display: none;
+}
+
+.blog_content {
+	font-size: 20px;
+}
+
+.blog_list {
+	margin-top: 10px;
+	margin-left: 0.5in;
+}
+
+.sub_list {
+	margin-left: 0.5in;
+}
+
+.blog_img {
+	margin-top: 5px;
+}
+
+.list button {
+	background-color: transparent;
+	text-align: left;
+	cursor: pointer;
+	margin-bottom: 5px;
 }
 
 .img_scale img {
@@ -170,18 +212,33 @@ form > #email {
 	cursor: auto;
 }
 
+/* Blog Tables */
+table {
+	margin-top: 10px;
+}
+
+th {
+	background-color: #101045;
+	padding: 10px;
+}
+
+tr {
+	padding: 10px;
+}
+
+td {
+	padding: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #1a1045;
+}
+
+tr:nth-child(odd) {
+	background-color: #261961;
+}
+
 /* Blog Metadata */
-.active_blog {
-	display: none;
-}
-
-.list button {
-	background-color: transparent;
-	text-align: left;
-	cursor: pointer;
-	margin-bottom: 5px;
-}
-
 .blog_meta {
 	margin: 15px;
 	font-size: 15px;

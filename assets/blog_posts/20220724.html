@@ -7,7 +7,7 @@
 		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ffbuechsel.eu%2Fpost%2Fnfv%2Ftca21adauth%2F' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
 		<i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://fbuechsel.eu/post/nfv/tca21adauth/")' title='Copy link' aria-label='Copy the link to this blog post to your clipboard'></i></p>
 </div>
-<div>
+<div class='blog_content'>
 	<h4>Overview</h4>
 	<ul class='blog_list'>
 		<li><a href='#release_notes'>Release Notes description</a></li>
@@ -15,6 +15,7 @@
 		<li><a href='#setup'>Setup procedure</a></li>
 		<li><a href='#login'>How to login into the TCA Manager</a></li>
 	</ul>
+	<br>
 	<p>Telco Cloud Automation 2.1 was released last week and this post will explore the newly introduced feature to directly access Active Directoy authentication via the TCA Manager.</p>
 	<br>
 	<h4><a id='release_notes'>Release Notes description</a></h4>
@@ -33,24 +34,24 @@
 	<br>
 	<p>Only Active Directory has been officially tested so far, which means while other schema compliant identity sources may work they are deemed unsupported.</p>
 	<br>
-	<h4><a href='setup'>Setup procedure</a></h4>
+	<h4><a id='setup'>Setup procedure</a></h4>
 	<p>The setup procedure itself is rather simple and can be performed as part of the setup wizard for the TCA Manager. The first step is to select the Active Directory option as the Authentication Provider.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-1.png'></button></div>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-1.jpeg'></button></div>
 	<p class='img_desc'>Figure 1: Telco Cloud Automation setup step to select authentication provider</p>
 	<br>
 	<p>Next you provide the information required to connect to the Active Directory server, note that the Admin User Distinguished name is slightly awkwardly named, it's the LDAP bind user and only requires read-only permissions and not administrative level perissions on Active Directory.</p>
 	<br>
 	<p>The Admin Group name is the DN of the group of users which gain default administrative into the TCA Manager.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-2.png'></button></div>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-2.jpeg'></button></div>
 	<p class='img_desc'>Figure 2: Example of setup details for connecting to your active directory for TCA</p>
 	<br>
 	<p>This pretty much completes the setup steps required. These settings can be modified if necessary in the appliance administrative interface at a later point in time (only in the VM based deployment)</p>
 	<br>
-	<h4><a href='login'>How to login into the TCA Manager</a></h4>
+	<h4><a id='login'>How to login into the TCA Manager</a></h4>
 	<p>You might think that from here on you know how to actually log into the TCA Manager and this shouldn't require further elaboration. However, there is a login convention to be aware of.</p>
 	<br>
 	<p>You do not log in with your email address or canonical name as given in Active Directory with an account but rather in the format of username@ad, so for the user administrator@corp.local which I am using in the below screenshot this turns into administrator@ad.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-3.png'></button></div>
+	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220724-3.jpeg'></button></div>
 	<p class='img_desc'>Figure 3: Telco Cloud Automation login page</p>
 	<br>
 	<p>I will be going over some other new features of Telco Cloud Automation 2.1 in future posts, as there is some very nice "Quality of life" improvements in this release, e.g. Kubernetes Stretched Cluster support or the possibility to now deploy specific TKG extensions directly via TCA.</p>

@@ -7,7 +7,7 @@
 		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ffbuechsel.eu%2Fpost%2Fbsod_archive%2F' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
 		<i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://fbuechsel.eu/post/bsod_archive/")' title='Copy link' aria-label='Copy the link to this blog post to your clipboard'></i></p>
 </div>
-<div>
+<div class='blog_content'>
 	<h4>Overview</h4>
 	<ul class='blog_list'>
 		<li><a href='#problem'>The Problem</a></li>
@@ -15,6 +15,7 @@
 		<li><a href='#solution'>The Solution</a></li>
 		<li><a href='#comments'>Closing Comments</a></li>
 	</ul>
+    <br>
 	<p>It has been a while since my last post and I partly blame the job change on it. lots to do, little time... those were the words I have written for this exact post back in 2015, however they still apply in 2020 as well apparently. This is a repost from an old blog of myself way back then simply to test out Hugo, diving a bit into Markdown and getting myself back into the habit of blogging.</p>
 	<br>
 	<h4><a id='problem'>The Problem</a></h4>
@@ -35,7 +36,7 @@
 	<p>Safe mode did indeed let the system start just fine and the programs panel showed that indeed some Windows Updates had been installed. So I uninstalled those and also ran a chkdsk just to be sure the power outage did not screw up something on the file system in any way. Unfortunately this was also fruitless. So another safe mode boot followed.</p>
 	<br>
 	<p>The system event logs did not really reveal much in terms of any failing driver component as well but in this state my laptop would actually read a USB key just fine. This means I could take a peek at the memory dump the BSOD has been writing (never turn that feature off). So I copied the dump over to another machine, loaded the latest WinDBG binaries and began to analyze the dump.</p>
-	<pre><code>6: kd> !analyze -v
+	<p class='code'>6: kd> !analyze -v
     *******************************************************************************
     * Bugcheck Analysis *
     *******************************************************************************
@@ -62,10 +63,10 @@
     PRIMARY_PROBLEM_CLASS: 0x133_ISR_vmnetbridge!Unknown_Function
     ANALYSIS_SOURCE: KM
     FAILURE_ID_HASH_STRING: km:0x133_isr_vmnetbridge!unknown_function
-    FAILURE_ID_HASH: {9badc5ac-bdaf-6816-6d94-61ede9c1ab5f}</code></pre>
+    FAILURE_ID_HASH: {9badc5ac-bdaf-6816-6d94-61ede9c1ab5f}</p>
     <br>
     <p>So the automatic analyzer thinks it’s the vmnetbridge driver but it will normally just take the first thing off the stack that it doesn’t know about and blame that. So let’s look at the stack.</p>
-    <pre><code>    6: kd> k
+    <p class='code'>    6: kd> k
     # Child-SP RetAddr Call Site
     00 ffffd000`9845bc78 fffff803`a49f3e7a nt!KeBugCheckEx
     01 ffffd000`9845bc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
@@ -90,7 +91,7 @@
     14 ffffd000`989de3e0 fffff800`2ba1ff2e ndis!ndisCallReceiveHandler+0x43
     15 ffffd000`989de430 fffff803`a49091f5 ndis!ndisDataPathExpandStackCallback+0x3e
     16 ffffd000`989de480 fffff800`2ba1ffd5 nt!KeExpandKernelStackAndCalloutInternal+0x85
-    17 ffffd000`989de4d0 fffff800`2ba5435a ndis!ndisExpandStack+0x19</code></pre>
+    17 ffffd000`989de4d0 fffff800`2ba5435a ndis!ndisExpandStack+0x19</p>
     <br>
     <p>Indeed after the internal Windows functions below the BugCheck we find vmnetbridge on the stack. Going a bit further down though we can see jnprns as well which seems to be the Juniper VPN client software and its system drivers. Since I didn’t need that software anymore anyway I decided to uninstall all components of it but again no change.</p>
     <br>
@@ -99,7 +100,7 @@
     <p>But this actually got me thinking, one change I did since the last reboot was to install Oracle VirtualBox alongside VMware Workstation. Even though I did some due diligence on google before to see if there is any issues with having those 2 co-installed I did not stumble across anything that would have made me think again before installing it.</p>
     <br>
     <p>I know that Workstation has to interact with the Windows networking stack quite a bit for the host-only networks, and VirtualBox is actually doing the same. So what seems to be the issue here. Let’s take a look at all CPU callstacks in the dump.</p>
-    <pre><code>    6: kd> !running -it
+    <p class='code'>    6: kd> !running -it
 
     System Processors: (00000000000000ff)
     Idle Processors: (0000000000000000)
@@ -225,7 +226,7 @@
     09 ffffd000`9876fa50 fffff803`a4896d50 nt!KiInterruptDispatchNoLockNoEtw+0x37
     0a ffffd000`9876fbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x20
     0b ffffd000`9876fc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    0c ffffd000`9876fc40 fffff800`2ba095d3 vmnetbridge+0x70f8</code></pre>
+    0c ffffd000`9876fc40 fffff800`2ba095d3 vmnetbridge+0x70f8</p>
     <br>
     <p>So all CPUs are stuck in waiting to acquire a spinlock which eventually leads to the timeout mentioned in the BSOD. Since it is a VMware networking driver I would suspect the issue to be there. What to do to fix this now though?</p>
     <br>
