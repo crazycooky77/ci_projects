@@ -22,6 +22,14 @@
           });
         </script>
         
+<!-- Script to toggle blog post visibility -->
+        <script>
+            function toggle_blog() {
+            var post = event.srcElement.id.slice(1)
+            $('#'+post).toggle();
+            }
+        </script>
+
 <!-- Font Awesome script -->
         <script src='https://kit.fontawesome.com/3e8d6f7307.js' crossorigin='anonymous'></script>
         
@@ -90,18 +98,22 @@
                     </div>
                 </div>
                 <div id='center-panel'>
-                    <h2>All Blog Posts</h2>
-                    <div id='latestblog'></div>
+                    <h2>Blog Posts</h2>
+                    <!-- <div class='active_blog'> -->
+                        <div id='20220731'></div>
+                    <div id='20220727'></div>
+                    <!-- </div> -->
+                    
                 </div>
                 <div id='right-panel'>
                     <div id='right-column'>
                         <div class='title'>
                             <p>Featured Posts</p>
                         </div>
-                        <div class='content'>
+                        <div class='content' onclick='toggle_blog()'>
                             <ul class='list'>
-                                <li><a href='assets/blog_posts/20220731.html'>TCA 2.1 Systemsettings add-on stuck in Processing status</a></li>
-                                <li><a href='assets/blog_posts/20220727.html'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</a></li>
+                                <li><button id='b20220731' >TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727' >TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
                                 <li><a href='assets/blog_posts/20220724.html'>TCA 2.1 What's new - AD authentication</a></li>
                                 <li><a href='assets/blog_posts/20210312.html'>Hooking into the RabbitMQ bus of VIO</a></li>
                                 <li><a href='assets/blog_posts/20201102.html'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</a></li>
