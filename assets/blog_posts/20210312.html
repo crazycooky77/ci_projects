@@ -23,14 +23,14 @@
 	<p class='code'>osctl edit service rabbitmq</p>
 	<br>
 	<p>The line which requires changing is marked in the figure below.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-1.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-1.png'></button></div>
 	<p class='img_desc'>Figure 1: Configure RMQ Service as NodePort</p>
 	<br>
 	<p>The Kubernetes services will update random ports automatically in the Ports sections for amqp, clustering, and http. If specific ports are desireable then these can be added either manually during the first edit, or edited again to force exposing the service through a specific port. Of interest here are mainly the amqp and http section to expose both the message bus itself, as well as the administrative interface.</p>
 	<br>
 	<h4><a id='verify'>Verifying external connectivity</a></h4>
 	<p>A quick verification of succes can easily be performed from the toolbox container using the LCM shell which has netcat installed to verify the exposed port can be externally accessed through the controller's IP as shown in the figure below.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-2.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-2.png'></button></div>
 	<p class='img_desc'>Figure 2: Verify external connectivity for the RMQ bus</p>
 	<br>
 	<p>We can see that the RabbitMQ port of 5672 is mapped externally to port 31703 by running the following command:</p>
@@ -46,33 +46,33 @@
 	<p class='code'>nc -vz 192.168.121.25 31703</p>
 	<br>
 	<p>We can also test the management interface by opening up a browser and connect to the VIP (192.168.121.25) on the port which is mapped to the internal http port of 15672, which is external port 26175 in this lab as per figure 1 above.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-3.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-3.png'></button></div>
 	<p class='img_desc'>Figure 3: Verify external connectivity for the RMQ management interface</p>
 	<br>
 	<p>The login credentials for the service are "rabbitmq" with a password which can be decrypted using the following command:</p>
 	<p class='code'>kubectl -n openstack get secret managedpasswords -o yaml | awk '/rabbit/{print $2}'| base64 --decode | xargs echo $1</p>
 	<br>
 	<p>The internal structure exposes several vhosts (one per OpenStack project) of which usually the notifications.info queue is most relevant to grab messages from. E.g. in vhost nova this queue would receive notifications about instance creation, deletion or modification.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-4.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-4.png'></button></div>
 	<p class='img_desc'>Figure 4: VIO notification queue examples</p>
 	<br>
 	<h4><a id='configure'>Configuring vRO to read messages</a></h4>
 	<p>The first step to be able to consume messages from within vRO of the message bus is to configure the AMQP broker endpoints in VIO. One endpoint is required per vhost and in most instances you would be interested in at least nova, neutron and probably cinder as well if you are looking at asset tracking or change mangement use cases for automated system updates on object CRUD operations. One thing to note is to configure the vhost without a slash, just give it the name of the vhost without any symbols. This workflow will show successful runs no matter if the connection is actually successful or not, the next steps will allow us to test the actual connection then.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-5.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-5.png'></button></div>
 	<p class='img_desc'>Figure 5: Configuring a vRO AMQP Broker</p>
 	<br>
 	<p>With the broker connection configured we now want to set up a subscription to this particular queue, e.g. the notifications.info queue on the neutron or nova vhost.</p>
 	<br>
 	<p>To achieve this we will run the "subscribe to queues" workflow, this takes an existing broker connection (which we configured with the previous workflow) and the actual queue name (notifications.info in essentially all use cases) as input parameters. An example run, this time to subscribe to a nova broker is shown in the figure below.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-6.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-6.png'></button></div>
 	<p class='img_desc'>Figure 6: Subscribing to a queue</p>
 	<br>
 	<p>The last step in the puzzle is to configure a policy which consumes our subscription, to be able to trigger either logging of messages from the queue or to kick off another workflow in which the message can be evaluated and other tasks, e.g. other workflows or actions, can be triggered based on the contents of a message, e.g. kick off an external API call to an IPAM system, an asset tracking database, a monitoring system, etc. The figure below shows the simple example of running the standard subscription based policy which let's you configure a custom workflow to run on the OnMessage event received on this particular queue. After creation this policy then can be run and scheduled to start with the vRO services.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-7.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-7.png'></button></div>
 	<p class='img_desc'>Figure 7: Creating a custom policy</p>
 	<br>
 	<p>To quickly show how an instance update would look like on the nova vhost I have used the standard Subscription policy which simply logs to the vRO default system logs and modified an instance, the incoming message can be seen on the Logs tab, so in my consuming policy I could filter for an event_type of "compute.instance.update" to filter for this type of event only in a workflow and then kick off other workflows or actions based on this and other information contain in the message to update external OSS systems.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20210312-8.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20210312-8.png'></button></div>
 	<p class='img_desc'>Figure 8: Example notification message</p>
 	<br>
 	<h4><a id='summary'>Summary</a></h4>

@@ -22,11 +22,11 @@
 	<p>Not everything will be reflected on management clusters which still use the v1 API and UI version but most of the features will be covered in this post (except for Prometheus, Fluentbit and AKOO which will get their own blog post shortly and the new user interface which isn't supported for Management clusters today).</p>
 	<p>So let's take a look at what changed in the interface when you deploy a new management cluster today, the template creation is still necessary but unchanged so I will skip this part here.</p>
 	<p>The first thing which is new is an advanced setting to choose the infrastructure for the lifecycle management of the management cluster. What this means is that there is now a GUI support for a stretched cluster configuration in which management clusters can be hosted on different virtual infrastructure, like a different vCenter, from the workload clusters. This functionality was technically already possible using API calls in previous versions, however with Telco Cloud Automation 2.1 there is now full GUI support for this functionality.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-1.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-1.jpeg'></button></div>
 	<p class='img_desc'>Figure 1: Stretched Cluster Support</p>
 	<br>
 	<p>No major change happened in the next step, apart from that the Kubernetes version now gets bumped to 1.22.9 for management clusters.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-2.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-2.jpeg'></button></div>
 	<p class='img_desc'>Figure 2: Cluster Template Selection</p>
 	<br>
 	<p>A new functionality in the Cluster Details screen is the ability to now select the IP family (IPv4 or IPv6) for a cluster. Today only single stack deployments are supported, so either IPv4 or IPv6 but not a mixed mode. The release notes list further limitations for IPv6 for now:</p>
@@ -45,25 +45,25 @@
 	</ul>
 	<br>
 	<p>For me personally the biggest limitation for this at the moment is the integration of vRO which means in a pure IPv6 deployment you won't be able to run custom MOPs through workflows configured in the NF Designer but have to rely on different mechanisms, depending on the NF vendor.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-3.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-3.jpeg'></button></div>
 	<p class='img_desc'>Figure 3: Kubernetes Cluster Details 1</p>
 	<br>
 	<p>Another new addition is that you can configure a proxy server in addition to an airgap server to provide internet access for package downloads to both management and workload clusters. I noticed one minor issue with the wizard as in that the NoProxy field is marked as optional, however cluster deployemnts will fail when this field is actually left empty. It is recommended to put the cluster CIDR as well as the CIDR range for infrastructure components like vCenter Server, NSX-T and vRO in here. At the moment proxied access to Harbor is also not validated and therefore unsupported.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-4.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-4.jpeg'></button></div>
 	<p class='img_desc'>Figure 4: Kubernetes Cluster Details 2</p>
 	<br>
 	<p>The next screen in the wizard has not changed. The previous wizard was already asking for the deployment parameters for compute and storage, if necessary and desired control plane nodes and worker nodes can have different placement to separate concerns and failure domains on an infrastructure level, as well as assigning these node types to different networks if required for security and compliance purposes.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-5.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-5.jpeg'></button></div>
 	<p class='img_desc'>Figure 5: Node Configuration Details</p>
 	<br>
 	<p>The last page of the wizard is the usual summary page which also allows you to download the json spec (which I would highly recommend.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-6.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-6.jpeg'></button></div>
 	<p class='img_desc'>Figure 6: Management Cluster Deployment Summary</p>
 	<br>
 	<p>And this basically concludes a management cluster deployment, while the wizard didn't change much some functioanlity was added, and having the ability to use Streched Kubernetes Clusters now natively without having to perform API based imports is a huge step forward.</p>
 	<br>
 	<p>Once the deployment kicks off it can be monitored from the CaaS infrastructure details.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20220725-7.jpeg'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20220725-7.jpeg'></button></div>
 	<p class='img_desc'>Figure 7: Cluster Deployment Progress</p>
 </div>
 <hr>

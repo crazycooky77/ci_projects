@@ -23,7 +23,7 @@
 	<br>
 	<p>The first instinct was to blame the power outage and some sort of corrupt system update installation or inconsistent file data. Taking a look at the system restore points quickly revealed that no updates had been installed though.</p>
 	<br>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201021-1.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201021-1.png'></button></div>
 	<p class='img_desc'>Figure 1: Windows System Restore events</p>
 	<br>
 	<h4><a id='troubleshooting'>The Troubleshooting</a></h4>
@@ -232,7 +232,7 @@
     <br>
     <h4><a href='solution'>The Solution</a></h4>
 	<p>I already tried putting the laptop into airplane mode so I was sure it was not the wifi driver conflicting here somehow. When I opened my network devices I saw something surprising though.</p>
-	<div class='blog_img'><button class='img_scale'><img src='assets/images/blog_images/20201021-2.png'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201021-2.png'></button></div>
 	<p class='img_desc'>Figure 2: Network devices in Windows settings</p>
 	<br>
 	<p>Additionally to the ones shown here there was 1 more connection, a VirtualBox host local adapter. So I deactivated all network interfaces and booted into normal mode and this time it actually succeeded. I activated all VMware adapters again and surely no issues even with the next reboot. Activating the VirtualBox adapter though immediately caused the issue to be there again. So to me it seems like the Workstation network drivers get stuck in a deadlock as soon as another product’s Windows network adapter is present. I am currently working around the issue by using NAT-only networking in VirtualBox and I did indeed never restart the laptop after having installed VirtualBox. There is no issue when adding an adapter during runtime of the operating system but a reboot grinds it to a complete halt.</p>
