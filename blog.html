@@ -22,6 +22,19 @@
           });
         </script>
         
+<!-- Script to check the website URL and load content accordingly -->
+<script>
+    var site_link = window.location.hash.replace('post_','');
+    $(document).ready(function() {
+    if (site_link !== '' && document.getElementById(site_link.slice(1)) !== null) {
+        $('.active_blog').hide().filter(site_link).show();
+    }
+    else {
+        $('.active_blog').hide().filter('.show_latest').show();
+    }
+    });
+</script>
+
 <!-- Script to toggle blog post visibility -->
         <script>
             function toggle_blog() {
@@ -110,15 +123,15 @@
                 </div>
                 <div id='center-panel'>
                     <h2>Blog Posts</h2>
-                    <div id='20220731' class='active_blog tca show_latest'></div>
-                    <div id='20220727' class='active_blog tca'></div>
-                    <div id='20220726' class='active_blog tca'></div>
-                    <div id='20220725' class='active_blog tca'></div>
-                    <div id='20220724' class='active_blog tca'></div>
-                    <div id='20210312' class='active_blog nfv vio'></div>
-                    <div id='20201117' class='active_blog vcd'></div>
-                    <div id='20201102' class='active_blog nfv'></div>
-                    <div id='20201021' class='active_blog ts windows'></div>
+                    <div id='20220731' class='active_blog tca show_latest'><a href='#post_20220731'><a id='post_20220731'></a></a></div>
+                    <div id='20220727' class='active_blog tca'><a href='#post_20220727'><a id='post_20220727'></a></a></div>
+                    <div id='20220726' class='active_blog tca'><a href='#post_20220726'><a id='post_20220726'></a></a></div>
+                    <div id='20220725' class='active_blog tca'><a href='#post_20220725'><a id='post_20220725'></a></a></div>
+                    <div id='20220724' class='active_blog tca'><a href='#post_20220724'><a id='post_20220724'></a></a></div>
+                    <div id='20210312' class='active_blog nfv vio'><a href='#post_20210312'><a id='post_20210312'></a></a></div>
+                    <div id='20201117' class='active_blog vcd'><<a href='#post_20201117'><a id='post_20201117'></a></a></div>
+                    <div id='20201102' class='active_blog nfv'><a href='#post_20201102'><a id='post_20201102'></a></a></div>
+                    <div id='20201021' class='active_blog ts windows'><a href='#post_20201021'><a id='post_20201021'></a></a></div>
                 </div>
                 <div id='right-panel'>
                     <div id='right-column'>
