@@ -16,6 +16,12 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - __Homepage__ shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
 
+- __Blog Page__ includes all blog posts for the user to read.
+
+- __Featured Posts__ in the left sidebar of both the homepage and blog page include selected posts from the blog owner that the user can load via a click of the mouse.
+
+- __Blog Tags__ can be used to show all posts with a specific tag, in case the user is looking for content related to a specific topic.
+
 - __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
 
 - __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
@@ -31,14 +37,6 @@ This site is to help people learn more about VMware topics, particularly relatin
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
-
-- __Blog Page__
-
-- __Featured Posts__ 
-
-- __Blog Categories__ 
-
-- __Blog Tags__ 
 
 <!-- ## Testing  -->
 
