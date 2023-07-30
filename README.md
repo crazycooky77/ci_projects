@@ -7,15 +7,17 @@ This site is to help people learn more about VMware topics, particularly relatin
 3. [Credits](#credits)
 4. [Media](#media)
 
-## User Stories
+<details>
+	<summary>## User Stories</summary>
 
 - As a user, I want to view the various blog posts so that I can learn more about topics included in VMware certifications.
 
 - As a user, I want to know what VMware events are available so that I can register for or follow those.
 
 - As a user, I want to be able to view videos on the topic, so that I can learn more.
-
-## Features 
+</details>
+<details>
+	<summary>## Features</summary>
 
 - __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.
 
@@ -44,6 +46,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
+</details>
 
 <!-- ## Testing  -->
 
@@ -53,8 +56,8 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 <!-- ## Deployment -->
 
-
-## Credits 
+<details>
+	<summary>## Credits</summary>
 
 ### Content 
 
@@ -71,8 +74,9 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Action to remove focus from active element taken from https://bobbyhadz.com/blog/javascript-remove-focus-from-element
 - Dummyframe for newsletter submission taken from https://stackoverflow.com/questions/25983603/how-to-submit-an-html-form-without-redirection
 - Toggling blog post visibility on blog.html written using the script examples in 3 Stackoverflow posts: [one](https://stackoverflow.com/questions/37985388/toggle-visibility-of-all-divs-at-once), [two](https://stackoverflow.com/questions/19065133/using-a-javascript-variable-to-refer-to-an-element-with-id-containing-the-variab), [three](https://stackoverflow.com/questions/55603456/a-simple-way-to-show-one-div-and-hide-all-others)
-
-## Media
+</details>
+<details>
+	<summary>## Media</summary>
 
 ### Wireframes
 
@@ -95,3 +99,4 @@ I created basic wireframes to plan out the layout for the website. The final ver
 
 #### About
 <img src='assets/images/site_layout/about.png' alt='Wireframe for the initial planning for the about page'/>
+</details>
