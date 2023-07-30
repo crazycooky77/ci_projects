@@ -103,10 +103,18 @@ form > #email {
 }
 
 /* Main Page Content */
-#left-panel, #center-panel, #right-panel {
+#center-panel {
 	display: flex;
 	justify-content: center;
-	width: calc(100%/3);
+	width: 50%;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+#left-panel, #right-panel {
+	display: flex;
+	justify-content: center;
+	width: 25%;
 	flex-wrap: wrap;
 	margin: 0 auto;
 }
