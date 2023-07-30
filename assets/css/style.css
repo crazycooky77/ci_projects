@@ -310,6 +310,10 @@ tr:nth-child(odd) {
 	cursor: pointer;
 }
 
+.tag {
+	font-style: italic;
+}
+
 .fa-copy {
 	cursor: pointer;
 }
