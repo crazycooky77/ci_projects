@@ -2,11 +2,18 @@
 
 This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well.
 
+1. [User Stories](#stories)
+2. [Features](#features)
+3. [Credits](#credits)
+4. [Media](#media)
+
 ## User Stories
 
 - As a user, I want to view the various blog posts so that I can learn more about topics included in VMware certifications.
 
 - As a user, I want to know what VMware events are available so that I can register for or follow those.
+
+- As a user, I want to be able to view videos on the topic, so that I can learn more.
 
 ## Features 
 
@@ -54,6 +61,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 - The base template was cloned from the [Code Institute GitHub repository](https://github.com/Code-Institute-Org/ci-full-template)
 - The basic readme and HTML templates were copied from [CluelessBiker's mentoring repository](https://github.com/CluelessBiker/mentoring/tree/main)
 - The majority of text content (blog posts) was taken from https://fbuechsel.eu/
+	- No HTML/CSS content was taken from this page
 - Font used from [Google Fonts](https://fonts.google.com/specimen/Share+Tech)
 - Social media, calendar, and copy icons were taken from [Font Awesome](https://fontawesome.com/)
 - Script for including HTML files within other files taken from https://www.tutorialspoint.com/how-to-include-another-html-file-in-an-html-file
