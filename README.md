@@ -2,7 +2,7 @@
 
 This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well.
 
-1. [User Stories](#stories)
+1. [User Stories](#user-stories)
 2. [Features](#features)
 3. [Credits](#credits)
 4. [Media](#media)
