@@ -41,6 +41,8 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - __Footer__ shows copyright information for the website.
 
+- __Dynamic page sizing__ is available for users on different sized devices to ensure a smooth user experience navigating the page content.
+
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
