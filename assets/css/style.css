@@ -11,6 +11,7 @@
 
 body {
 	background-color: #070f1c;
+	font-size: 16px;
 }
 
 hr {
@@ -168,6 +169,14 @@ form > #email {
 	width: 25%;
 	flex-wrap: wrap;
 	margin: 0 auto;
+}
+
+#left-panel {
+	margin-left: 20px;
+}
+
+#right-panel {
+	margin-right: 20px;
 }
 
 .container {
@@ -372,6 +381,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin: auto;
 }
 
 #left-panel {
@@ -436,6 +446,7 @@ nav button:hover {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin: auto;
 }
 
 #left-panel {
@@ -451,5 +462,23 @@ nav button:hover {
 	margin-top: 10px;
 	margin-bottom: 20px;
 
+}
+
+h1 {
+	font-size: 10vw;
+}
+
+#about img {
+	max-width: 100%;
+}
+
+.blog_meta {
+	flex-direction: column;
+	text-align: center;
+	gap: 10px;
+}
+
+iframe {
+	max-width: 100%;
 }
 }
