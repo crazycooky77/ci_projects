@@ -23,17 +23,24 @@
         </script>
         
 <!-- Script to check the website URL and load content accordingly -->
-<script>
-    var site_link = window.location.hash.replace('post_','');
-    $(document).ready(function() {
-    if (site_link !== '' && document.getElementById(site_link.slice(1)) !== null) {
-        $('.active_blog').hide().filter(site_link).show();
-    }
-    else {
-        $('.active_blog').hide().filter('.show_latest').show();
-    }
-    });
-</script>
+        <script>
+            var site_link = window.location.hash.replace('post_','');
+            $(document).ready(function() {
+            if (site_link !== '' && document.getElementById(site_link.slice(1)) !== null) {
+                $('.active_blog').hide().filter(site_link).show();
+            }
+            else {
+                $('.active_blog').hide().filter('.show_latest').show();
+            }
+            });
+        </script>
+
+<!-- Script to scroll to the top of the page -->
+        <script>
+            function scroll_to_top() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
 
 <!-- Script to toggle blog post visibility -->
         <script>
@@ -97,12 +104,16 @@
             <div id='hero'>
             <h1>vUnhandledException</h1>
             <nav>
-                <a href='index.html'><button>Home</button></a>
-                <a href='blog.html'><button class='active'>Blog</button></a>
-                <a href='videos.html'><button>Videos</button></a>
-                <a href='events.html'><button>Events</button></a>
-                <a href='about.html'><button>About Me</button></a>
-                <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter (opens in a new tab)'><button>Follow Me</button></a>
+                <label id='hamburger' for='toggle_nav'>&#9776;</label>
+                <input type='checkbox' id='toggle_nav'>
+                <div class='menu'>
+                    <a href='index.html'><button>Home</button></a>
+                    <a href='blog.html'><button class='active'>Blog</button></a>
+                    <a href='videos.html'><button>Videos</button></a>
+                    <a href='events.html'><button>Events</button></a>
+                    <a href='about.html'><button>About Me</button></a>
+                    <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter (opens in a new tab)'><button>Follow Me</button></a>
+                </div>
             </nav>
         </div>
         </header>
@@ -119,6 +130,8 @@
                             <br>
                             <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
                         </form>
+                        <br>
+                        <hr>
                     </div>
                 </div>
                 <div id='center-panel'>
@@ -140,11 +153,11 @@
                         </div>
                         <div class='content'>
                             <ul class='list'>
-                                <li><button id='b20220731' onclick='toggle_blog()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
-                                <li><button id='b20220727' onclick='toggle_blog()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
-                                <li><button id='b20220724' onclick='toggle_blog()'>TCA 2.1 What's new - AD authentication</button></li>
-                                <li><button id='b20210312' onclick='toggle_blog()'>Hooking into the RabbitMQ bus of VIO</button></li>
-                                <li><button id='b20201102' onclick='toggle_blog()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
+                                <li><button id='b20220731' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
+                                <li><button id='b20220724' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - AD authentication</button></li>
+                                <li><button id='b20210312' onclick='toggle_blog(); scroll_to_top()'>Hooking into the RabbitMQ bus of VIO</button></li>
+                                <li><button id='b20201102' onclick='toggle_blog(); scroll_to_top()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
                             </ul>
                         </div>
                         <div class='title'>
@@ -152,17 +165,17 @@
                         </div>
                         <div class='content'>
                             <ul class='nostyle'>
-                                <li><input type='radio' id='tca' class='tca' value='TCA' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='tca' class='tca' value='TCA' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='tca'>TCA</label></li>
-                                <li><input type='radio' id='nfv' class='nfv' value='NFV' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='nfv' class='nfv' value='NFV' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='nfv'>NFV</label></li>
-                                <li><input type='radio' id='vio' class='vio' value='VIO' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='vio' class='vio' value='VIO' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='vio'>VIO</label></li>
-                                <li><input type='radio' id='ts' class='ts' value='Troubleshooting' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='ts' class='ts' value='Troubleshooting' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='ts'>Troubleshooting</label></li>
-                                <li><input type='radio' id='vcd' class='vcd' value='vCloud Director' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='vcd' class='vcd' value='vCloud Director' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='vcd'>vCloud Director</label></li>
-                                <li><input type='radio' id='windows' class='windows' value='Windows' name='tags' onclick='toggle_blog()'>
+                                <li><input type='radio' id='windows' class='windows' value='Windows' name='tags' onclick='toggle_blog(); scroll_to_top()'>
                                 <label for='windows'>Windows</label></li>
                             </ul>
                         </div>
@@ -171,17 +184,18 @@
                         </div>
                         <div class='content'>
                             <ul class='list'>
-                                <li><button id='b20220731' onclick='toggle_blog()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
-                                <li><button id='b20220727' onclick='toggle_blog()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
-                                <li><button id='b20220726' onclick='toggle_blog()'>TCA 2.1 What's new - Appliance sizing changes</button></li>
-                                <li><button id='b20220725' onclick='toggle_blog()'>TCA 2.1 What's new - CaaS Management Cluster options</button></li>
-                                <li><button id='b20220724' onclick='toggle_blog()'>TCA 2.1 What's new - AD authentication</button></li>
-                                <li><button id='b20210312' onclick='toggle_blog()'>Hooking into the RabbitMQ bus of VIO</button></li>
-                                <li><button id='b20201117' onclick='toggle_blog()'>How to figure out the vCenter name of a vCloud Director VM?</button></li>
-                                <li><button id='b20201102' onclick='toggle_blog()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
-                                <li><button id='b20201021' onclick='toggle_blog()'>VMware Workstation drivers fighting over NICs – Windows is the clear loser</button></li>
+                                <li><button id='b20220731' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 Systemsettings add-on stuck in Processing status</button></li>
+                                <li><button id='b20220727' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</button></li>
+                                <li><button id='b20220726' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - Appliance sizing changes</button></li>
+                                <li><button id='b20220725' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - CaaS Management Cluster options</button></li>
+                                <li><button id='b20220724' onclick='toggle_blog(); scroll_to_top()'>TCA 2.1 What's new - AD authentication</button></li>
+                                <li><button id='b20210312' onclick='toggle_blog(); scroll_to_top()'>Hooking into the RabbitMQ bus of VIO</button></li>
+                                <li><button id='b20201117' onclick='toggle_blog(); scroll_to_top()'>How to figure out the vCenter name of a vCloud Director VM?</button></li>
+                                <li><button id='b20201102' onclick='toggle_blog(); scroll_to_top()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
+                                <li><button id='b20201021' onclick='toggle_blog(); scroll_to_top()'>VMware Workstation drivers fighting over NICs – Windows is the clear loser</button></li>
                             </ul>
                         </div>
+                        <hr>
                     </div>
                 </div>
             </section>

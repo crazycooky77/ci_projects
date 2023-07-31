@@ -45,6 +45,8 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
 
+- __Blog post links__ once GH site is published
+
 <!-- ## Testing  -->
 
 
@@ -72,6 +74,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 - Dummyframe for newsletter submission taken from https://stackoverflow.com/questions/25983603/how-to-submit-an-html-form-without-redirection
 - Toggling blog post visibility on blog.html written using the script examples in 3 Stackoverflow posts: [one](https://stackoverflow.com/questions/37985388/toggle-visibility-of-all-divs-at-once), [two](https://stackoverflow.com/questions/19065133/using-a-javascript-variable-to-refer-to-an-element-with-id-containing-the-variab), [three](https://stackoverflow.com/questions/55603456/a-simple-way-to-show-one-div-and-hide-all-others)
 - Modified text-shadow solution for H1 header from https://stackoverflow.com/questions/2570972/css-font-border
+- Used https://www.youtube.com/watch?v=LciQi9PMnFY&ab_channel=CampsiteCoders for guidance on hamburger menus for smaller screen sizes
 
 ## Media
 

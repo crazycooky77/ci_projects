@@ -24,12 +24,16 @@
             <div id='hero'>
             <h1>vUnhandledException</h1>
             <nav>
-                <a href='index.html'><button>Home</button></a>
-                <a href='blog.html'><button>Blog</button></a>
-                <a href='videos.html'><button>Videos</button></a>
-                <a href='events.html'><button class='active'>Events</button></a>
-                <a href='about.html'><button>About Me</button></a>
-                <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter'><button>Follow Me</button></a>
+                <label id='hamburger' for='toggle_nav'>&#9776;</label>
+                <input type='checkbox' id='toggle_nav'>
+                <div class='menu'>
+                    <a href='index.html'><button>Home</button></a>
+                    <a href='blog.html'><button>Blog</button></a>
+                    <a href='videos.html'><button>Videos</button></a>
+                    <a href='events.html'><button class='active'>Events</button></a>
+                    <a href='about.html'><button>About Me</button></a>
+                    <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter'><button>Follow Me</button></a>
+                </div>
             </nav>
         </div>
         </header>
@@ -46,6 +50,8 @@
                             <br>
                             <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
                         </form>
+                        <br>
+                        <hr>
                     </div>
                 </div>
                 <div id='center-panel'>
@@ -53,6 +59,7 @@
                         <h2>Featured Event</h2>
                         <p>See me in Las Vegas to learn more about balancing risk and performance in your ICT network.</p>
                         <center><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7084918132254920704" height="447" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></center>
+                        <hr>
                     </div>
                 </div>
                 <div id='right-panel'>
@@ -68,6 +75,7 @@
                                 <li><a href='https://www.linkedin.com/newsletters/7046941944727437312/' rel='noopener' target='_blank' aria-label="Go to the Linkedin page for VMware Telco Cloud newsletter (opens in a new tab)">VMware Telco Cloud Newsletter<i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a></li>
                             </ul>
                         </div>
+                        <hr>
                     </div>
                 </div>
             </section>

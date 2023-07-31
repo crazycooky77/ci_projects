@@ -104,6 +104,16 @@ nav button:hover {
 	cursor: pointer;
 }
 
+#hamburger {
+	display: none;
+	font-size: 30px;
+	float: right;
+}
+
+#toggle_nav {
+	display: none;
+}
+
 .active {
 	background-color: #150d36;
 	border: #28176e 2px solid;
@@ -120,7 +130,7 @@ label {
 }
 
 form {
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 form > input {
@@ -164,6 +174,7 @@ form > #email {
 	display: flex;
 	justify-content: center;
 	margin-top: 30px;
+	gap: 25px;
 }
 
 .title {
@@ -346,4 +357,99 @@ tr:nth-child(odd) {
 footer {
 	margin: 25px 10px 10px 10px;
 	font-size: 15px;
+}
+
+/* Media Queries */
+
+/* For screens 1200px wide and less */
+@media screen and (max-width: 1200px) {
+.container {
+	display: flex;
+	flex-direction: column;
+
+}
+#left-panel, #right-panel {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#left-panel {
+	order: 2;
+}
+
+#center-panel {
+	order: 0;
+}
+
+#right-panel {
+	order: 1;
+	margin-top: 10px;
+	margin-bottom: 20px;
+
+}
+}
+
+/* For screens 950px wide and less */
+@media screen and (max-width: 950px) {
+nav button {
+	background-color: #28176e;
+	border: #150d36 2px solid;
+	padding: 10px 15px;
+	border-radius: 15px;
+	color: #ffffff;
+	font-size: 18px;
+}
+
+nav button:hover {
+	background-color: transparent;
+	border: #150d36 2px solid;
+	cursor: pointer;
+}
+
+#hamburger {
+	display: block;
+	cursor: pointer;
+	position: absolute;
+}
+
+.menu {
+	display: none;
+}
+
+.menu a {
+	display: block;
+	text-align: right;
+	margin-right: 30px;
+}
+
+#toggle_nav:checked + .menu {
+	display: block;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+}
+#left-panel, #right-panel {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#left-panel {
+	order: 2;
+}
+
+#center-panel {
+	order: 0;
+}
+
+#right-panel {
+	order: 1;
+	margin-top: 10px;
+	margin-bottom: 20px;
+
+}
 }

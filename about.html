@@ -21,12 +21,16 @@
             <div id='hero'>
             <h1>vUnhandledException</h1>
             <nav>
-                <a href='index.html'><button>Home</button></a>
-                <a href='blog.html'><button>Blog</button></a>
-                <a href='videos.html'><button>Videos</button></a>
-                <a href='events.html'><button>Events</button></a>
-                <a href='about.html'><button class='active'>About Me</button></a>
-                <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter'><button>Follow Me</button></a>
+                <label id='hamburger' for='toggle_nav'>&#9776;</label>
+                <input type='checkbox' id='toggle_nav'>
+                <div class='menu'>
+                    <a href='index.html'><button>Home</button></a>
+                    <a href='blog.html'><button>Blog</button></a>
+                    <a href='videos.html'><button>Videos</button></a>
+                    <a href='events.html'><button>Events</button></a>
+                    <a href='about.html'><button class='active'>About Me</button></a>
+                    <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter'><button>Follow Me</button></a>
+                </div>
             </nav>
         </div>
         </header>
@@ -43,6 +47,8 @@
                             <br>
                             <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
                         </form>
+                        <br>
+                        <hr>
                     </div>
                 </div>
                 <div id='center-panel'>
@@ -54,6 +60,7 @@
                         <p>You can find additional information about me and my background on <a href='http://ie.linkedin.com/in/frankbuechsel' rel='noopener' target='_blank' aria-label='Open my LinkedIn profile (opens in a new tab)'>my LinkedIn</a>.</p>
                         <br>
                         <p>Any views or opinions expressed here are strictly my own and do not necessarily reflect the opinion or views of my employer.</p>
+                        <hr>
                     </div>
                 </div>
                 <div id='right-panel'>

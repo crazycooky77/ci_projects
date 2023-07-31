@@ -57,12 +57,16 @@
             <div id='hero'>
             <h1>vUnhandledException</h1>
             <nav>
-                <a href='index.html'><button class='active'>Home</button></a>
-                <a href='blog.html'><button>Blog</button></a>
-                <a href='videos.html'><button>Videos</button></a>
-                <a href='events.html'><button>Events</button></a>
-                <a href='about.html'><button>About Me</button></a>
-                <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter (opens in a new tab)'><button>Follow Me</button></a>
+                <label id='hamburger' for='toggle_nav'>&#9776;</label>
+                <input type='checkbox' id='toggle_nav'>
+                <div class='menu'>
+                    <a href='index.html'><button class='active'>Home</button></a>
+                    <a href='blog.html'><button>Blog</button></a>
+                    <a href='videos.html'><button>Videos</button></a>
+                    <a href='events.html'><button>Events</button></a>
+                    <a href='about.html'><button>About Me</button></a>
+                    <a href='https://twitter.com/fbuechsel' rel='noopener' target='_blank' aria-label='Follow me on Twitter (opens in a new tab)'><button>Follow Me</button></a>
+                </div>
             </nav>
         </div>
         </header>
@@ -79,6 +83,8 @@
                             <br>
                             <input type='email' id='email' class='email' required><input type='submit' id='signup' value='Sign Up'>
                         </form>
+                        <br>
+                        <hr>
                     </div>
                 </div>
                 <div id='center-panel'>
