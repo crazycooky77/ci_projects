@@ -177,7 +177,6 @@ form > #email {
 
 #right-panel {
 	margin-right: 20px;
-	font-size: 18px;
 }
 
 .container {
@@ -217,6 +216,11 @@ h4 {
 	font-size: 24px;
 	text-decoration: underline;
 	margin-top: 25px;
+}
+
+.post_list > li {
+	margin-bottom: 10px;
+	font-size: 16px;
 }
 
 .img_desc {
@@ -272,6 +276,7 @@ h4 {
 	text-align: left;
 	cursor: pointer;
 	margin-bottom: 5px;
+	font-size: 16px;
 }
 
 .img_scale img {
