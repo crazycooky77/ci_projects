@@ -55,8 +55,24 @@ This site is to help people learn more about VMware topics, particularly relatin
 <!-- ### Validator Testing  -->
 
 
-<!-- ## Deployment -->
+## Deployment
 
+The site was deployed to GitHub Pages via the following steps:
+1. Cloned [repository from Code Institute](https://github.com/Code-Institute-Org/ci-full-template) and created own [repository](https://github.com/crazycooky77/ci_projects) for all Code Institute projects
+2. Created [new branch](https://github.com/crazycooky77/ci_projects/tree/fbuechsel) for this specific site
+3. Opened Settings for the repository
+4. Clicked Pages from the left sidebar
+5. Chose to "Deploy from a branch" for the Source
+6. Selected the fbuechsel branch for this project and clicked "Save"
+
+### Issues
+
+Unfortunately the site deployment didn't work after the initial steps. After waiting an extended period of time, no GitHub Pages site was created from the repository. After some research, I located [this discussion](https://github.com/orgs/community/discussions/22506) and was able to resolve the issue with the steps therein and in [this GitHub documentation](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll):
+
+1. Created new \_config.yml file in the root folder of the fbuechsel branch in the repository
+2. Copy/pasted "theme: minima" into the file and saved it
+3. Committed the changes directly to the fbuechsel branch
+4. The deployment then finalised on it's own and the GitHub Pages site was available
 
 ## Credits 
 
