@@ -59,7 +59,12 @@ This site is to help people learn more about VMware topics, particularly relatin
 	3c. YouTube and LinkedIn embedded links use obsolete frameborder attribures -> Removed
 	3d. Duplicate IDs updated
 	3e. Removed duplicate a tags
-4. 
+4. Checked the website using Lighthouse
+5. Resolved Accessibility issues identified by Lighthouse
+	5a. aria-label set for i tag -> wrapped i in span tags and added the aria-label there instead
+	5b. Updated IDs that were duplicate with classes
+6. Resolved SEO issues identified by Lighthouse
+	6a. Set font size and added spacing between list items for the right panel on the blog page
 
 ### Validator Testing 
 
@@ -70,6 +75,9 @@ All pages were checked using the HTML Checker. Some issues were identified as de
 #### W3C
 All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) and no errors were found as evidenced on [this page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and via the image below.
 <img src='assets/images/readme/w3c.png' alt='W3C Validator result'/>
+
+#### Lighthouse
+The website was checked using Lighthouse and issues that were identified resolved. Therefore, the latest score for the site is at... as evidenced below.
 
 #### Wave
 - Wave provides a contrast error for the H1 header of the website. Due to the CSS border added, the text is legible, despite the font colour being essentially transparent. This was a stylistic choice to leave as-is.
