@@ -24,7 +24,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - __Homepage__ shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
 
-- __Blog Page__ includes all blog posts for the user to read.
+- __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.
 
 - __Featured Posts__ in the left sidebar of both the homepage and blog page include selected posts from the blog owner that the user can load via a click of the mouse.
 
@@ -47,8 +47,6 @@ This site is to help people learn more about VMware topics, particularly relatin
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
-
-- __Blog post links__ once GH site is published
 
 <!-- ## Testing  -->
 
