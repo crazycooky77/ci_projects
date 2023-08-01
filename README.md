@@ -51,9 +51,21 @@ This site is to help people learn more about VMware topics, particularly relatin
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
 
 ## Testing 
-
+1. Started with checking the site using Wave and resolving minor issues
+2. Used the Jigsaw W3 Validator next, and no errors were found
+3. Continued with the HTML Checker and resolved issues identified
+	3a. Buttons in anchor tags -> Removed buttons and styled with CSS classes instead
+	3b. Removed obsolete center tags
+	3c. YouTube and LinkedIn embedded links use obsolete frameborder attribures -> Removed
+	3d. Duplicate IDs updated
+	3e. Removed duplicate a tags
+4. 
 
 ### Validator Testing 
+
+#### HTML Checker
+All pages were checked using the HTML Checker. Some issues were identified as described in Testing. All were resolved until no further errors were identified for any of the pages, as evidenced [here](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html) and in the image below.
+<img src='assets/images/readme/html_check.png' alt='HTML Checker result'/>
 
 #### W3C
 All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) and no errors were found as evidenced on [this page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and via the image below.
@@ -61,9 +73,6 @@ All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css
 
 #### Wave
 - Wave provides a contrast error for the H1 header of the website. Due to the CSS border added, the text is legible, despite the font colour being essentially transparent. This was a stylistic choice to leave as-is.
-
-- Wave also provides an error for the newsletter sign-up email field, as no label is included. This was left out on purpose, and again a stylistic choice.
-
 
 ## Deployment
 
