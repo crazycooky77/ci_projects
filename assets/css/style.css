@@ -382,6 +382,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	width: 90%;
 	margin: auto;
 }
 
@@ -391,6 +392,7 @@ footer {
 
 #center-panel {
 	order: 0;
+	width: 90%;
 }
 
 #right-panel {
@@ -449,6 +451,7 @@ nav button:hover {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	width: 90%;
 	margin: auto;
 }
 
@@ -458,6 +461,7 @@ nav button:hover {
 
 #center-panel {
 	order: 0;
+	width: 90%;
 }
 
 #right-panel {
