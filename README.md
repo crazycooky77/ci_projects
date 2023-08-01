@@ -4,8 +4,9 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 1. [User Stories](#user-stories)
 2. [Features](#features)
-3. [Credits](#credits)
-4. [Media](#media)
+3. [Deployment](#deployment)
+4. [Credits](#credits)
+5. [Media](#media)
 
 ## User Stories
 
