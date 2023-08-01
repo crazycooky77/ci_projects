@@ -59,10 +59,11 @@ This site is to help people learn more about VMware topics, particularly relatin
 The site was deployed to GitHub Pages via the following steps:
 1. Cloned [repository from Code Institute](https://github.com/Code-Institute-Org/ci-full-template) and created own [repository](https://github.com/crazycooky77/ci_projects) for all Code Institute projects
 2. Created [new branch](https://github.com/crazycooky77/ci_projects/tree/fbuechsel) for this specific site
-3. Opened Settings for the repository
-4. Clicked Pages from the left sidebar
-5. Chose to "Deploy from a branch" for the Source
-6. Selected the fbuechsel branch for this project and clicked "Save"
+3. Used GitHub Desktop for file updates and commits
+4. Opened Settings for the repository
+5. Clicked Pages from the left sidebar
+6. Chose to "Deploy from a branch" for the Source
+7. Selected the fbuechsel branch for this project and clicked "Save"
 
 ### Issues
 
