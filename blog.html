@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang='en'>
     <head>
+<!-- Site metadata -->
         <meta charset='UTF-8'>
         <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
         <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
+<!-- Load stylesheet -->
         <link rel='stylesheet' href='assets/css/style.css'>
         <title>vUnhandledException</title>
     </head>
 
     <body>
         <header>
+<!-- Hero image -->
             <div id='hero'>
             <h1>vUnhandledException</h1>
+<!-- Site navigation -->
             <nav>
+<!-- Hamburger menu for smaller screens -->
                 <label id='hamburger' for='toggle_nav'>&#9776;</label>
                 <input type='checkbox' id='toggle_nav'>
+<!-- Standard menu for larger screens -->
                 <div class='menu'>
                     <a href='index.html'><button>Home</button></a>
                     <a href='blog.html'><button class='active'>Blog</button></a>
@@ -31,10 +36,12 @@
 
         <main>
             <section class='container'>
+<!-- Left panel with blog owner details -->
                 <div id='left-panel'>
                     <div class='left-column'>
                         <p>Frank Escaros-Buechsel</p>
                         <p style='font-style:italic'>Fixer of broken reality @ VMware, Global Telco Architect</p>
+<!-- Newsletter sign-up -->
                         <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
                         <form method='POST' id='newsletter' action='SELF' target='dummyframe' onsubmit=signedUp()>
                             <p>Sign up to get notified of new blog posts, videos, and events!</p>
@@ -45,6 +52,7 @@
                         <hr>
                     </div>
                 </div>
+<!-- Center panel with blog posts for viewing -->
                 <div id='center-panel'>
                     <h2>Blog Posts</h2>
                     <div id='20220731' class='active_blog tca show_latest'><a href='#post_20220731'><a id='post_20220731'></a></a></div>
@@ -57,8 +65,10 @@
                     <div id='20201102' class='active_blog nfv'><a href='#post_20201102'><a id='post_20201102'></a></a></div>
                     <div id='20201021' class='active_blog ts windows'><a href='#post_20201021'><a id='post_20201021'></a></a></div>
                 </div>
+<!-- Right panel for blog post navigation -->
                 <div id='right-panel'>
                     <div id='right-column'>
+<!-- Click to view blog posts in featured posts -->
                         <div class='title'>
                             <p>Featured Posts</p>
                         </div>
@@ -71,6 +81,7 @@
                                 <li><button id='b20201102' onclick='toggle_blog(); scroll_to_top()'>TCI, TCP, TCA, TCOPS, deciphering some acronyms</button></li>
                             </ul>
                         </div>
+<!-- Click to view blog posts with specific tags -->
                         <div class='title'>
                             <p>Tags</p>
                         </div>
@@ -90,6 +101,7 @@
                                 <label for='windows'>Windows</label></li>
                             </ul>
                         </div>
+<!-- Click to select from all blog posts -->
                         <div class='title'>
                             <p>All Posts</p>
                         </div>
@@ -112,6 +124,7 @@
             </section>
         </main>
 
+<!-- Copyright details -->
         <footer>
             <p>Copyright © 2023 vUnhandledException. All Rights Reserved</p>
         </footer>
