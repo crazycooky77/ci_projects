@@ -31,7 +31,7 @@ else {
 
 // Function to toggle blog post visibility
 function toggle_blog() {
-    var post = event.target.className.slice(1);
+    var post = event.target.id.slice(1);
     var tag = event.target.className;
 
     if ($('input[name=tags]:checked').length > 0 && tag.length > 0) {
@@ -39,10 +39,10 @@ function toggle_blog() {
     }
     else if ($('input[name=tags]:checked').length > 0 && tag.length === 0) {
         $('input[name=tags]').prop('checked', false); 
-        $('.active_blog').hide().filter('.'+post).show();
+        $('.active_blog').hide().filter('#'+post).show();
     }
     else {
-        $('.active_blog').hide().filter('.'+post).show();
+        $('.active_blog').hide().filter('#'+post).show();
     }
 }
 
