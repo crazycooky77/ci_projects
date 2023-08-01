@@ -55,6 +55,10 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 ### Validator Testing 
 
+#### W3C
+All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) and no errors were found as evidenced on [this page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and via the image below.
+<img src='assets/images/readme/w3c.png' alt='W3C Validator result'/>
+
 #### Wave
 - Wave provides a contrast error for the H1 header of the website. Due to the CSS border added, the text is legible, despite the font colour being essentially transparent. This was a stylistic choice to leave as-is.
 
