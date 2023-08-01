@@ -13,17 +13,17 @@
 	<p>This blog post will look at an easy mechanism to do so since the Flash client is now either deprecated or completely gone depending on which vCloud Director verison you are actually running.</p>
 	<br>
 	<p>To quickly describe the problem let's look at 2 screenshots. The first one is the view in vCloud Director.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-1.png' alt='Virtual Machines from vCD website'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-1.png' alt='Virtual Machines from vCD website'></button></div>
 	<p class='img_desc'>Figure 1: Virtual Machines from vCD</p>
 	<br>
 	<p>The second view is from vCenter Server.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-2.png' alt='vCenter Server VMs on vCenter Server'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-2.png' alt='vCenter Server VMs on vCenter Server'></button></div>
 	<p class='img_desc'>Figure 2: vCenter Server VMs</p>
 	<br>
 	<p>How do you map these 2 now?</p>
 	<br>
 	<p>Since vCloud Director 10.2 it's actually quite simply, you can directly look it up in the properties of the virtual machine in vCloud Director as you used to be able to do in the vCloud Director Flash client. The field called "Name in vSphere" will tell you, if you have the correct permissions of course, what the actual virtual machine name is.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-3.png' alt='vCloud Director VM details'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-3.png' alt='vCloud Director VM details'></button></div>
 	<p class='img_desc'>Figure 3: vCloud Director VM details</p>
 	<br>
 	<p>What if you are not running vCloud Director 10.2 or want a more programmable approach though?</p>
@@ -31,17 +31,17 @@
 	<p>PowerCLI will be able to help you out there by connecting to both vCloud Director as well as vCenter Server you can simply build a 2 liner which grabs the moref ID from vCloud Director and then queries the moref in the backing vCenter Server to get the virtual machine name.</p>
 	<br>
 	<p>We can see that we have 2 virtual machines called "web-paris" in this Org... further investigation shows one is part of a vApp called "web-cities" and the other is a standalone VM.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-4.png' alt='vCD PowerCLI results for virtual machines'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-4.png' alt='vCD PowerCLI results for virtual machines'></button></div>
 	<p class='img_desc'>Figure 4: vCD PowerCLI results for virtual machines</p>
 	<br>
 	<p>Let's try to map the "web-paris" VM from the vApp to the actual vSphere VM. First as a system administrator we grab the vCenter Server moref link from the vCloud Extension data of the virtual machine object.</p>
 	<p class='code'>PS C:> $vcd_moref = (get-civapp web-cities | get-civm web-paris).ExtensionData.vCloudextension.any.vmvimobjectref.moref</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-5.png' alt='Visual of PowerCLI step 1'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-5.png' alt='Visual of PowerCLI step 1'></button></div>
 	<p class='img_desc'>Figure 5: PowerCLI step 1</p>
 	<br>
 	<p>And then in step 2 we query vCenter Server to find the appropriate moref and give us the VM name.</p>
 	<p class='code'>PS C:> $vc_vm = (get-vm -ID VirtualMachine-$vcd_moref).name</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()'><img src='assets/images/blog_images/20201117-6.png' alt='Visual of PowerCLI step 2'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201117-6.png' alt='Visual of PowerCLI step 2'></button></div>
 	<p class='img_desc'>Figure 6: PowerCLI step 2</p>
 	<br>
 	<p>This can easily be scripted on a per Org basis to build out an inventory over hundreds of vApps and VMs to be able to map them in an automated fashion by simply using a couple of loops, I'll leave that exercise up to the reader though ;)</p>
