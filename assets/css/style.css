@@ -372,6 +372,7 @@ footer {
 
 /* For screens 1200px wide and less */
 @media screen and (max-width: 1200px) {
+/*Change direction of site content from horizontal to vertical for smaller screens*/
 .container {
 	display: flex;
 	flex-direction: column;
@@ -402,6 +403,7 @@ footer {
 
 /* For screens 950px wide and less */
 @media screen and (max-width: 950px) {
+/*Switch to hamburger menu for smaller screens*/
 nav button {
 	background-color: #28176e;
 	border: #150d36 2px solid;
@@ -437,6 +439,7 @@ nav button:hover {
 	display: block;
 }
 
+/*Switch view direction of 3 horizontal panels to columns*/
 .container {
 	display: flex;
 	flex-direction: column;
@@ -464,20 +467,24 @@ nav button:hover {
 
 }
 
+/*Reduce size of the page header to fit on smaller screens*/
 h1 {
 	font-size: 10vw;
 }
 
+/*Reduce image size to fit on smaller screens*/
 #about img {
 	max-width: 100%;
 }
 
+/*Update blog metadata from horizontal to vertical display*/
 .blog_meta {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
 }
 
+/*Resize iframes*/
 iframe {
 	max-width: 100%;
 }
