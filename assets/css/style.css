@@ -90,7 +90,7 @@ nav {
 	max-width: 1920px;
 }
 
-nav button {
+nav .button {
 	background-color: transparent;
 	border: #150d36 2px solid;
 	padding: 10px 15px;
@@ -99,7 +99,7 @@ nav button {
 	font-size: 18px;
 }
 
-nav button:hover {
+nav .button:hover, nav .active:hover {
 	background-color: #28176e;
 	border: #150d36 2px solid;
 	cursor: pointer;
@@ -118,6 +118,10 @@ nav button:hover {
 .active {
 	background-color: #150d36;
 	border: #28176e 2px solid;
+	padding: 10px 15px;
+	border-radius: 15px;
+	color: #ffffff;
+	font-size: 18px;
 }
 
 /* Font Awesome Images */
