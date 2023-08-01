@@ -48,10 +48,15 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
 
-<!-- ## Testing  -->
+## Testing 
 
 
-<!-- ### Validator Testing  -->
+### Validator Testing 
+
+#### Wave
+- Wave provides a contrast error for the H1 header of the website. Due to the CSS border added, the text is legible, despite the font colour being essentially transparent. This was a stylistic choice to leave as-is.
+
+- Wave also provides an error for the newsletter sign-up email field, as no label is included. This was left out on purpose, and again a stylistic choice.
 
 
 ## Deployment
