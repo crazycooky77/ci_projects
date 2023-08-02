@@ -21,47 +21,45 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 ## Features 
 
+- __Landing Page Image__ should show users that the site is about data and cloud computing.
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-hero.webp)
+
 - __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.
-<img src='assets/images/site_layout/live-nav.webp' alt='Navigation bar on the webpage'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-nav.webp)
 
 - __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.
 
-- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.
-<img src='assets/images/site_layout/live-blog-sidebar.webp' alt='Sidebar on the Blog page'/>
-
 - __Homepage__ shows the latest blog post on the site with links to share the post.
-<img src='assets/images/site_layout/live-home.webp' alt='Homepage view'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-home.webp)
+
+- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-sidebar.webp)
 
 - __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.
-<img src='assets/images/site_layout/live-blog.webp' alt='Blog page view'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog.webp)
 
 - __Share Options__ are available for each blog post to share the post to social media sites, or copy the link to the post for manual sharing.
-<img src='assets/images/site_layout/live-share.webp' alt='Share options for each blog post'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-share.webp)
 
 - __Enlarge Blog Images__ on any of the blog posts to see the images in a bigger format for better viewing. This can be done via mouseclick, and clicking outside of the image area, or pressing the Escape key, will return the image to it's original size.
-<img src='assets/images/site_layout/live-blog-enlarge.webp' alt='Enlarged image on a blog post'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-enlarge.webp)
 
 - __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
-<img src='assets/images/site_layout/live-videos.webp' alt='Videos page view'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-videos.webp)
 
 - __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
-<img src='assets/images/site_layout/live-events.webp' alt='Events page view'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-events.webp)
 
 - __About Me Page__ has information on the blog owner so the user can learn more about them.
-<img src='assets/images/site_layout/live-about.webp' alt='About Me page view'/>
-
-- __Landing Page Image__ should show users that the site is about data and cloud computing.
-<img src='assets/images/site_layout/live-hero.webp' alt='Hero image for the webpage'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-about.webp)
 
 - __Footer__ shows copyright information for the website.
-<img src='assets/images/site_layout/live-copyright.webp' alt='Copyright details for the webpage'/>
-
-- __Newsletter Sign-up__
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-copyright.webp)
 
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
-<img src='assets/images/site_layout/live-newsletter.webp' alt='Newsletter sign-up on each page of the site'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-newsletter.webp)
 
 ## Testing 
 1. Started with checking the site using Wave and resolving minor issues
@@ -169,19 +167,19 @@ Unfortunately the site deployment didn't work after the initial steps. After wai
 I created basic wireframes to plan out the layout for the website. The final version of the acutal website differs slightly, as some other styling options looked better than those initially planned. Some differences include the left-side page title, which was deemed unnecessary with button highlighting and actual headers replacing it. Also, a Follow Me button was planned in the navigation, but also some social links in the footer. As both are not needed, those in the footer were discarded.
 
 #### Planning
-<img src='assets/images/site_layout/frame-planning.webp' alt='Wireframe for the initial site planning'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-planning.webp)
 
 #### Homepage
-<img src='assets/images/site_layout/frame-home.webp' alt='Wireframe for the initial planning for the homepage'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-home.webp)
 
 #### Blog
-<img src='assets/images/site_layout/frame-blog.webp' alt='Wireframe for the initial planning for the blog page'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-blog.webp)
 
 #### Videos
-<img src='assets/images/site_layout/frame-videos.webp' alt='Wireframe for the initial planning for the videos page'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-videos.webp)
 
 #### Events
-<img src='assets/images/site_layout/frame-events.webp' alt='Wireframe for the initial planning for the events page'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-events.webp)
 
 #### About
-<img src='assets/images/site_layout/frame-about.webp' alt='Wireframe for the initial planning for the about page'/>
+[View image in a new tab by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-about.webp)
