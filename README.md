@@ -70,6 +70,8 @@ This site is to help people learn more about VMware topics, particularly relatin
 	7a. Set CSS height/weight for all site images
 	7b. Converted all images to webp format
 	7c. Set explicit image sizes for all img tags
+	7d. Updated Javascript to only load the necessary scripts on each page
+	7e. Updated iFrames to enable lazy loading
 
 ### Validator Testing 
 
@@ -93,6 +95,8 @@ Multiple steps were taken to improve Performance, as outlined in Testing (step 7
 ##### Videos
 
 ##### Events
+<img src='assets/images/readme/lighthouse_events.webp' alt='Lighthouse score results for Events page'/>
+There continues to be a Best Practices error on the page, due to a browser error logged to the console. This error comes from the embedded LinkedIn post, and was therefore left unresolved. The Performance recommendation to reduce unused JavaScript is also due to the embedded post.
 
 ##### About Me
 <img src='assets/images/readme/lighthouse_about.webp' alt='Lighthouse score results for About page'/>
