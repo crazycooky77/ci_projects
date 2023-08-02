@@ -21,44 +21,44 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 ## Features 
 
-- __Landing Page Image__ should show users that the site is about data and cloud computing.
+- __Landing Page Image__ should show users that the site is about data and cloud computing.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-hero.webp)
 
-- __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.
+- __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-nav.webp)
 
-- __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.
+- __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.\
 
-- __Homepage__ shows the latest blog post on the site with links to share the post.
+- __Homepage__ shows the latest blog post on the site with links to share the post.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-home.webp)
 
-- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.
+- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-sidebar.webp)
 
-- __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.
+- __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog.webp)
 
-- __Share Options__ are available for each blog post to share the post to social media sites, or copy the link to the post for manual sharing.
+- __Share Options__ are available for each blog post to share the post to social media sites, or copy the link to the post for manual sharing.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-share.webp)
 
-- __Enlarge Blog Images__ on any of the blog posts to see the images in a bigger format for better viewing. This can be done via mouseclick, and clicking outside of the image area, or pressing the Escape key, will return the image to it's original size.
+- __Enlarge Blog Images__ on any of the blog posts to see the images in a bigger format for better viewing. This can be done via mouseclick, and clicking outside of the image area, or pressing the Escape key, will return the image to it's original size.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-enlarge.webp)
 
-- __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
+- __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-videos.webp)
 
-- __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
+- __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-events.webp)
 
-- __About Me Page__ has information on the blog owner so the user can learn more about them.
+- __About Me Page__ has information on the blog owner so the user can learn more about them.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-about.webp)
 
-- __Footer__ shows copyright information for the website.
+- __Footer__ shows copyright information for the website.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-copyright.webp)
 
 ### Features Left to Implement
 
-- __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
+- __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.\
 [View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-newsletter.webp)
 
 ## Testing 
