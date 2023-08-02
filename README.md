@@ -66,7 +66,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 6. Resolved SEO issues identified by Lighthouse
 	6a. Set font size and added spacing between list items for the right panel on the blog page
 7. Resolved Performance issues identifiedb y Lighthouse
-	7a. Set max-height for blog images
+	7a. Set CSS height/weight for blog images
 	7b. Converted all images to webp format
 	7c. Set explicit image sizes for all img tags
 
@@ -81,7 +81,19 @@ All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css
 <img src='assets/images/readme/w3c.webp' alt='W3C Validator result'/>
 
 #### Lighthouse
-The website was checked using Lighthouse and issues that were identified resolved. Therefore, the latest score for the site is at... as evidenced below.
+The website was checked using Lighthouse and issues that were identified resolved as best possible. Therefore, the latest scores for the site is as below.
+##### Index
+<img src='assets/images/readme/lighthouse_index.webp' alt='Lighthouse score results'/>
+Multiple steps were taken to improve Performance, as outlined in [Testing](#testing) (step 7), however 88 was the highest score achieved.
+
+##### Blog
+
+##### Videos
+
+##### Events
+
+##### About Me
+
 
 #### Wave
 - Wave provides a contrast error for the H1 header of the website. Due to the CSS border added, the text is legible, despite the font colour being essentially transparent. This was a stylistic choice to leave as-is.
