@@ -57,7 +57,7 @@
                     <div id='videos'>
                         <h2>vBrownBag on YouTube</h2>
                         <h3>Latest Video</h3>
-                        <div class='page_frame'><iframe src="https://www.youtube.com/embed/videoseries?list=UULFaZf13iWhwnBdpIkrEmHLbA" loading='lazy' width="560" height="315" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                        <div class='page_frame'><iframe src='https://www.youtube.com/embed/videoseries?list=UULFaZf13iWhwnBdpIkrEmHLbA' loading='lazy' width='560' height='315' title='YouTube video player' allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>
 <!-- Link to the vBrownBag website -->
                         <p>Find out more on the <a href='https://vbrownbag.com/' rel='noopener' target='_blank' aria-label='Open the vBrownBag website (opens in a new tab)'>vBrownBag website</a></p>
                         <hr>
@@ -92,6 +92,13 @@
 <!-- Load FontAwesome, and script file -->
         <script src='https://kit.fontawesome.com/3e8d6f7307.js' crossorigin='anonymous'></script>
         <script src='assets/js/sub_script.js'></script>
+        <script>window.onload = function() {
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = 'https://www.youtube.com/embed/videoseries?list=UULFaZf13iWhwnBdpIkrEmHLbA';
+            document.body.appendChild(iframe);
+            };
+        </script>
     </body>
 
 </html>
