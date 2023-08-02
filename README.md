@@ -2,7 +2,7 @@
 
 This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well.
 
-<img src='assets/images/readme/am_i_responsive.png' alt='Am I Responsive site image'/>
+<img src='assets/images/readme/responsive.webp' alt='Am I Responsive site image'/>
 
 1. [User Stories](#user-stories)
 2. [Features](#features)
@@ -65,16 +65,19 @@ This site is to help people learn more about VMware topics, particularly relatin
 	5b. Updated IDs that were duplicate with classes
 6. Resolved SEO issues identified by Lighthouse
 	6a. Set font size and added spacing between list items for the right panel on the blog page
+7. Resolved Performance issues identifiedb y Lighthouse
+	7a. Set max-height for blog images
+	7b. Converted all images to webp format
 
 ### Validator Testing 
 
 #### HTML Checker
 All pages were checked using the HTML Checker. Some issues were identified as described in Testing. All were resolved until no further errors were identified for any of the pages, as evidenced [here](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html) and in the image below.
-<img src='assets/images/readme/html_check.png' alt='HTML Checker result'/>
+<img src='assets/images/readme/html_check.webp' alt='HTML Checker result'/>
 
 #### W3C
 All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) and no errors were found as evidenced on [this page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and via the image below.
-<img src='assets/images/readme/w3c.png' alt='W3C Validator result'/>
+<img src='assets/images/readme/w3c.webp' alt='W3C Validator result'/>
 
 #### Lighthouse
 The website was checked using Lighthouse and issues that were identified resolved. Therefore, the latest score for the site is at... as evidenced below.
@@ -129,19 +132,19 @@ Unfortunately the site deployment didn't work after the initial steps. After wai
 I created basic wireframes to plan out the layout for the website. The final version of the acutal website differs slightly, as some other styling options looked better than those initially planned. Some differences include the left-side page title, which was deemed unnecessary with button highlighting and actual headers replacing it. Also, a Follow Me button was planned in the navigation, but also some social links in the footer. As both are not needed, those in the footer were discarded.
 
 #### Planning
-<img src='assets/images/site_layout/planning.png' alt='Wireframe for the initial site planning'/>
+<img src='assets/images/site_layout/planning.webp' alt='Wireframe for the initial site planning'/>
 
 #### Homepage
-<img src='assets/images/site_layout/home.png' alt='Wireframe for the initial planning for the homepage'/>
+<img src='assets/images/site_layout/home.webp' alt='Wireframe for the initial planning for the homepage'/>
 
 #### Blog
-<img src='assets/images/site_layout/blog.png' alt='Wireframe for the initial planning for the blog page'/>
+<img src='assets/images/site_layout/blog.webp' alt='Wireframe for the initial planning for the blog page'/>
 
 #### Videos
-<img src='assets/images/site_layout/videos.png' alt='Wireframe for the initial planning for the videos page'/>
+<img src='assets/images/site_layout/videos.webp' alt='Wireframe for the initial planning for the videos page'/>
 
 #### Events
-<img src='assets/images/site_layout/events.png' alt='Wireframe for the initial planning for the events page'/>
+<img src='assets/images/site_layout/events.webp' alt='Wireframe for the initial planning for the events page'/>
 
 #### About
-<img src='assets/images/site_layout/about.png' alt='Wireframe for the initial planning for the about page'/>
+<img src='assets/images/site_layout/about.webp' alt='Wireframe for the initial planning for the about page'/>

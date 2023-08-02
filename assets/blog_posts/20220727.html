@@ -11,27 +11,27 @@
 	<p>Telco Cloud Automation 2.1 introduced a new feature to be able to perform better health checks for deployed Kubernetes clusters. This post will explore that functionality.</p>
 	<br>
 	<p>The diagnosis can be run against management clusters, workload clusters or specific nodepools. When going into the details of each of those objects you will find a Diagnosis tab like in the picture below.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-1.jpeg' alt='Cluster Diagnosis'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-1.webp' alt='Cluster Diagnosis'></button></div>
 	<p class='img_desc'>Figure 1: Cluster Diagnosis</p>
 	<br>
 	<p>When you first run this you obviously would not have results listed, but still have the button to "Run Diagnosis". When that button is clicked a new wizard pops up which lets you choose if you only want to run a subset of tests (you can simply multi-select by clicking on each of the options you want) or if you leave the field blank (it does read optional) all of the tests at once as shown in the figure below.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-2.jpeg' alt='Diagnosis Test Selection'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-2.webp' alt='Diagnosis Test Selection'></button></div>
 	<p class='img_desc'>Figure 2: Diagnosis Test Selection</p>
 	<br>
 	<p>The diagnosis itself will be run through a small helper pod which gets downloaded, the default timeout for this is 60 seconds, depending on the connection to the repository the first run may error out if by that timeout the pod is not fully downloaded or up and running as shown in the picture below. Simply repeat the run and everything should just work fine though.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-3.jpeg' alt='Diagnosis run timeout'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-3.webp' alt='Diagnosis run timeout'></button></div>
 	<p class='img_desc'>Figure 3: Diagnosis run timeout</p>
 	<br>
 	<p>Once the run completes you will see a summary of the run as well as the conducted tests with their respective pass or failure status.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-4.jpeg' alt='Successfully completed diagnosis run'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-4.webp' alt='Successfully completed diagnosis run'></button></div>
 	<p class='img_desc'>Figure 4: Successfully completed diagnosis run</p>
 	<br>
 	<p>If a test fails the overall status and the respective test will be marked as fail.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-5.jpeg' alt='Failed diagnosis results'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-5.webp' alt='Failed diagnosis results'></button></div>
 	<p class='img_desc'>Figure 5: Failed diagnosis results</p>
 	<br>
 	<p>To get further insight into what made a test fail you can download the diagnosis report, which will download a tarball with a much more detailed html report, for this example one of the hosts in the cluster seems to be missing proper NTP configuration.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-6.jpeg' alt='Diagnosis test report'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220727-6.webp' alt='Diagnosis test report'></button></div>
 	<p class='img_desc'>Figure 6: Diagnosis test report</p>
 	<br>
 	<p>When run against a management cluster the following test cases will be run if the whole test suite is selected:</p>

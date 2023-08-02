@@ -147,7 +147,7 @@ form > #email {
 
 /* Hero Image */
 #hero {
-	background: url('../images/hero-image.png') no-repeat center center;
+	background: url('../images/hero.webp') no-repeat center center;
 	height: 540px;
 	width: 100%;
 	position: relative;
