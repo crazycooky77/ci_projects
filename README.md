@@ -68,6 +68,7 @@ This site is to help people learn more about VMware topics, particularly relatin
 7. Resolved Performance issues identifiedb y Lighthouse
 	7a. Set max-height for blog images
 	7b. Converted all images to webp format
+	7c. Set explicit image sizes for all img tags
 
 ### Validator Testing 
 

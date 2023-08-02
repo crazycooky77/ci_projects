@@ -36,13 +36,13 @@
 	<br>
 	<h4><a id='setup'>Setup procedure</a></h4>
 	<p>The setup procedure itself is rather simple and can be performed as part of the setup wizard for the TCA Manager. The first step is to select the Active Directory option as the Authentication Provider.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-1.webp' alt='Telco Cloud Automation setup step to select authentication provider'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-1.webp' width='1600px' height='665px' alt='Telco Cloud Automation setup step to select authentication provider'></button></div>
 	<p class='img_desc'>Figure 1: Telco Cloud Automation setup step to select authentication provider</p>
 	<br>
 	<p>Next you provide the information required to connect to the Active Directory server, note that the Admin User Distinguished name is slightly awkwardly named, it's the LDAP bind user and only requires read-only permissions and not administrative level perissions on Active Directory.</p>
 	<br>
 	<p>The Admin Group name is the DN of the group of users which gain default administrative into the TCA Manager.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-2.webp' alt='Example of setup details for connecting to your active directory for TCA'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-2.webp' width='1600px' height='651px' alt='Example of setup details for connecting to your active directory for TCA'></button></div>
 	<p class='img_desc'>Figure 2: Example of setup details for connecting to your active directory for TCA</p>
 	<br>
 	<p>This pretty much completes the setup steps required. These settings can be modified if necessary in the appliance administrative interface at a later point in time (only in the VM based deployment)</p>
@@ -51,7 +51,7 @@
 	<p>You might think that from here on you know how to actually log into the TCA Manager and this shouldn't require further elaboration. However, there is a login convention to be aware of.</p>
 	<br>
 	<p>You do not log in with your email address or canonical name as given in Active Directory with an account but rather in the format of username@ad, so for the user administrator@corp.local which I am using in the below screenshot this turns into administrator@ad.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-3.webp' alt='Telco Cloud Automation login page'></button></div>
+	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-3.webp' width='1036px' height='802px' alt='Telco Cloud Automation login page'></button></div>
 	<p class='img_desc'>Figure 3: Telco Cloud Automation login page</p>
 	<br>
 	<p>I will be going over some other new features of Telco Cloud Automation 2.1 in future posts, as there is some very nice "Quality of life" improvements in this release, e.g. Kubernetes Stretched Cluster support or the possibility to now deploy specific TKG extensions directly via TCA.</p>
