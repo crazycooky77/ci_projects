@@ -6,9 +6,10 @@ This site is to help people learn more about VMware topics, particularly relatin
 
 1. [User Stories](#user-stories)
 2. [Features](#features)
-3. [Deployment](#deployment)
-4. [Credits](#credits)
-5. [Media](#media)
+3. [Testing](#testing)
+4. [Deployment](#deployment)
+5. [Credits](#credits)
+6. [Media](#media)
 
 ## User Stories
 
@@ -84,7 +85,7 @@ All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css
 The website was checked using Lighthouse and issues that were identified resolved as best possible. Therefore, the latest scores for the site is as below.
 ##### Index
 <img src='assets/images/readme/lighthouse_index.webp' alt='Lighthouse score results'/>
-Multiple steps were taken to improve Performance, as outlined in [Testing](#testing) (step 7), however 88 was the highest score achieved.
+Multiple steps were taken to improve Performance, as outlined in Testing (step 7), however 88 was the highest score achieved.
 
 ##### Blog
 
