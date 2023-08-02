@@ -22,34 +22,46 @@ This site is to help people learn more about VMware topics, particularly relatin
 ## Features 
 
 - __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.
+<img src='assets/images/site_layout/live-nav.webp' alt='Navigation bar on the webpage'/>
 
-- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page.
+- __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.
 
-- __Homepage__ shows the latest blog post on the site with links to share the post. *- coming soon* - It also has some links in the right side bar to access featured posts, and posts relating to specific categories and with specific tags.
+- __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.
+<img src='assets/images/site_layout/live-blog-sidebar.webp' alt='Sidebar on the Blog page'/>
+
+- __Homepage__ shows the latest blog post on the site with links to share the post.
+<img src='assets/images/site_layout/live-home.webp' alt='Homepage view'/>
 
 - __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.
+<img src='assets/images/site_layout/live-blog.webp' alt='Blog page view'/>
 
-- __Featured Posts__ in the left sidebar of both the homepage and blog page include selected posts from the blog owner that the user can load via a click of the mouse.
+- __Share Options__ are available for each blog post to share the post to social media sites, or copy the link to the post for manual sharing.
+<img src='assets/images/site_layout/live-share.webp' alt='Share options for each blog post'/>
 
-- __Blog Tags__ can be used to show all posts with a specific tag, in case the user is looking for content related to a specific topic.
+- __Enlarge Blog Images__ on any of the blog posts to see the images in a bigger format for better viewing. This can be done via mouseclick, and clicking outside of the image area, or pressing the Escape key, will return the image to it's original size.
+<img src='assets/images/site_layout/live-blog-enlarge.webp' alt='Enlarged image on a blog post'/>
 
 - __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.
+<img src='assets/images/site_layout/live-videos.webp' alt='Videos page view'/>
 
 - __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.
+<img src='assets/images/site_layout/live-events.webp' alt='Events page view'/>
 
 - __About Me Page__ has information on the blog owner so the user can learn more about them.
-
-- __Follow Me Button__ will redirect the user to the blog owner's Twitter page.
+<img src='assets/images/site_layout/live-about.webp' alt='About Me page view'/>
 
 - __Landing Page Image__ should show users that the site is about data and cloud computing.
+<img src='assets/images/site_layout/live-hero.webp' alt='Hero image for the webpage'/>
 
 - __Footer__ shows copyright information for the website.
+<img src='assets/images/site_layout/live-copyright.webp' alt='Copyright details for the webpage'/>
 
-- __Dynamic page sizing__ is available for users on different sized devices to ensure a smooth user experience navigating the page content.
+- __Newsletter Sign-up__
 
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.
+<img src='assets/images/site_layout/live-newsletter.webp' alt='Newsletter sign-up on each page of the site'/>
 
 ## Testing 
 1. Started with checking the site using Wave and resolving minor issues
@@ -66,12 +78,13 @@ This site is to help people learn more about VMware topics, particularly relatin
 	5b. Updated IDs that were duplicate with classes
 6. Resolved SEO issues identified by Lighthouse
 	6a. Set font size and added spacing between list items for the right panel on the blog page
-7. Resolved Performance issues identifiedb y Lighthouse
+7. Resolved Performance issues identified by Lighthouse where possible
 	7a. Set CSS height/weight for all site images
 	7b. Converted all images to webp format
 	7c. Set explicit image sizes for all img tags
 	7d. Updated Javascript to only load the necessary scripts on each page
 	7e. Updated iFrames to enable lazy loading
+8. 
 
 ### Validator Testing 
 
@@ -156,19 +169,19 @@ Unfortunately the site deployment didn't work after the initial steps. After wai
 I created basic wireframes to plan out the layout for the website. The final version of the acutal website differs slightly, as some other styling options looked better than those initially planned. Some differences include the left-side page title, which was deemed unnecessary with button highlighting and actual headers replacing it. Also, a Follow Me button was planned in the navigation, but also some social links in the footer. As both are not needed, those in the footer were discarded.
 
 #### Planning
-<img src='assets/images/site_layout/planning.webp' alt='Wireframe for the initial site planning'/>
+<img src='assets/images/site_layout/frame-planning.webp' alt='Wireframe for the initial site planning'/>
 
 #### Homepage
-<img src='assets/images/site_layout/home.webp' alt='Wireframe for the initial planning for the homepage'/>
+<img src='assets/images/site_layout/frame-home.webp' alt='Wireframe for the initial planning for the homepage'/>
 
 #### Blog
-<img src='assets/images/site_layout/blog.webp' alt='Wireframe for the initial planning for the blog page'/>
+<img src='assets/images/site_layout/frame-blog.webp' alt='Wireframe for the initial planning for the blog page'/>
 
 #### Videos
-<img src='assets/images/site_layout/videos.webp' alt='Wireframe for the initial planning for the videos page'/>
+<img src='assets/images/site_layout/frame-videos.webp' alt='Wireframe for the initial planning for the videos page'/>
 
 #### Events
-<img src='assets/images/site_layout/events.webp' alt='Wireframe for the initial planning for the events page'/>
+<img src='assets/images/site_layout/frame-events.webp' alt='Wireframe for the initial planning for the events page'/>
 
 #### About
-<img src='assets/images/site_layout/about.webp' alt='Wireframe for the initial planning for the about page'/>
+<img src='assets/images/site_layout/frame-about.webp' alt='Wireframe for the initial planning for the about page'/>
