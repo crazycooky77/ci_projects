@@ -21,6 +21,13 @@ hr {
 	margin-bottom: 25px;
 }
 
+img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+}
+
 /* Headers */
 h1 {
 	display: flex;
@@ -277,13 +284,6 @@ h4 {
 	cursor: pointer;
 	margin-bottom: 5px;
 	font-size: 16px;
-}
-
-.img_scale img {
-	max-width: 100%;
-	max-height: 100%;
-	width: auto;
-	height: auto;
 }
 
 .img_scale:active img, .img_scale:focus img {
