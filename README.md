@@ -91,6 +91,8 @@ The website was checked using Lighthouse and issues that were identified resolve
 Multiple steps were taken to improve Performance, as outlined in Testing (step 7), however 88 was the highest score achieved.
 
 ##### Blog
+<img src='assets/images/readme/lighthouse_blog.webp' alt='Lighthouse score results for Blog page'/>
+Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. [This page](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages) includes a response from GitHub support that confirms this cannot be changed on user side.
 
 ##### Videos
 
