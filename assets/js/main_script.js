@@ -1,9 +1,3 @@
-// Function to show a message and reset the form on submission (newsletter signup)
-function signedUp() {
-    document.getElementById('newsletter').reset();
-    return confirm('Thank you for signing up! Use the Unsubscribe link in the email if you change your mind.');
-}
-
 // Function to load other HTML files
 $(function() {
  $('#latestblog').load('assets/blog_posts/20220731.html');
