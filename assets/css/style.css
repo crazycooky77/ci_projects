@@ -368,6 +368,10 @@ tr:nth-child(odd) {
 	margin: 20px 0;
 }
 
+.page_frame {
+	text-align: center;
+}
+
 /* Footer */
 footer {
 	margin: 25px 10px 10px 10px;
