@@ -95,6 +95,8 @@ Multiple steps were taken to improve Performance, as outlined in Testing (step 7
 Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. [This page](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages) includes a response from GitHub support that confirms this cannot be changed on user side.
 
 ##### Videos
+<img src='assets/images/readme/lighthouse_videos.webp' alt='Lighthouse score results for Videos page'/>
+Performance on this page is definitely undesirable, however several scripts and solutions were attempted with no positive result. The poor performance stems from the 1 embedded YouTube video on the page. There is a solution by using a facade to lazy-load the video, however that will require some more learning and time to implement. Therefore, the page was left as-is for the interim.
 
 ##### Events
 <img src='assets/images/readme/lighthouse_events.webp' alt='Lighthouse score results for Events page'/>
