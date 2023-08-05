@@ -10,18 +10,18 @@
 <div class='blog_content'>
 	<h4>Overview</h4>
 	<ul class='blog_list'>
-		<li><a href='#tci'>Telco Cloud Infrastructure (TCI)</a></li>
-		<li><a href='#tca'>Telco Cloud Automation (TCA)</a>
+		<li><a href='#tci-20201102'>Telco Cloud Infrastructure (TCI)</a></li>
+		<li><a href='#tca-20201102'>Telco Cloud Automation (TCA)</a>
 			<ul class='sub_list'>
-				<li><a href='#caas'>CaaS Management</a></li>
-				<li><a href='#auto'>Infrastructure Automation</a></li>
-				<li><a href='#gvnfm'>G-VNFM</a></li>
-				<li><a href='#nfvo'>NFVO</a></li>
-				<li><a href='#cicd'>CI/CD integration</a></li>
+				<li><a href='#caas-20201102'>CaaS Management</a></li>
+				<li><a href='#auto-20201102'>Infrastructure Automation</a></li>
+				<li><a href='#gvnfm-20201102'>G-VNFM</a></li>
+				<li><a href='#nfvo-20201102'>NFVO</a></li>
+				<li><a href='#cicd-20201102'>CI/CD integration</a></li>
 			</ul>
 		</li>
-		<li><a href='#tcp'>Telco Cloud Platform (TCP)</a></li>
-		<li><a href='#tcops'>Telco Cloud Operations (TCOPS)</a></li>
+		<li><a href='#tcp-20201102'>Telco Cloud Platform (TCP)</a></li>
+		<li><a href='#tcops-20201102'>Telco Cloud Operations (TCOPS)</a></li>
 		<li><a href='#summary-20201102'>Summary</a></li>
 	</ul>
 	<br>
@@ -29,7 +29,7 @@
 	<br>
 	<p>VMware recently did a couple of renames and reshuffles around the telco product portfolio, evolving what used to be vCloud NFV to Telco Cloud Infrastructure and introducing a couple of other technology bundles to go along with this. Depending on the business goals and technical requirements building a modern telco cloud platform can take many different approaches, shapes and sizes. So let's start by looking what the different offerings are from a VMware perspective, which use cases they mainly cover and how you may combine them when building a shared telco cloud.</p>
 	<br>
-	<h4><a id='tci'>Telco Cloud Infrastructure (TCI)</a></h4>
+	<h4><a id='tci-20201102'>Telco Cloud Infrastructure (TCI)</a></h4>
 	<p>Let's start with the basics. If you know what vCloud NFV used to be then Telco CLoud Infrastructure is the evolution of that particular bundle with the latest releases for NSX-T and the VIM options (vCloud Director and VMware Integrated OpenStack).</p>
 	<br>
 	<p>Telco Cloud Infrastructure covers the NFVi (Virtual Compute / ESXi , Virtual Storage / vSAN or certified external storage, and Virtual Networking / NSX) and VIM part of the ETSI reference model. In addition, optionally, NFVi operational tools (vRealize Operations Manager, vRealize Log Insight, and vRealize Network Insight) can be part of this building block for improved NFVi operations, KPI and log centralization, enhanced monitoring, capacity planning, and root cause analysis capabilities for the virtualized infrastructure and with an infrastructure centric viewpoint for workloads sitting on top of that infrastructure.</p>
@@ -53,7 +53,7 @@
 	<br>
 	<p>Further information and details about the Telco Cloud Infrastructure bundle components and versions can be found in the official release notes for the <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Infrastructure/1.0/rn/Telco-Cloud-Infrastructure-Cloud-Director-Edition-10-Release-Notes.html' rel='noopener' target='_blank' aria-label="Open VMware Telco Cloud Infrastructure - Cloud Director Edition 1.0 Release Notes on VMware Docs (opens in a new tab)">Cloud Director Edition</a> and <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Infrastructure/1.0/rn/Telco-Cloud-Infrastructure-OpenStack-Edition-10-Release-Notes.html' rel='noopener' target='_blank' aria-label="Open VMware Telco Cloud Infrastructure - OpenStack Edition 1.0 Release Notes on VMware Docs (opens in a new tab)">OpenStack Edition.</a></p>
 	<br>
-	<h4><a id='tca'>Telco Cloud Automation (TCA)</a></h4>
+	<h4><a id='tca-20201102'>Telco Cloud Automation (TCA)</a></h4>
 	<p>While Telco Cloud Automation is a single product it does serve several very distinct purposes:</p>
 	<ul class='blog_list'>
 		<li>CaaS Management</li>
@@ -67,28 +67,28 @@
 	<br>
 	<p>Let's take a look at each of those feature sets in a bit more detail next.</p>
 	<br>
-	<h4><a id='caas'>CaaS Management</a></h4>
+	<h4><a id='caas-20201102'>CaaS Management</a></h4>
 	<p>This feature will help you to manage VMware Tanzu clusters for CNFs by allowing to deploy clusters on demand, reconfigure them depending on the actual CNF needs (late binding of configuration) and optimize their management and monitoring.</p>
 	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201102-3.webp' width='1886px' height='850px' alt='TCA CaaS Management diagram'></button></div>
 	<p class='img_desc'>Figure 3: TCA CaaS Management</p>
 	<br>
-	<h4><a id='auto'>Infrastructure Automation</a></h4>
+	<h4><a id='auto-20201102'>Infrastructure Automation</a></h4>
 	<p>Infrastructure automation allows you to consistently setup infrastructure domains and boot strap whole environments. If you are familiar with the concept of VMware Clouf Foundation (VCF) then this is very similar in a more telco specific context.</p>
 	<br>
 	<p>For new sites templates can be created and customized to utilize Zero Touch Provisioning (ZTP) for the infrastructure as well as for the workloads (VNFs or CNFs).</p>
 	<br>
-	<h4><a id='gvnfm'>G-VNFM</a></h4>
+	<h4><a id='gvnfm-20201102'>G-VNFM</a></h4>
 	<p>TCA allows to model VNF/CNF and network services in a graphical designer and to extend these services with life-cycle operations. Should a VNF come with a specific VNFM standard ETSI based interfaces can be utilized to drive integration into these partner systems as well.</p>
 	<br>
-	<h4><a id='nfvo'>NFVO</a></h4>
+	<h4><a id='nfvo-20201102'>NFVO</a></h4>
 	<p>In addition to the G-VNFM functionalty, TCA also allows to be leverage an optimized placement and decision engine to enable multi-cloud placement and orchestration of services across different infrastructures, sites and solutions, enabled by standard ETSI interfaces for further horizontal and vertical integrations.</p>
 	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201102-4.webp' width='678px' height='609px' alt='TCA multi-cloud orchestration diagram'></button></div>
 	<p class='img_desc'>Figure 4: TCA multi-cloud orchestration</p>
 	<br>
-	<h4><a id='cicd'>CI/CD integration</a></h4>
+	<h4><a id='cicd-20201102'>CI/CD integration</a></h4>
 	<p>Through standard API sets and interfaces each of the core building blocks of TCA can be managed and driven through a CI/CD chain, e.g. uploads of new CNF packages triggering test and production deploys in a fully automated fashion.</p>
 	<br>
-	<h4><a id='tcp'>Telco Cloud Platform (TCP)</a></h4>
+	<h4><a id='tcp-20201102'>Telco Cloud Platform (TCP)</a></h4>
 	<p>Telco Cloud Platform combines certain parts of TCI and TCA into a single bundle and on top adds Tanzu licensing which will allow you to utilize the CaaS Management of TCA to its fullest and also host CNFs in either a standalone fashion as the only netowrk functions or in a hybrid fashion concurrently running VNFs and CNFs (with an added VIM) as VNF vendors adopt to the new software paradigms and migrate their whole portfolio towards a container based approach.</p>
 	<br>
 	<p>The current Telco Cloud Platform 1.0 bundle includes the follwoing versions (major versions listed only, minor patches may be added as approved patches throughout the life-cycle of the bundle):</p>
@@ -107,7 +107,7 @@
 	<br>
 	<p>For further information and details about the Telco Cloud Platorm bundle components and versions can be found in the official release notes for <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Platform/1.0/rn/Telco-Cloud-Platform-5G-Edition-10-Release-Notes.html' rel='noopener' aria-label="Open VMware Telco Cloud Platform - 5G Edition 1.0 Release Notes on VMware Docs (opens in a new tab)">Telco Cloud Platform 5 Edition</a></p>
 	<br>
-	<h4><a id='tcops'>Telco Cloud Operations (TCOPS)</a></h4>
+	<h4><a id='tcops-20201102'>Telco Cloud Operations (TCOPS)</a></h4>
 	<p>Telco Cloud Operations is a real-time assurance solution which allows for holistic monitoring, performance management, closed-looped actions and automated root cause analysis. While vRealize Operations Manager is more infrastructure focussed Telco Cloud Operations takes application and network focussed end-to-end view through the whole Telco Cloud stack.</p>
 	<br>
 	<p>Key features include:</p>

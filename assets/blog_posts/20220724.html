@@ -10,22 +10,22 @@
 <div class='blog_content'>
 	<h4>Overview</h4>
 	<ul class='blog_list'>
-		<li><a href='#release_notes'>Release Notes description</a></li>
-		<li><a href='#limitations'>Current limitations and caveats</a></li>
-		<li><a href='#setup'>Setup procedure</a></li>
-		<li><a href='#login'>How to login into the TCA Manager</a></li>
+		<li><a href='#release_notes-20220724'>Release Notes description</a></li>
+		<li><a href='#limitations-20220724'>Current limitations and caveats</a></li>
+		<li><a href='#setup-20220724'>Setup procedure</a></li>
+		<li><a href='#login-20220724'>How to login into the TCA Manager</a></li>
 	</ul>
 	<br>
 	<p>Telco Cloud Automation 2.1 was released last week and this post will explore the newly introduced feature to directly access Active Directoy authentication via the TCA Manager.</p>
 	<br>
-	<h4><a id='release_notes'>Release Notes description</a></h4>
+	<h4><a id='release_notes-20220724'>Release Notes description</a></h4>
 	<p>The release notes cover this topic in a rather brief statement:</p>
 	<br>
 	<p style='text-decoration: italic;'>Integration with external Active Directory system for user authentication, in addition to vCenter Server authentication.</p>
 	<br>
 	<p>I will concentrate on the configuration for the virtual machine form factor of Telco Cloud Automation here, but the steps on how to configure this functionality within the Cloud Native deployment of Telco Cloud Automation can be found in the installation guide, you are looking to modify the "tcaMgr" section accordingly. <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Automation/2.1/tca-deploymentguide/GUID-A039DFF6-95FC-4ACB-8FD2-1A1EFCFB272D.html' target='_blank' rel='noopener' aria-label="Go to the TCA 2.1 Deployment Guide on VMware's website (opens in a new tab)">TCA 2.1 Deployment Guide</p>
 	<br>
-	<h4><a id='limitations'>Current limitations and caveats</a></h4>
+	<h4><a id='limitations-20220724'>Current limitations and caveats</a></h4>
 	<p>Be warned, that once you have decided for an authentication model for the TCA Manager in the Cloud Native deployment there is no supported way of changing this today. This change is possible in the VM based deployment (though you do lose all assigned permissions when you do so).</p>
 	<br>
 	<p>The current implementation will allow you to utilize logins directly against an Active Directory LDAP structure for the TCA Manager only, the TCA-CPs will still be integrated with the vSphere PSC based authentication.</p>
@@ -34,7 +34,7 @@
 	<br>
 	<p>Only Active Directory has been officially tested so far, which means while other schema compliant identity sources may work they are deemed unsupported.</p>
 	<br>
-	<h4><a id='setup'>Setup procedure</a></h4>
+	<h4><a id='setup-20220724'>Setup procedure</a></h4>
 	<p>The setup procedure itself is rather simple and can be performed as part of the setup wizard for the TCA Manager. The first step is to select the Active Directory option as the Authentication Provider.</p>
 	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20220724-1.webp' width='1600px' height='665px' alt='Telco Cloud Automation setup step to select authentication provider'></button></div>
 	<p class='img_desc'>Figure 1: Telco Cloud Automation setup step to select authentication provider</p>
@@ -47,7 +47,7 @@
 	<br>
 	<p>This pretty much completes the setup steps required. These settings can be modified if necessary in the appliance administrative interface at a later point in time (only in the VM based deployment)</p>
 	<br>
-	<h4><a id='login'>How to login into the TCA Manager</a></h4>
+	<h4><a id='login-20220724'>How to login into the TCA Manager</a></h4>
 	<p>You might think that from here on you know how to actually log into the TCA Manager and this shouldn't require further elaboration. However, there is a login convention to be aware of.</p>
 	<br>
 	<p>You do not log in with your email address or canonical name as given in Active Directory with an account but rather in the format of username@ad, so for the user administrator@corp.local which I am using in the below screenshot this turns into administrator@ad.</p>
