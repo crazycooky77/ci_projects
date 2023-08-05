@@ -503,6 +503,11 @@ h1 {
 	margin: auto;
 }
 
+/*Image transform from the left*/
+.img_scale:active img, .img_scale:focus img {
+	transform-origin: center left;
+}
+
 /*Styling for code blocks*/
 .code {
 	word-wrap: break-word;
