@@ -419,10 +419,11 @@ footer {
 
 /* For screens 950px wide and less */
 @media screen and (max-width: 950px) {
-
+/*Using universal selector to ensure content doesn't exceed screen size*/
 * {
 	max-width: 100%;
 }
+
 /*Switch to hamburger menu for smaller screens*/
 nav .button {
 	background-color: #28176e;
@@ -499,5 +500,11 @@ h1 {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
+	margin: auto;
+}
+
+/*Styling for code blocks*/
+.code {
+	word-wrap: break-word;
 }
 }
