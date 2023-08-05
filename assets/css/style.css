@@ -500,7 +500,10 @@ h1 {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
-	margin: auto;
+}
+
+.tag {
+	margin: auto !important;
 }
 
 /*Image transform from the left*/
