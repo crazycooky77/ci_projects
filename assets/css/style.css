@@ -517,15 +517,10 @@ h1 {
 }
 }
 
-/* For iOS */
+/* For Safari on iOS */
 @supports (-webkit-touch-callout: none) {
-/* For Safari */
-	@media not all and (min-resolution:.001dpcm) { 
-    	@media {
 /*Using universal selector to ensure content doesn't exceed screen size*/
-			.img_scale:active img, .img_scale:focus img {
-				transform: none;
-}
-}
+.img_scale:active img, .img_scale:focus img {
+	transform: none;
 }
 }
