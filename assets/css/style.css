@@ -517,7 +517,7 @@ h1 {
 }
 }
 
-/* For Safari on iOS */
+/* For iOS devices */
 @supports (-webkit-touch-callout: none) {
 /*Disable image transformation*/
 	.img_scale:active img, .img_scale:focus img {
