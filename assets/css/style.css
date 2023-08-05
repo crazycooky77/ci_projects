@@ -518,9 +518,13 @@ h1 {
 }
 
 /* For Safari on iOS */
-@supports (-webkit-touch-callout: none) {
+/*@supports (-webkit-touch-callout: none) {*/
 /*Using universal selector to ensure content doesn't exceed screen size*/
+
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
+{ @media {
 .img_scale:active img, .img_scale:focus img {
 	transform: none;
+}
 }
 }
