@@ -519,8 +519,8 @@ h1 {
 
 /* For Safari on iOS */
 @supports (-webkit-touch-callout: none) {
-/*Using universal selector to ensure content doesn't exceed screen size*/
-.img_scale:active img, .img_scale:focus img {
-	transform: none;
+/*Disable image transformation*/
+	.img_scale:active img, .img_scale:focus img {
+		transform: none;
 }
 }
