@@ -11,6 +11,11 @@ This site is to help people learn more about VMware topics, particularly relatin
 5. [Credits](#credits)
 6. [Media](#media)
 
+## Known Bugs
+When enlarging a blog image using Safari on an iOS device, the focus would get stuck. The user could not reset the image size by tapping elsewhere on the screen, though this works in Chrome on all devices, and in Safari on macOS. For this reason, the image transform option has been disabled entirely for iOS devices until an appropriate fix can be identified.
+
+No other bugs were identified that could not be resolved.
+
 ## User Stories
 
 - As a user, I want to view the various blog posts so that I can learn more about topics included in VMware certifications.
@@ -82,7 +87,56 @@ This site is to help people learn more about VMware topics, particularly relatin
 	7c. Set explicit image sizes for all img tags
 	7d. Updated Javascript to only load the necessary scripts on each page
 	7e. Updated iFrames to enable lazy loading
-8. 
+
+### Individual Page Testing
+The below steps were done in Chrome, Safari, on an iPad Mini (Safari and Chrome), and using a Pixel 6 (Chrome) to ensure all features work correctly, regardless of the device.
+
+#### Navigation Bar
+- Checked all buttons
+- Noted an issue with styling on small screens and adjusted button background from transparent
+
+#### Homepage
+- Newsletter sign-up tested (including with an empty field and an entry with no @)
+- Checked all "Share on" links are working correctly (including the Copy Link function)
+- Clicked all images in the blog post to ensure enlarge and Escape out works
+
+#### Blog
+- Newsletter sign-up tested (including with an empty field and an entry with no @)
+- Checked all "Share on" links are working correctly for every single blog post (including the Copy Link function)
+- Reviewed all images in all blog posts
+- Checked all links within blog posts, both for table of contents, and links to external pages
+	- Fixed some links with duplicate IDs and that didn't open in a new tab
+	- Fixed 2 links that were using href instead of id
+- Clicked all links in the right sidebar to ensure they work and link to the right blog posts
+- Updated all table of contents links to include the blog post ID to avoid duplication across posts and re-tested all post links
+- Noted issues on small screen sizes (Pixel 6):
+	- where the content of 2 blogs exceed the screen width
+		- Fixed by using a universal selector to set max-width for small screens and adding word-break
+	- where the user can scroll right to see more of the enlarged images, but not to the left, causing part of the image to be cut off
+		- Overrode the inline margin CSS with an !important tag for smaller screems
+	- Retested the full page on mobile after the fixes
+- Noted issue specifically with Safari on an iPad (not in Chrome on the same device):
+	- Image focus is not removed when tapping elsewhere on the screen, causing the enlarged blog images to stay enlarged
+		- Solution not yet identified and issue persists with Safari across other iOS devices (iPhone 14 Pro)
+		- Disabled the enlarge feature entirely for iOS devices
+
+#### Videos
+- Newsletter sign-up tested (including with an empty field and an entry with no @)
+- Tested embedded video
+- External link checked
+- Checked all links in the right sidebar
+
+#### Events
+- Newsletter sign-up tested (including with an empty field and an entry with no @)
+- Verified embedded LinkedIn post is working as expected, including opening in a new tab when interacting with it
+- Checked all links in the right sidebar
+
+#### About Me
+- Newsletter sign-up tested (including with an empty field and an entry with no @)
+- External link checked
+
+#### Follow Me
+- Tested button/link to external site
 
 ### Validator Testing 
 
@@ -159,6 +213,7 @@ Unfortunately the site deployment didn't work after the initial steps. After wai
 - Toggling blog post visibility on blog.html written using the script examples in 3 Stackoverflow posts: [one](https://stackoverflow.com/questions/37985388/toggle-visibility-of-all-divs-at-once), [two](https://stackoverflow.com/questions/19065133/using-a-javascript-variable-to-refer-to-an-element-with-id-containing-the-variab), [three](https://stackoverflow.com/questions/55603456/a-simple-way-to-show-one-div-and-hide-all-others)
 - Modified text-shadow solution for H1 header from https://stackoverflow.com/questions/2570972/css-font-border
 - Used https://www.youtube.com/watch?v=LciQi9PMnFY&ab_channel=CampsiteCoders for guidance on hamburger menus for smaller screen sizes
+- [This StackOverflow thread](https://stackoverflow.com/questions/30102792/css-media-query-to-target-only-ios-devices#:~:text=Once%20you've%20detected%20the,using%20the%20pre%2Dexisting%20stylesheet.) helped with a solution to the Known Bug listed at the top
 
 ## Media
 
