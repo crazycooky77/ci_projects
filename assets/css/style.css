@@ -522,6 +522,5 @@ h1 {
 /*Using universal selector to ensure content doesn't exceed screen size*/
 .img_scale:active img, .img_scale:focus img {
 	transform: none;
-	outline: none;
 }
 }
