@@ -508,7 +508,7 @@ h1 {
 
 /*Ensure blog content doesn't exceed the page size*/
 .blog_content {
-	max-width: 100%;
+	word-wrap: break-word;
 }
 
 /*Resize iframes*/
