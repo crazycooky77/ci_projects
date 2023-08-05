@@ -490,9 +490,13 @@ h1 {
 	font-size: 10vw;
 }
 
-/*Reduce image size to fit on smaller screens*/
+/*Reduce image sizes and margins to fit on smaller screens*/
 #about img {
 	max-width: 100%;
+}
+
+.img_scale:active img, .img_scale:focus img {
+	margin-left: 0;
 }
 
 /*Update blog metadata from horizontal to vertical display*/
@@ -500,6 +504,11 @@ h1 {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
+}
+
+/*Ensure blog content doesn't exceed the page size*/
+.blog_content {
+	max-width: 100%;
 }
 
 /*Resize iframes*/
