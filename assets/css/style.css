@@ -490,28 +490,18 @@ h1 {
 	font-size: 10vw;
 }
 
-/*Reduce image sizes and margins to fit on smaller screens*/
-#about img {
+/*Reduce image sizes to fit on smaller screens*/
+img {
 	max-width: 100%;
 }
-
-/*.img_scale:active img, .img_scale:focus img {
-	margin-left: 0;
-}*/
 
 /*Update blog metadata from horizontal to vertical display*/
 .blog_meta {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
-	max-width: 100%;
 }
 
-/*Ensure blog content doesn't exceed the page size*/
-/*.blog_content {
-	word-wrap: break-word;
-}
-*/
 /*Resize iframes*/
 iframe {
 	max-width: 100%;
