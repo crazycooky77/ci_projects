@@ -165,7 +165,6 @@ Performance of this page is subpar (84). However the main issue is with the amou
 ##### Videos
 <img src='assets/images/readme/lighthouse-videos.webp' alt='Lighthouse score results for Videos page'/>
 Performance on this page is definitely undesirable, however several scripts and solutions were attempted with no positive result. The poor performance stems from the 1 embedded YouTube video on the page. There is a solution by using a facade to lazy-load the video, however that will require some more learning and time to implement. Therefore, the page was left as-is for the interim.
-
 The issue logged causing the dip in Best Practices is also related to the embedded YouTube iframe.
 
 ##### Events
