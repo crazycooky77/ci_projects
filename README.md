@@ -72,24 +72,24 @@ No other bugs were identified that could not be resolved.
 ## Testing 
 1. Started with checking the site using Wave and resolving minor issues
 2. Used the Jigsaw W3 Validator next, and no errors were found
-3. Continued with the HTML Checker and resolved issues identified
-	3a. Buttons in anchor tags -> Removed buttons and styled with CSS classes instead
-	3b. Removed obsolete center tags
-	3c. YouTube and LinkedIn embedded links use obsolete frameborder attribures -> Removed
-	3d. Duplicate IDs updated
-	3e. Removed duplicate a tags
+3. Continued with the HTML Checker and resolved issues identified\
+	3a. Buttons in anchor tags -> Removed buttons and styled with CSS classes instead\
+	3b. Removed obsolete center tags\
+	3c. YouTube and LinkedIn embedded links use obsolete frameborder attribures -> Removed\
+	3d. Duplicate IDs updated\
+	3e. Removed duplicate a tags\
 4. Checked the website using Lighthouse
-5. Resolved Accessibility issues identified by Lighthouse
-	5a. aria-label set for i tag -> wrapped i in span tags and added the aria-label there instead
-	5b. Updated IDs that were duplicate with classes
-6. Resolved SEO issues identified by Lighthouse
-	6a. Set font size and added spacing between list items for the right panel on the blog page
-7. Resolved Performance issues identified by Lighthouse where possible
-	7a. Set CSS height/weight for all site images
-	7b. Converted all images to webp format
-	7c. Set explicit image sizes for all img tags
-	7d. Updated Javascript to only load the necessary scripts on each page
-	7e. Updated iFrames to enable lazy loading
+5. Resolved Accessibility issues identified by Lighthouse\
+	5a. aria-label set for i tag -> wrapped i in span tags and added the aria-label there instead\
+	5b. Updated IDs that were duplicate with classes\
+6. Resolved SEO issues identified by Lighthouse\
+	6a. Set font size and added spacing between list items for the right panel on the blog page\
+7. Resolved Performance issues identified by Lighthouse where possible\
+	7a. Set CSS height/weight for all site images\
+	7b. Converted all images to webp format\
+	7c. Set explicit image sizes for all img tags\
+	7d. Updated Javascript to only load the necessary scripts on each page\
+	7e. Updated iFrames to enable lazy loading\
 
 ### Individual Page Testing
 The below steps were done in Chrome, Safari, on an iPad Mini (Safari and Chrome), and using a Pixel 6 (Chrome) to ensure all features work correctly, regardless of the device.
