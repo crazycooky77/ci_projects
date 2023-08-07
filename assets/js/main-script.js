@@ -24,7 +24,7 @@ else {
 });
 
 // Function to toggle blog post visibility
-function toggle-blog() {
+function toggleBlog() {
     var post = event.target.id.slice(1);
     var tag = event.target.className;
 
