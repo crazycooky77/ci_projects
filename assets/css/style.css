@@ -118,7 +118,7 @@ nav .button:hover, nav .active:hover {
 	float: right;
 }
 
-#toggle_nav {
+#toggle-nav {
 	display: none;
 }
 
@@ -225,18 +225,18 @@ h4 {
 	margin-top: 25px;
 }
 
-.post_list > li {
+.post-list > li {
 	margin-bottom: 10px;
 	font-size: 16px;
 }
 
-.img_desc {
+.img-desc {
 	font-style: italic;
 	font-size: 15px;
 	text-align: center;
 }
 
-.img_scale {
+.img-scale {
 	border: none;
 	background: none;
 	cursor: pointer
@@ -250,28 +250,28 @@ h4 {
 	font-size: 16px;
 }
 
-.active_blog {
+.active-blog {
 	display: none;
 }
 
-.show_latest {
+.show-latest {
 	display: block;
 }
 
-.blog_content {
+.blog-content {
 	font-size: 20px;
 }
 
-.blog_list {
+.blog-list {
 	margin-top: 10px;
 	margin-left: 0.5in;
 }
 
-.sub_list {
+.sub-list {
 	margin-left: 0.5in;
 }
 
-.blog_img {
+.blog-img {
 	margin-top: 5px;
 	display: flex;
 	flex-direction: column;
@@ -286,7 +286,7 @@ h4 {
 	font-size: 16px;
 }
 
-.img_scale:active img, .img_scale:focus img {
+.img-scale:active img, .img-scale:focus img {
 	margin: auto;
 	transform: scale(2);
 	z-index: 2;
@@ -321,7 +321,7 @@ tr:nth-child(odd) {
 }
 
 /* Blog Metadata */
-.blog_meta {
+.blog-meta {
 	margin: 15px;
 	font-size: 15px;
 	display: flex;
@@ -329,11 +329,11 @@ tr:nth-child(odd) {
 	gap: 40px;
 }
 
-.blog_meta > button {
+.blog-meta > button {
 	background-color: transparent;
 }
 
-.blog_meta > button:hover {
+.blog-meta > button:hover {
 	text-decoration: underline;
 	background-color: transparent;
 	cursor: pointer;
@@ -359,12 +359,12 @@ tr:nth-child(odd) {
 	margin-bottom: 20px;
 }
 
-.event_list > li, .video_list > li {
+.event-list > li, .video-list > li {
 	margin-bottom: 10px;
 	font-size: 18px;
 }
 
-.event_list > li a i, .video_list > li a i {
+.event-list > li a i, .video-list > li a i {
 	padding-left: 8px;
 }
 
@@ -372,7 +372,7 @@ tr:nth-child(odd) {
 	margin: 20px 0;
 }
 
-.page_frame {
+.page-frame {
 	text-align: center;
 }
 
@@ -456,7 +456,7 @@ nav .button:hover {
 	margin-right: 30px;
 }
 
-#toggle_nav:checked + .menu {
+#toggle-nav:checked + .menu {
 	display: block;
 }
 
@@ -496,7 +496,7 @@ h1 {
 }
 
 /*Update blog metadata from horizontal to vertical display*/
-.blog_meta {
+.blog-meta {
 	flex-direction: column;
 	text-align: center;
 	gap: 10px;
@@ -507,7 +507,7 @@ h1 {
 }
 
 /*Image transform from the left*/
-.img_scale:active img, .img_scale:focus img {
+.img-scale:active img, .img-scale:focus img {
 	transform-origin: center left;
 }
 
@@ -520,7 +520,7 @@ h1 {
 /* For iOS devices */
 @supports (-webkit-touch-callout: none) {
 /*Disable image transformation*/
-	.img_scale:active img, .img_scale:focus img {
+	.img-scale:active img, .img-scale:focus img {
 		transform: none;
 }
 }

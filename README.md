@@ -24,47 +24,50 @@ No other bugs were identified that could not be resolved.
 
 - As a user, I want to be able to view videos on the topic, so that I can learn more.
 
+## Colour Palette
+<img src='assets/images/readme/colour-palette.webp' alt='Website colour palette'/>
+
 ## Features 
 
 - __Landing Page Image__ should show users that the site is about data and cloud computing.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-hero.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-hero.webp)
 
 - __Navigation Bar__ is available on all pages of the site to let the user easily switch between pages.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-nav.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-nav.webp)
 
-- __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.\
+- __Follow Me Button__ will redirect the user to the blog owner's Twitter page. See image above for the Navigation Bar for details.
 
 - __Homepage__ shows the latest blog post on the site with links to share the post.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-home.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-home.webp)
 
 - __Side Bar__ includes relevant, customised details for each page. The brief introduction of the site owner and a newsletter sign-up is on the left side. The right side includes on all, except the About Me page, links relevant to the content of the page the user is on. For example, external video links on the Videos page, or pages that posts different events on the Events page. Below is the sidebar from the Blog page.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-sidebar.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-blog-sidebar.webp)
 
 - __Blog Page__ includes all blog posts for the user to read with buttons to share the post on social media sites.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-blog.webp)
 
 - __Share Options__ are available for each blog post to share the post to social media sites, or copy the link to the post for manual sharing.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-share.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-share.webp)
 
 - __Enlarge Blog Images__ on any of the blog posts to see the images in a bigger format for better viewing. This can be done via mouseclick, and clicking outside of the image area, or pressing the Escape key, will return the image to it's original size.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-blog-enlarge.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-blog-enlarge.webp)
 
 - __Videos Page__ has the latest YouTube video embedded from the vBrownBag YouTube channel. The right side bar also has additional links to the official vBrownBag website, as well as to different categories of videos on their YouTube channel.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-videos.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-videos.webp)
 
 - __Events Page__ features the main event - typically a speaking engagement of the blog owner - with additional links in the right side bar. The user can locate additional official pages that post relevant events, whenever they are announced.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-events.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-events.webp)
 
 - __About Me Page__ has information on the blog owner so the user can learn more about them.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-about.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-about.webp)
 
 - __Footer__ shows copyright information for the website.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-copyright.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-copyright.webp)
 
 ### Features Left to Implement
 
 - __Newsletter Signup__ option for users who want to be updated on blog posts and events. However, while the signup looks to work from a user perspective, at the moment, no data is written to any database, and no actual newsletter is set up.\
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/live-newsletter.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/live-newsletter.webp)
 
 ## Testing 
 1. Started with checking the site using Wave and resolving minor issues
@@ -142,7 +145,7 @@ The below steps were done in Chrome, Safari, on an iPad Mini (Safari and Chrome)
 
 #### HTML Checker
 All pages were checked using the HTML Checker. Some issues were identified as described in Testing. All were resolved until no further errors were identified for any of the pages, as evidenced [here](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html) and in the image below.
-<img src='assets/images/readme/html_check.webp' alt='HTML Checker result'/>
+<img src='assets/images/readme/html-check.webp' alt='HTML Checker result'/>
 
 #### W3C
 All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) and no errors were found as evidenced on [this page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fcrazycooky77.github.io%2Fci_projects%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) and via the image below.
@@ -152,23 +155,23 @@ All pages were checked using [the Jigsaw W3 Validator](https://jigsaw.w3.org/css
 The website was checked using Lighthouse and issues that were identified resolved as best possible. Therefore, the latest scores for the site pages are as below.
 
 ##### Index
-<img src='assets/images/readme/lighthouse_index.webp' alt='Lighthouse score results for Homepage'/>
+<img src='assets/images/readme/lighthouse-index.webp' alt='Lighthouse score results for Homepage'/>
 Multiple steps were taken to improve Performance, as outlined in Testing (step 7), however 88 was the highest score achieved.
 
 ##### Blog
-<img src='assets/images/readme/lighthouse_blog.webp' alt='Lighthouse score results for Blog page'/>
+<img src='assets/images/readme/lighthouse-blog.webp' alt='Lighthouse score results for Blog page'/>
 Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. [This page](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages) includes a response from GitHub support that confirms this cannot be changed on user side.
 
 ##### Videos
-<img src='assets/images/readme/lighthouse_videos.webp' alt='Lighthouse score results for Videos page'/>
+<img src='assets/images/readme/lighthouse-videos.webp' alt='Lighthouse score results for Videos page'/>
 Performance on this page is definitely undesirable, however several scripts and solutions were attempted with no positive result. The poor performance stems from the 1 embedded YouTube video on the page. There is a solution by using a facade to lazy-load the video, however that will require some more learning and time to implement. Therefore, the page was left as-is for the interim.
 
 ##### Events
-<img src='assets/images/readme/lighthouse_events.webp' alt='Lighthouse score results for Events page'/>
+<img src='assets/images/readme/lighthouse-events.webp' alt='Lighthouse score results for Events page'/>
 There continues to be a Best Practices error on the page, due to a browser error logged to the console. This error comes from the embedded LinkedIn post, and was therefore left unresolved. The Performance recommendation to reduce unused JavaScript is also due to the embedded post.
 
 ##### About Me
-<img src='assets/images/readme/lighthouse_about.webp' alt='Lighthouse score results for About page'/>
+<img src='assets/images/readme/lighthouse-about.webp' alt='Lighthouse score results for About page'/>
 
 
 #### Wave
@@ -222,19 +225,19 @@ Unfortunately the site deployment didn't work after the initial steps. After wai
 I created basic wireframes to plan out the layout for the website. The final version of the acutal website differs slightly, as some other styling options looked better than those initially planned. Some differences include the left-side page title, which was deemed unnecessary with button highlighting and actual headers replacing it. Also, a Follow Me button was planned in the navigation, but also some social links in the footer. As both are not needed, those in the footer were discarded.
 
 #### Planning
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-planning.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-planning.webp)
 
 #### Homepage
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-home.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-home.webp)
 
 #### Blog
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-blog.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-blog.webp)
 
 #### Videos
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-videos.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-videos.webp)
 
 #### Events
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-events.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-events.webp)
 
 #### About
-[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site_layout/frame-about.webp)
+[View image (CTRL/CMD+Click for a new tab) by clicking here](https://raw.githubusercontent.com/crazycooky77/ci_projects/fbuechsel/assets/images/site-layout/frame-about.webp)

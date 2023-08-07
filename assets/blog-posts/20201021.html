@@ -1,5 +1,5 @@
 <h3>VMware Workstation drivers fighting over NICs – Windows is the clear loser</h3>
-<div class='blog_meta'>
+<div class='blog-meta'>
 	<p><i class='fa-regular fa-calendar'></i> Oct 21, 2020</p>
 	<p class='tag'>Troubleshooting</p><p class='tag' style='margin-left: -30px'>Windows</p>
 	<p>Share on: <a href='https://twitter.com/intent/tweet?text=VMware%20Workstation%20drivers%20fighting%20over%20NICs%20%e2%80%93%20Windows%20is%20the%20clear%20loser&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320201021' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
@@ -7,9 +7,9 @@
 		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%23' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
 		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20201021")' title='Copy link'></i></span></p>
 </div>
-<div class='blog_content'>
+<div class='blog-content'>
 	<h4>Overview</h4>
-	<ul class='blog_list'>
+	<ul class='blog-list'>
 		<li><a href='#problem-20201021'>The Problem</a></li>
 		<li><a href='#troubleshooting-20201021'>The Troubleshooting</a></li>
 		<li><a href='#solution-20201021'>The Solution</a></li>
@@ -23,8 +23,8 @@
 	<br>
 	<p>The first instinct was to blame the power outage and some sort of corrupt system update installation or inconsistent file data. Taking a look at the system restore points quickly revealed that no updates had been installed though.</p>
 	<br>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201021-1.webp' width='666px' height='573px' alt='Shows Windows System Restore events'></button></div>
-	<p class='img_desc'>Figure 1: Windows System Restore events</p>
+	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-1.webp' width='666px' height='573px' alt='Shows Windows System Restore events'></button></div>
+	<p class='img-desc'>Figure 1: Windows System Restore events</p>
 	<br>
 	<h4><a id='troubleshooting-20201021'>The Troubleshooting</a></h4>
 	<p>One thing I learned at my time at VMware was that usually the last thing you remember isn’t actually the last thing that changed on the system. So what was the real last thing that happened? The Reboot due to the power outage! There would be 2 clear and easy ways out of the predicament straight away. 1) Try and restore an earlier restore point and hope for the best, 2) Reinstall.</p>
@@ -232,8 +232,8 @@
     <br>
     <h4><a id='solution-20201021'>The Solution</a></h4>
 	<p>I already tried putting the laptop into airplane mode so I was sure it was not the wifi driver conflicting here somehow. When I opened my network devices I saw something surprising though.</p>
-	<div class='blog_img'><button class='img_scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog_images/20201021-2.webp' width='1012px' height='158px' alt='Shows Network devices in Windows settings'></button></div>
-	<p class='img_desc'>Figure 2: Network devices in Windows settings</p>
+	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-2.webp' width='1012px' height='158px' alt='Shows Network devices in Windows settings'></button></div>
+	<p class='img-desc'>Figure 2: Network devices in Windows settings</p>
 	<br>
 	<p>Additionally to the ones shown here there was 1 more connection, a VirtualBox host local adapter. So I deactivated all network interfaces and booted into normal mode and this time it actually succeeded. I activated all VMware adapters again and surely no issues even with the next reboot. Activating the VirtualBox adapter though immediately caused the issue to be there again. So to me it seems like the Workstation network drivers get stuck in a deadlock as soon as another product’s Windows network adapter is present. I am currently working around the issue by using NAT-only networking in VirtualBox and I did indeed never restart the laptop after having installed VirtualBox. There is no issue when adding an adapter during runtime of the operating system but a reboot grinds it to a complete halt.</p>
 	<br>
