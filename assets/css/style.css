@@ -248,6 +248,7 @@ h4 {
 	margin-top: 10px;
 	padding: 10px;
 	font-size: 16px;
+	word-wrap: break-word;
 }
 
 .active-blog {
@@ -509,12 +510,6 @@ h1 {
 /*Image transform from the left*/
 .img-scale:active img, .img-scale:focus img {
 	transform-origin: center left;
-}
-
-/*Styling for code blocks*/
-.code {
-	word-wrap: break-word;
-}
 }
 
 /* For iOS devices */
