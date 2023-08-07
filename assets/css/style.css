@@ -253,6 +253,7 @@ h4 {
 
 .active-blog {
 	display: none;
+	max-width: 100%;
 }
 
 .show-latest {
