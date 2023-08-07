@@ -1,6 +1,6 @@
 # fbuechsel's Blog
 
-This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well.
+This site is to help people learn more about VMware topics, particularly relating to certification tracks. Reading the various blog posts on the site should improve the learning experience for others who also want to work towards VMware certifications. There is other VMware-related techincal information available for users interested in watching videos or joining in events as well. Therefore, the target audience is those well-versed in the tech space, or wanting to expand their knowledge there-in, particularly when it comes to cloud computing. Users will want to keep coming back to the website, as new information is added. There will be new blog posts for them to read and learn more, tips for new certification tracks, new speaking engagements featuring the blog owner, and new videos posted. While some of that information, such as the videos and events, is also availalbe elsewhere, the blog posts are only hosted on this site and are the main reason users would want to visit.
 
 <img src='assets/images/readme/responsive.webp' alt='Am I Responsive site image'/>
 
@@ -160,7 +160,7 @@ Multiple steps were taken to improve Performance, as outlined in Testing (step 7
 
 ##### Blog
 <img src='assets/images/readme/lighthouse-blog.webp' alt='Lighthouse score results for Blog page'/>
-Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. [This page](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages) includes a response from GitHub support that confirms this cannot be changed on user side.
+Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages includes a response from GitHub support that confirms this cannot be changed on user side.
 
 ##### Videos
 <img src='assets/images/readme/lighthouse-videos.webp' alt='Lighthouse score results for Videos page'/>
