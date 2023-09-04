@@ -512,6 +512,7 @@ h1 {
 .img-scale:active img, .img-scale:focus img {
 	transform-origin: center left;
 }
+}
 
 /* For iOS devices */
 @supports (-webkit-touch-callout: none) {
