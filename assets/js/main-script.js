@@ -1,21 +1,3 @@
-// Detect iOS devices
-function iOS() {
-  return [
-    'iPad Simulator',
-    'iPhone Simulator',
-    'iPod Simulator',
-    'iPad',
-    'iPhone',
-    'iPod'
-  ].includes(navigator.platform)
-// iPad on iOS 13 detection
-  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-}
-
-// Change CSS for iOS devices to remove image enlarge feature
-if iOS() === true {
-    style.innerHTML = '.img-scale:active img, .img-scale:focus img { transform: none;' }
-
 // Function to load other HTML files
 $(function() {
  $('#latestblog').load('assets/blog-posts/20220731.html');
