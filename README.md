@@ -90,6 +90,7 @@ No other bugs were identified that could not be resolved.
 	7c. Set explicit image sizes for all img tags\
 	7d. Updated Javascript to only load the necessary scripts on each page\
 	7e. Updated iFrames to enable lazy loading\
+8. New validation errors noted in HTML and CSS, and resolved\
 
 ### Individual Page Testing
 The below steps were done in Chrome, Safari, on an iPad Mini (Safari and Chrome), and using a Pixel 6 (Chrome) to ensure all features work correctly, regardless of the device.
