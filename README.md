@@ -90,7 +90,7 @@ No other bugs were identified that could not be resolved.
 	7c. Set explicit image sizes for all img tags\
 	7d. Updated Javascript to only load the necessary scripts on each page\
 	7e. Updated iFrames to enable lazy loading\
-8. New validation errors noted in HTML and CSS, and resolved\
+8. Validation errors noted in HTML and CSS, and resolved\
 
 ### Individual Page Testing
 The below steps were done in Chrome, Safari, on an iPad Mini (Safari and Chrome), and using a Pixel 6 (Chrome) to ensure all features work correctly, regardless of the device.
@@ -157,19 +157,16 @@ The website was checked using Lighthouse and issues that were identified resolve
 
 ##### Index
 <img src='assets/images/readme/lighthouse-index.webp' alt='Lighthouse score results for Homepage'/>
-Multiple steps were taken to improve Performance, as outlined in Testing (step 7), however 88 was the highest score achieved.
+Multiple steps were taken to improve Performance, as outlined in Testing (step 7).
 
 ##### Blog
 <img src='assets/images/readme/lighthouse-blog.webp' alt='Lighthouse score results for Blog page'/>
-Performance of this page is subpar (84). However the main issue is with the amount of images and GitHub's caching policy, which only has a cache TTL of 10 minutes. An option to change this cache setting for GitHub Pages could not be found. https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages includes a response from GitHub support that confirms this cannot be changed on user side.
 
 ##### Videos
 <img src='assets/images/readme/lighthouse-videos.webp' alt='Lighthouse score results for Videos page'/>
-Performance on this page is definitely undesirable, however several scripts and solutions were attempted with no positive result. The poor performance stems from the 1 embedded YouTube video on the page. There is a solution by using a facade to lazy-load the video, however that will require some more learning and time to implement. Therefore, the page was left as-is for the interim. The issue logged causing the dip in Best Practices is also related to the embedded YouTube iframe.
 
 ##### Events
 <img src='assets/images/readme/lighthouse-events.webp' alt='Lighthouse score results for Events page'/>
-There continues to be a Best Practices error on the page, due to a browser error logged to the console. This error comes from the embedded LinkedIn post, and was therefore left unresolved. The Performance recommendation to reduce unused JavaScript is also due to the embedded post.
 
 ##### About Me
 <img src='assets/images/readme/lighthouse-about.webp' alt='Lighthouse score results for About page'/>
