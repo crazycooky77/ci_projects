@@ -1,59 +1,74 @@
-<h3>TCA 2.1 What's new - AD authentication</h3>
-<div class='blog-meta'>
-	<p><i class='fa-regular fa-calendar'></i> Jul 24, 2022</p>
-	<p class='tag'>TCA</p>
-	<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20What%27s%20new%20-%20AD%20authentication&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
-		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724=TCA%202.1%20What%27s%20new%20-%20AD%20authentication' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
-		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
-		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220724")' title='Copy link'></i></span></p>
-</div>
-<div class='blog-content'>
-	<h4>Overview</h4>
-	<ul class='blog-list'>
-		<li><a href='#release-notes-20220724'>Release Notes description</a></li>
-		<li><a href='#limitations-20220724'>Current limitations and caveats</a></li>
-		<li><a href='#setup-20220724'>Setup procedure</a></li>
-		<li><a href='#login-20220724'>How to login into the TCA Manager</a></li>
-	</ul>
-	<br>
-	<p>Telco Cloud Automation 2.1 was released last week and this post will explore the newly introduced feature to directly access Active Directoy authentication via the TCA Manager.</p>
-	<br>
-	<h4><a id='release-notes-20220724'>Release Notes description</a></h4>
-	<p>The release notes cover this topic in a rather brief statement:</p>
-	<br>
-	<p style='text-decoration: italic;'>Integration with external Active Directory system for user authentication, in addition to vCenter Server authentication.</p>
-	<br>
-	<p>I will concentrate on the configuration for the virtual machine form factor of Telco Cloud Automation here, but the steps on how to configure this functionality within the Cloud Native deployment of Telco Cloud Automation can be found in the installation guide, you are looking to modify the "tcaMgr" section accordingly. <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Automation/2.1/tca-deploymentguide/GUID-A039DFF6-95FC-4ACB-8FD2-1A1EFCFB272D.html' target='_blank' rel='noopener' aria-label="Go to the TCA 2.1 Deployment Guide on VMware's website (opens in a new tab)">TCA 2.1 Deployment Guide</p>
-	<br>
-	<h4><a id='limitations-20220724'>Current limitations and caveats</a></h4>
-	<p>Be warned, that once you have decided for an authentication model for the TCA Manager in the Cloud Native deployment there is no supported way of changing this today. This change is possible in the VM based deployment (though you do lose all assigned permissions when you do so).</p>
-	<br>
-	<p>The current implementation will allow you to utilize logins directly against an Active Directory LDAP structure for the TCA Manager only, the TCA-CPs will still be integrated with the vSphere PSC based authentication.</p>
-	<br>
-	<p>Only a single Active Directory backend is supported at this point in time, and since this is using an LDAP binding user iterations over trusted domains will not work, very similar to how LDAP based identity sources on vSphere work today.</p>
-	<br>
-	<p>Only Active Directory has been officially tested so far, which means while other schema compliant identity sources may work they are deemed unsupported.</p>
-	<br>
-	<h4><a id='setup-20220724'>Setup procedure</a></h4>
-	<p>The setup procedure itself is rather simple and can be performed as part of the setup wizard for the TCA Manager. The first step is to select the Active Directory option as the Authentication Provider.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-1.webp' width='1600px' height='665px' alt='Telco Cloud Automation setup step to select authentication provider'></button></div>
-	<p class='img-desc'>Figure 1: Telco Cloud Automation setup step to select authentication provider</p>
-	<br>
-	<p>Next you provide the information required to connect to the Active Directory server, note that the Admin User Distinguished name is slightly awkwardly named, it's the LDAP bind user and only requires read-only permissions and not administrative level perissions on Active Directory.</p>
-	<br>
-	<p>The Admin Group name is the DN of the group of users which gain default administrative into the TCA Manager.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-2.webp' width='1600px' height='651px' alt='Example of setup details for connecting to your active directory for TCA'></button></div>
-	<p class='img-desc'>Figure 2: Example of setup details for connecting to your active directory for TCA</p>
-	<br>
-	<p>This pretty much completes the setup steps required. These settings can be modified if necessary in the appliance administrative interface at a later point in time (only in the VM based deployment)</p>
-	<br>
-	<h4><a id='login-20220724'>How to login into the TCA Manager</a></h4>
-	<p>You might think that from here on you know how to actually log into the TCA Manager and this shouldn't require further elaboration. However, there is a login convention to be aware of.</p>
-	<br>
-	<p>You do not log in with your email address or canonical name as given in Active Directory with an account but rather in the format of username@ad, so for the user administrator@corp.local which I am using in the below screenshot this turns into administrator@ad.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-3.webp' width='1036px' height='802px' alt='Telco Cloud Automation login page'></button></div>
-	<p class='img-desc'>Figure 3: Telco Cloud Automation login page</p>
-	<br>
-	<p>I will be going over some other new features of Telco Cloud Automation 2.1 in future posts, as there is some very nice "Quality of life" improvements in this release, e.g. Kubernetes Stretched Cluster support or the possibility to now deploy specific TKG extensions directly via TCA.</p>
-</div>
-<hr>
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+<!-- Site metadata -->
+        <meta charset='UTF-8'>
+        <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
+        <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<!-- Load stylesheet -->
+        <title>vUnhandledException</title>
+    </head>
+
+    <body>
+    	<h3>TCA 2.1 What's new - AD authentication</h3>
+		<div class='blog-meta'>
+			<p><i class='fa-regular fa-calendar'></i> Jul 24, 2022</p>
+			<p class='tag'>TCA</p>
+			<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20What%27s%20new%20-%20AD%20authentication&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+				<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724=TCA%202.1%20What%27s%20new%20-%20AD%20authentication' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+				<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220724' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+				<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220724")' title='Copy link'></i></span></p>
+		</div>
+		<div class='blog-content'>
+			<h4>Overview</h4>
+			<ul class='blog-list'>
+				<li><a href='#release-notes-20220724'>Release Notes description</a></li>
+				<li><a href='#limitations-20220724'>Current limitations and caveats</a></li>
+				<li><a href='#setup-20220724'>Setup procedure</a></li>
+				<li><a href='#login-20220724'>How to login into the TCA Manager</a></li>
+			</ul>
+			<br>
+			<p>Telco Cloud Automation 2.1 was released last week and this post will explore the newly introduced feature to directly access Active Directoy authentication via the TCA Manager.</p>
+			<br>
+			<h4><a id='release-notes-20220724'>Release Notes description</a></h4>
+			<p>The release notes cover this topic in a rather brief statement:</p>
+			<br>
+			<p style='font-style: italic;'>Integration with external Active Directory system for user authentication, in addition to vCenter Server authentication.</p>
+			<br>
+			<p>I will concentrate on the configuration for the virtual machine form factor of Telco Cloud Automation here, but the steps on how to configure this functionality within the Cloud Native deployment of Telco Cloud Automation can be found in the installation guide, you are looking to modify the "tcaMgr" section accordingly. <a href='https://docs.vmware.com/en/VMware-Telco-Cloud-Automation/2.1/tca-deploymentguide/GUID-A039DFF6-95FC-4ACB-8FD2-1A1EFCFB272D.html' target='_blank' rel='noopener' aria-label="Go to the TCA 2.1 Deployment Guide on VMware's website (opens in a new tab)">TCA 2.1 Deployment Guide</a></p>
+			<br>
+			<h4><a id='limitations-20220724'>Current limitations and caveats</a></h4>
+			<p>Be warned, that once you have decided for an authentication model for the TCA Manager in the Cloud Native deployment there is no supported way of changing this today. This change is possible in the VM based deployment (though you do lose all assigned permissions when you do so).</p>
+			<br>
+			<p>The current implementation will allow you to utilize logins directly against an Active Directory LDAP structure for the TCA Manager only, the TCA-CPs will still be integrated with the vSphere PSC based authentication.</p>
+			<br>
+			<p>Only a single Active Directory backend is supported at this point in time, and since this is using an LDAP binding user iterations over trusted domains will not work, very similar to how LDAP based identity sources on vSphere work today.</p>
+			<br>
+			<p>Only Active Directory has been officially tested so far, which means while other schema compliant identity sources may work they are deemed unsupported.</p>
+			<br>
+			<h4><a id='setup-20220724'>Setup procedure</a></h4>
+			<p>The setup procedure itself is rather simple and can be performed as part of the setup wizard for the TCA Manager. The first step is to select the Active Directory option as the Authentication Provider.</p>
+			<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-1.webp' width='1600' height='665' alt='Telco Cloud Automation setup step to select authentication provider'></button></div>
+			<p class='img-desc'>Figure 1: Telco Cloud Automation setup step to select authentication provider</p>
+			<br>
+			<p>Next you provide the information required to connect to the Active Directory server, note that the Admin User Distinguished name is slightly awkwardly named, it's the LDAP bind user and only requires read-only permissions and not administrative level perissions on Active Directory.</p>
+			<br>
+			<p>The Admin Group name is the DN of the group of users which gain default administrative into the TCA Manager.</p>
+			<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-2.webp' width='1600' height='651' alt='Example of setup details for connecting to your active directory for TCA'></button></div>
+			<p class='img-desc'>Figure 2: Example of setup details for connecting to your active directory for TCA</p>
+			<br>
+			<p>This pretty much completes the setup steps required. These settings can be modified if necessary in the appliance administrative interface at a later point in time (only in the VM based deployment)</p>
+			<br>
+			<h4><a id='login-20220724'>How to login into the TCA Manager</a></h4>
+			<p>You might think that from here on you know how to actually log into the TCA Manager and this shouldn't require further elaboration. However, there is a login convention to be aware of.</p>
+			<br>
+			<p>You do not log in with your email address or canonical name as given in Active Directory with an account but rather in the format of username@ad, so for the user administrator@corp.local which I am using in the below screenshot this turns into administrator@ad.</p>
+			<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220724-3.webp' width='1036' height='802' alt='Telco Cloud Automation login page'></button></div>
+			<p class='img-desc'>Figure 3: Telco Cloud Automation login page</p>
+			<br>
+			<p>I will be going over some other new features of Telco Cloud Automation 2.1 in future posts, as there is some very nice "Quality of life" improvements in this release, e.g. Kubernetes Stretched Cluster support or the possibility to now deploy specific TKG extensions directly via TCA.</p>
+		</div>
+		<hr>
+	</body>
+</html>

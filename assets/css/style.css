@@ -298,7 +298,7 @@ h4 {
 
 /* Blog Tables */
 table {
-	margin-top: 10px;
+	margin: 10px auto auto auto;
 }
 
 th {

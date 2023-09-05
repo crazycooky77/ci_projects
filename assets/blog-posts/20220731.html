@@ -1,29 +1,44 @@
-<h3>TCA 2.1 Systemsettings add-on stuck in Processing status</h3>
-<div class='blog-meta'>
-	<p><i class='fa-regular fa-calendar'></i> Jul 31, 2022</p>
-	<p class='tag'>TCA</p>
-	<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20Systemsettings%20add-on%20stuck%20in%20Processing%20status&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
-		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731=TCA%202.1%20Systemsettings%20add-on%20stuck%20in%20Processing%20status' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
-		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
-		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220731")' title='Copy link'></i></span></p>
-</div>
-<div class='blog-content'>
-	<p>When deploying a v2 cluster you may notice that an input field for the capv user password is missing. To be able to set a password you will have to deploy the systemsettings cluster add-on, however with following the default wizard settings the add-on deployment gets stuck.</p>
-	<br>
-	<p>Not only does the add-on deployment get stuck, but also none of the settings get applied to the actual cluster. The main symptom can be seen in the picture below.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-1.webp' width='2926px' height='1000px' aspect-ratio='auto' alt='Systemsettings add-on stuck in processing state'></button></div>
-	<p class='img-desc'>Figure 1: Systemsettings add-on stuck in processing state</p>
-	<br>
-	<p>The most likely cause is that during the configuration of the add-on the wizard was filled out in the following fashion:</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-2.webp' width='2276px' height='1318px' alt='Systemsettings add-on wizard'></button></div>
-	<p class='img-desc'>Figure 2: Systemsettings add-on wizard</p>
-	<br>
-	<p>Notice the empty field for a syslog server, if you intended to configure the new fluentbit add-on for syslog a configuration like this should make sense, however this causes some internal issues with empty yaml strings. Next to the port entry field you can see a red x which lets you delete the whole syslog configuration like shown in the picture below.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-3.webp' width='1674px' height='560px' alt='Systemsettings syslog configuration removed'></button></div>
-	<p class='img-desc'>Figure 3: Systemsettings syslog configuration removed</p>
-	<br>
-	<p>Once this is corrected (this can be done prior to deploying the add-on or by editing the add-on), the settings will eventually reconcile and the passwword set correctly on the cluster.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-4.webp' width='2912px' height='1028px' alt='Successfully provisioned Systemsettings add-on'></button></div>
-	<p class='img-desc'>Figure 4: Successfully provisioned Systemsettings add-on</p>
-</div>
-<hr>
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+<!-- Site metadata -->
+        <meta charset='UTF-8'>
+        <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
+        <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<!-- Load stylesheet -->
+        <title>vUnhandledException</title>
+    </head>
+
+    <body>
+	<h3>TCA 2.1 Systemsettings add-on stuck in Processing status</h3>
+	<div class='blog-meta'>
+		<p><i class='fa-regular fa-calendar'></i> Jul 31, 2022</p>
+		<p class='tag'>TCA</p>
+		<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20Systemsettings%20add-on%20stuck%20in%20Processing%20status&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+			<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731=TCA%202.1%20Systemsettings%20add-on%20stuck%20in%20Processing%20status' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+			<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220731' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+			<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220731")' title='Copy link'></i></span></p>
+	</div>
+	<div class='blog-content'>
+		<p>When deploying a v2 cluster you may notice that an input field for the capv user password is missing. To be able to set a password you will have to deploy the systemsettings cluster add-on, however with following the default wizard settings the add-on deployment gets stuck.</p>
+		<br>
+		<p>Not only does the add-on deployment get stuck, but also none of the settings get applied to the actual cluster. The main symptom can be seen in the picture below.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-1.webp' width='2926' height='1000' alt='Systemsettings add-on stuck in processing state'></button></div>
+		<p class='img-desc'>Figure 1: Systemsettings add-on stuck in processing state</p>
+		<br>
+		<p>The most likely cause is that during the configuration of the add-on the wizard was filled out in the following fashion:</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-2.webp' width='2276' height='1318' alt='Systemsettings add-on wizard'></button></div>
+		<p class='img-desc'>Figure 2: Systemsettings add-on wizard</p>
+		<br>
+		<p>Notice the empty field for a syslog server, if you intended to configure the new fluentbit add-on for syslog a configuration like this should make sense, however this causes some internal issues with empty yaml strings. Next to the port entry field you can see a red x which lets you delete the whole syslog configuration like shown in the picture below.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-3.webp' width='1674' height='560' alt='Systemsettings syslog configuration removed'></button></div>
+		<p class='img-desc'>Figure 3: Systemsettings syslog configuration removed</p>
+		<br>
+		<p>Once this is corrected (this can be done prior to deploying the add-on or by editing the add-on), the settings will eventually reconcile and the passwword set correctly on the cluster.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220731-4.webp' width='2912' height='1028' alt='Successfully provisioned Systemsettings add-on'></button></div>
+		<p class='img-desc'>Figure 4: Successfully provisioned Systemsettings add-on</p>
+	</div>
+	<hr>
+    </body>
+</html>

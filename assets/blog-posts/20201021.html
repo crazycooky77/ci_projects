@@ -1,247 +1,262 @@
-<h3>VMware Workstation drivers fighting over NICs – Windows is the clear loser</h3>
-<div class='blog-meta'>
-	<p><i class='fa-regular fa-calendar'></i> Oct 21, 2020</p>
-	<p class='tag'>Troubleshooting</p><p class='tag' style='margin-left: -30px'>Windows</p>
-	<p>Share on: <a href='https://twitter.com/intent/tweet?text=VMware%20Workstation%20drivers%20fighting%20over%20NICs%20%e2%80%93%20Windows%20is%20the%20clear%20loser&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320201021' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
-		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320201021=VMware%20Workstation%20drivers%20fighting%20over%20NICs%20%e2%80%93%20Windows%20is%20the%20clear%20loser' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
-		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%23' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
-		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20201021")' title='Copy link'></i></span></p>
-</div>
-<div class='blog-content'>
-	<h4>Overview</h4>
-	<ul class='blog-list'>
-		<li><a href='#problem-20201021'>The Problem</a></li>
-		<li><a href='#troubleshooting-20201021'>The Troubleshooting</a></li>
-		<li><a href='#solution-20201021'>The Solution</a></li>
-		<li><a href='#comments-20201021'>Closing Comments</a></li>
-	</ul>
-    <br>
-	<p>It has been a while since my last post and I partly blame the job change on it. lots to do, little time... those were the words I have written for this exact post back in 2015, however they still apply in 2020 as well apparently. This is a repost from an old blog of myself way back then simply to test out Hugo, diving a bit into Markdown and getting myself back into the habit of blogging.</p>
-	<br>
-	<h4><a id='problem-20201021'>The Problem</a></h4>
-	<p>This weekend my laptop lost power and offered me the possibility to go into full nerd mode for a change of pace again. I basically updated to Windows 10 the day it came out and have been very happy with it since but after the power outage the login mask would suddenly completely freeze.</p>
-	<br>
-	<p>The first instinct was to blame the power outage and some sort of corrupt system update installation or inconsistent file data. Taking a look at the system restore points quickly revealed that no updates had been installed though.</p>
-	<br>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-1.webp' width='666px' height='573px' alt='Shows Windows System Restore events'></button></div>
-	<p class='img-desc'>Figure 1: Windows System Restore events</p>
-	<br>
-	<h4><a id='troubleshooting-20201021'>The Troubleshooting</a></h4>
-	<p>One thing I learned at my time at VMware was that usually the last thing you remember isn’t actually the last thing that changed on the system. So what was the real last thing that happened? The Reboot due to the power outage! There would be 2 clear and easy ways out of the predicament straight away. 1) Try and restore an earlier restore point and hope for the best, 2) Reinstall.</p>
-	<br>
-	<p>Both options to me sound pretty annoying though as I don’t perform regular backups and am too lazy to configure everything from scratch again. Additionally I am an Engineer and like to fix problems rather than to erase them.</p>
-	<br>
-	<p>The next phase was hoping for something just taking a while so after another reboot I put the laptop away for a couple of minutes, grabbed some food and saw a bluescreen (or rather the new equivalent in Windows 10) reading DPC_WATCHDOG_VIOLATION. Quickly doing some google research this error seems to be driver related, but I could not remember having installed any new driver components in ages except for a graphics driver a couple of weeks back and I have rebooted the system since then a couple of times. Since it seemed to be driver related though I tried safe mode booting in the hopes of actually getting some system access to see what else changed and possibly even take a look at the event log for any clues.</p>
-	<br>
-	<p>Safe mode did indeed let the system start just fine and the programs panel showed that indeed some Windows Updates had been installed. So I uninstalled those and also ran a chkdsk just to be sure the power outage did not screw up something on the file system in any way. Unfortunately this was also fruitless. So another safe mode boot followed.</p>
-	<br>
-	<p>The system event logs did not really reveal much in terms of any failing driver component as well but in this state my laptop would actually read a USB key just fine. This means I could take a peek at the memory dump the BSOD has been writing (never turn that feature off). So I copied the dump over to another machine, loaded the latest WinDBG binaries and began to analyze the dump.</p>
-	<p class='code'>6: kd> !analyze -v
-    *******************************************************************************
-    * Bugcheck Analysis *
-    *******************************************************************************
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+<!-- Site metadata -->
+        <meta charset='UTF-8'>
+        <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
+        <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<!-- Load stylesheet -->
+        <title>vUnhandledException</title>
+    </head>
 
-    DPC_WATCHDOG_VIOLATION (133)
-    The DPC watchdog detected a prolonged run time at an IRQL of DISPATCH_LEVEL
-    or above.
-    Arguments:
-    Arg1: 0000000000000001, The system cumulatively spent an extended period of time at
-    DISPATCH_LEVEL or above. The offending component can usually be
-    identified with a stack trace.
-    Arg2: 0000000000001e00, The watchdog period.
-    Arg3: 0000000000000000
-    Arg4: 0000000000000000
+    <body>
+        <h3>VMware Workstation drivers fighting over NICs – Windows is the clear loser</h3>
+        <div class='blog-meta'>
+        	<p><i class='fa-regular fa-calendar'></i> Oct 21, 2020</p>
+        	<p class='tag'>Troubleshooting</p><p class='tag' style='margin-left: -30px'>Windows</p>
+        	<p>Share on: <a href='https://twitter.com/intent/tweet?text=VMware%20Workstation%20drivers%20fighting%20over%20NICs%20%e2%80%93%20Windows%20is%20the%20clear%20loser&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320201021' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+        		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320201021=VMware%20Workstation%20drivers%20fighting%20over%20NICs%20%e2%80%93%20Windows%20is%20the%20clear%20loser' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+        		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%23' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+        		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20201021")' title='Copy link'></i></span></p>
+        </div>
+        <div class='blog-content'>
+        	<h4>Overview</h4>
+        	<ul class='blog-list'>
+        		<li><a href='#problem-20201021'>The Problem</a></li>
+        		<li><a href='#troubleshooting-20201021'>The Troubleshooting</a></li>
+        		<li><a href='#solution-20201021'>The Solution</a></li>
+        		<li><a href='#comments-20201021'>Closing Comments</a></li>
+        	</ul>
+            <br>
+        	<p>It has been a while since my last post and I partly blame the job change on it. lots to do, little time... those were the words I have written for this exact post back in 2015, however they still apply in 2020 as well apparently. This is a repost from an old blog of myself way back then simply to test out Hugo, diving a bit into Markdown and getting myself back into the habit of blogging.</p>
+        	<br>
+        	<h4><a id='problem-20201021'>The Problem</a></h4>
+        	<p>This weekend my laptop lost power and offered me the possibility to go into full nerd mode for a change of pace again. I basically updated to Windows 10 the day it came out and have been very happy with it since but after the power outage the login mask would suddenly completely freeze.</p>
+        	<br>
+        	<p>The first instinct was to blame the power outage and some sort of corrupt system update installation or inconsistent file data. Taking a look at the system restore points quickly revealed that no updates had been installed though.</p>
+        	<br>
+        	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-1.webp' width='666' height='573' alt='Shows Windows System Restore events'></button></div>
+        	<p class='img-desc'>Figure 1: Windows System Restore events</p>
+        	<br>
+        	<h4><a id='troubleshooting-20201021'>The Troubleshooting</a></h4>
+        	<p>One thing I learned at my time at VMware was that usually the last thing you remember isn’t actually the last thing that changed on the system. So what was the real last thing that happened? The Reboot due to the power outage! There would be 2 clear and easy ways out of the predicament straight away. 1) Try and restore an earlier restore point and hope for the best, 2) Reinstall.</p>
+        	<br>
+        	<p>Both options to me sound pretty annoying though as I don’t perform regular backups and am too lazy to configure everything from scratch again. Additionally I am an Engineer and like to fix problems rather than to erase them.</p>
+        	<br>
+        	<p>The next phase was hoping for something just taking a while so after another reboot I put the laptop away for a couple of minutes, grabbed some food and saw a bluescreen (or rather the new equivalent in Windows 10) reading DPC_WATCHDOG_VIOLATION. Quickly doing some google research this error seems to be driver related, but I could not remember having installed any new driver components in ages except for a graphics driver a couple of weeks back and I have rebooted the system since then a couple of times. Since it seemed to be driver related though I tried safe mode booting in the hopes of actually getting some system access to see what else changed and possibly even take a look at the event log for any clues.</p>
+        	<br>
+        	<p>Safe mode did indeed let the system start just fine and the programs panel showed that indeed some Windows Updates had been installed. So I uninstalled those and also ran a chkdsk just to be sure the power outage did not screw up something on the file system in any way. Unfortunately this was also fruitless. So another safe mode boot followed.</p>
+        	<br>
+        	<p>The system event logs did not really reveal much in terms of any failing driver component as well but in this state my laptop would actually read a USB key just fine. This means I could take a peek at the memory dump the BSOD has been writing (never turn that feature off). So I copied the dump over to another machine, loaded the latest WinDBG binaries and began to analyze the dump.</p>
+        	<p class='code'>6: kd> !analyze -v
+            *******************************************************************************
+            * Bugcheck Analysis *
+            *******************************************************************************
 
-    SYMBOL_NAME: vmnetbridge+70f8
-    FOLLOWUP_NAME: MachineOwner
-    MODULE_NAME: vmnetbridge
-    IMAGE_NAME: vmnetbridge.sys
-    DEBUG_FLR_IMAGE_TIMESTAMP: 53d4fef8
-    BUCKET_ID_FUNC_OFFSET: 70f8
-    FAILURE_BUCKET_ID: 0x133_ISR_vmnetbridge!Unknown_Function
-    BUCKET_ID: 0x133_ISR_vmnetbridge!Unknown_Function
-    PRIMARY_PROBLEM_CLASS: 0x133_ISR_vmnetbridge!Unknown_Function
-    ANALYSIS_SOURCE: KM
-    FAILURE_ID_HASH_STRING: km:0x133_isr_vmnetbridge!unknown_function
-    FAILURE_ID_HASH: {9badc5ac-bdaf-6816-6d94-61ede9c1ab5f}</p>
-    <br>
-    <p>So the automatic analyzer thinks it’s the vmnetbridge driver but it will normally just take the first thing off the stack that it doesn’t know about and blame that. So let’s look at the stack.</p>
-    <p class='code'>    6: kd> k
-    # Child-SP RetAddr Call Site
-    00 ffffd000`9845bc78 fffff803`a49f3e7a nt!KeBugCheckEx
-    01 ffffd000`9845bc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    02 ffffd000`9845bd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    03 ffffd000`9845bf40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    04 ffffd000`9845bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    05 ffffd000`9845bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    06 ffffd000`989dda50 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    07 ffffd000`989ddbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
-    08 ffffd000`989ddc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    09 ffffd000`989ddc40 fffff800`2ba095d3 vmnetbridge+0x70f8
-    0a ffffd000`989ddd60 fffff800`2ba1c0e1 ndis!ndisMIndicateNetBufferListsToOpen+0x133
-    0b ffffd000`989dde20 fffff800`2ba2ae9f ndis!ndisMDispatchReceiveNetBufferListsWithLock+0x201
-    0c ffffd000`989ddf50 fffff800`2ba5410b ndis!ndisMTopReceiveNetBufferLists+0x21dbf
-    0d ffffd000`989de050 fffff800`2ba2c433 ndis!ndisInvokeNextReceiveHandler+0x4b
-    0e ffffd000`989de120 fffff800`2ba0cf67 ndis!ndisFilterIndicateReceiveNetBufferLists+0x1fe23
-    0f ffffd000`989de1c0 fffff800`2d18b06a ndis!NdisFIndicateReceiveNetBufferLists+0x57
-    10 ffffd000`989de200 fffff800`2d18bdf1 jnprns+0xb06a
-    11 ffffd000`989de260 fffff800`2d1876e2 jnprns+0xbdf1
-    12 ffffd000`989de2d0 fffff800`2d187b8e jnprns+0x76e2
-    13 ffffd000`989de360 fffff800`2ba0cc33 jnprns+0x7b8e
-    14 ffffd000`989de3e0 fffff800`2ba1ff2e ndis!ndisCallReceiveHandler+0x43
-    15 ffffd000`989de430 fffff803`a49091f5 ndis!ndisDataPathExpandStackCallback+0x3e
-    16 ffffd000`989de480 fffff800`2ba1ffd5 nt!KeExpandKernelStackAndCalloutInternal+0x85
-    17 ffffd000`989de4d0 fffff800`2ba5435a ndis!ndisExpandStack+0x19</p>
-    <br>
-    <p>Indeed after the internal Windows functions below the BugCheck we find vmnetbridge on the stack. Going a bit further down though we can see jnprns as well which seems to be the Juniper VPN client software and its system drivers. Since I didn’t need that software anymore anyway I decided to uninstall all components of it but again no change.</p>
-    <br>
-    <p>I was pondering to uninstall VMware Workstation next but an error in the uninstaller prevented this, in safe mode I had no real access to the custom drivers it installs and the uninstaller simply errors out unless it can remove everything (I would define that as a bug as the error message is simply generic without any hint on what is going wrong unless you look into the actual vminst.log).</p>
-    <br>
-    <p>But this actually got me thinking, one change I did since the last reboot was to install Oracle VirtualBox alongside VMware Workstation. Even though I did some due diligence on google before to see if there is any issues with having those 2 co-installed I did not stumble across anything that would have made me think again before installing it.</p>
-    <br>
-    <p>I know that Workstation has to interact with the Windows networking stack quite a bit for the host-only networks, and VirtualBox is actually doing the same. So what seems to be the issue here. Let’s take a look at all CPU callstacks in the dump.</p>
-    <p class='code'>    6: kd> !running -it
+            DPC_WATCHDOG_VIOLATION (133)
+            The DPC watchdog detected a prolonged run time at an IRQL of DISPATCH_LEVEL
+            or above.
+            Arguments:
+            Arg1: 0000000000000001, The system cumulatively spent an extended period of time at
+            DISPATCH_LEVEL or above. The offending component can usually be
+            identified with a stack trace.
+            Arg2: 0000000000001e00, The watchdog period.
+            Arg3: 0000000000000000
+            Arg4: 0000000000000000
 
-    System Processors: (00000000000000ff)
-    Idle Processors: (0000000000000000)
+            SYMBOL_NAME: vmnetbridge+70f8
+            FOLLOWUP_NAME: MachineOwner
+            MODULE_NAME: vmnetbridge
+            IMAGE_NAME: vmnetbridge.sys
+            DEBUG_FLR_IMAGE_TIMESTAMP: 53d4fef8
+            BUCKET_ID_FUNC_OFFSET: 70f8
+            FAILURE_BUCKET_ID: 0x133_ISR_vmnetbridge!Unknown_Function
+            BUCKET_ID: 0x133_ISR_vmnetbridge!Unknown_Function
+            PRIMARY_PROBLEM_CLASS: 0x133_ISR_vmnetbridge!Unknown_Function
+            ANALYSIS_SOURCE: KM
+            FAILURE_ID_HASH_STRING: km:0x133_isr_vmnetbridge!unknown_function
+            FAILURE_ID_HASH: {9badc5ac-bdaf-6816-6d94-61ede9c1ab5f}</p>
+            <br>
+            <p>So the automatic analyzer thinks it’s the vmnetbridge driver but it will normally just take the first thing off the stack that it doesn’t know about and blame that. So let’s look at the stack.</p>
+            <p class='code'>    6: kd> k
+            # Child-SP RetAddr Call Site
+            00 ffffd000`9845bc78 fffff803`a49f3e7a nt!KeBugCheckEx
+            01 ffffd000`9845bc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            02 ffffd000`9845bd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            03 ffffd000`9845bf40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            04 ffffd000`9845bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            05 ffffd000`9845bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            06 ffffd000`989dda50 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            07 ffffd000`989ddbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
+            08 ffffd000`989ddc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            09 ffffd000`989ddc40 fffff800`2ba095d3 vmnetbridge+0x70f8
+            0a ffffd000`989ddd60 fffff800`2ba1c0e1 ndis!ndisMIndicateNetBufferListsToOpen+0x133
+            0b ffffd000`989dde20 fffff800`2ba2ae9f ndis!ndisMDispatchReceiveNetBufferListsWithLock+0x201
+            0c ffffd000`989ddf50 fffff800`2ba5410b ndis!ndisMTopReceiveNetBufferLists+0x21dbf
+            0d ffffd000`989de050 fffff800`2ba2c433 ndis!ndisInvokeNextReceiveHandler+0x4b
+            0e ffffd000`989de120 fffff800`2ba0cf67 ndis!ndisFilterIndicateReceiveNetBufferLists+0x1fe23
+            0f ffffd000`989de1c0 fffff800`2d18b06a ndis!NdisFIndicateReceiveNetBufferLists+0x57
+            10 ffffd000`989de200 fffff800`2d18bdf1 jnprns+0xb06a
+            11 ffffd000`989de260 fffff800`2d1876e2 jnprns+0xbdf1
+            12 ffffd000`989de2d0 fffff800`2d187b8e jnprns+0x76e2
+            13 ffffd000`989de360 fffff800`2ba0cc33 jnprns+0x7b8e
+            14 ffffd000`989de3e0 fffff800`2ba1ff2e ndis!ndisCallReceiveHandler+0x43
+            15 ffffd000`989de430 fffff803`a49091f5 ndis!ndisDataPathExpandStackCallback+0x3e
+            16 ffffd000`989de480 fffff800`2ba1ffd5 nt!KeExpandKernelStackAndCalloutInternal+0x85
+            17 ffffd000`989de4d0 fffff800`2ba5435a ndis!ndisExpandStack+0x19</p>
+            <br>
+            <p>Indeed after the internal Windows functions below the BugCheck we find vmnetbridge on the stack. Going a bit further down though we can see jnprns as well which seems to be the Juniper VPN client software and its system drivers. Since I didn’t need that software anymore anyway I decided to uninstall all components of it but again no change.</p>
+            <br>
+            <p>I was pondering to uninstall VMware Workstation next but an error in the uninstaller prevented this, in safe mode I had no real access to the custom drivers it installs and the uninstaller simply errors out unless it can remove everything (I would define that as a bug as the error message is simply generic without any hint on what is going wrong unless you look into the actual vminst.log).</p>
+            <br>
+            <p>But this actually got me thinking, one change I did since the last reboot was to install Oracle VirtualBox alongside VMware Workstation. Even though I did some due diligence on google before to see if there is any issues with having those 2 co-installed I did not stumble across anything that would have made me think again before installing it.</p>
+            <br>
+            <p>I know that Workstation has to interact with the Windows networking stack quite a bit for the host-only networks, and VirtualBox is actually doing the same. So what seems to be the issue here. Let’s take a look at all CPU callstacks in the dump.</p>
+            <p class='code'>    6: kd> !running -it
 
-    Prcbs Current (pri) Next (pri) Idle
-    0 fffff803a4bf0180 ffffe001d0f43040 (12) fffff803a4c66740 …………….
+            System Processors: (00000000000000ff)
+            Idle Processors: (0000000000000000)
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`9854b8a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
-    01 ffffd000`9854b8d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    02 ffffd000`9854b900 fffff800`2ba095d3 vmnetbridge+0x70f8
+            Prcbs Current (pri) Next (pri) Idle
+            0 fffff803a4bf0180 ffffe001d0f43040 (12) fffff803a4c66740 …………….
 
-    1 ffffd000981dc180 ffffe001cbb84040 (12) ffffd000981e8cc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`9854b8a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
+            01 ffffd000`9854b8d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            02 ffffd000`9854b900 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`9818d418 fffff803`a4a8505d hal!KeQueryPerformanceCounter
-    01 ffffd000`9818d420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2c5
-    02 ffffd000`9818d530 fffff803`a49db344 nt!KeBugCheck2+0xc14
-    03 ffffd000`9818dc40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
-    04 ffffd000`9818dc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    05 ffffd000`9818dd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    06 ffffd000`9818df40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    07 ffffd000`9818df70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    08 ffffd000`9818dfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    09 ffffd000`98529710 fffff803`a4896d48 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    0a ffffd000`985298a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x18
-    0b ffffd000`985298d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    0c ffffd000`98529900 fffff800`2ba095d3 vmnetbridge+0x70f8
+            1 ffffd000981dc180 ffffe001cbb84040 (12) ffffd000981e8cc0 …………….
 
-    2 ffffd0009818e180 ffffe001ccbff040 (12) ffffd0009819acc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`9818d418 fffff803`a4a8505d hal!KeQueryPerformanceCounter
+            01 ffffd000`9818d420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2c5
+            02 ffffd000`9818d530 fffff803`a49db344 nt!KeBugCheck2+0xc14
+            03 ffffd000`9818dc40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
+            04 ffffd000`9818dc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            05 ffffd000`9818dd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            06 ffffd000`9818df40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            07 ffffd000`9818df70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            08 ffffd000`9818dfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            09 ffffd000`98529710 fffff803`a4896d48 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            0a ffffd000`985298a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x18
+            0b ffffd000`985298d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            0c ffffd000`98529900 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`98269418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
-    01 ffffd000`98269420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
-    02 ffffd000`98269530 fffff803`a49db344 nt!KeBugCheck2+0xc14
-    03 ffffd000`98269c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
-    04 ffffd000`98269c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    05 ffffd000`98269d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    06 ffffd000`98269f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    07 ffffd000`98269f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    08 ffffd000`98269fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    09 ffffd000`989eba50 fffff803`a4896d50 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    0a ffffd000`989ebbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x20
-    0b ffffd000`989ebc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    0c ffffd000`989ebc40 fffff800`2ba095d3 vmnetbridge+0x70f8
+            2 ffffd0009818e180 ffffe001ccbff040 (12) ffffd0009819acc0 …………….
 
-    3 ffffd000982aa180 ffffe001ccbc1040 (12) ffffd000982b6cc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`98269418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
+            01 ffffd000`98269420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
+            02 ffffd000`98269530 fffff803`a49db344 nt!KeBugCheck2+0xc14
+            03 ffffd000`98269c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
+            04 ffffd000`98269c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            05 ffffd000`98269d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            06 ffffd000`98269f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            07 ffffd000`98269f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            08 ffffd000`98269fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            09 ffffd000`989eba50 fffff803`a4896d50 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            0a ffffd000`989ebbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x20
+            0b ffffd000`989ebc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            0c ffffd000`989ebc40 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`982e2418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
-    01 ffffd000`982e2420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
-    02 ffffd000`982e2530 fffff803`a49db344 nt!KeBugCheck2+0xc14
-    03 ffffd000`982e2c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
-    04 ffffd000`982e2c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    05 ffffd000`982e2d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    06 ffffd000`982e2f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    07 ffffd000`982e2f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    08 ffffd000`982e2fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    09 ffffd000`989c8710 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    0a ffffd000`989c88a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
-    0b ffffd000`989c88d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    0c ffffd000`989c8900 fffff800`2ba095d3 vmnetbridge+0x70f8
+            3 ffffd000982aa180 ffffe001ccbc1040 (12) ffffd000982b6cc0 …………….
 
-    4 ffffd00098323180 ffffe001d0edc040 (12) ffffe001d43ae080 (13) ffffd0009832fcc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`982e2418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
+            01 ffffd000`982e2420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
+            02 ffffd000`982e2530 fffff803`a49db344 nt!KeBugCheck2+0xc14
+            03 ffffd000`982e2c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
+            04 ffffd000`982e2c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            05 ffffd000`982e2d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            06 ffffd000`982e2f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            07 ffffd000`982e2f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            08 ffffd000`982e2fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            09 ffffd000`989c8710 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            0a ffffd000`989c88a0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
+            0b ffffd000`989c88d0 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            0c ffffd000`989c8900 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`9832f8c8 fffff803`a48518fe nt!KeBugCheckEx
-    01 ffffd000`9832f8d0 fffff803`a4ae00e0 hal!HalBugCheckSystem+0x7e
-    02 ffffd000`9832f910 fffff803`a48528de nt!WheaReportHwError+0x258
-    03 ffffd000`9832f970 fffff803`a4a86c78 hal!HalHandleNMI+0xfe
-    04 ffffd000`9832f9a0 fffff803`a49e33c2 nt!KiProcessNMI+0x150
-    05 ffffd000`9832f9f0 fffff803`a49e3236 nt!KxNmiInterrupt+0x82
-    06 ffffd000`9832fb30 fffff803`a4831b62 nt!KiNmiInterrupt+0x176
-    07 ffffd000`9835b388 fffff803`a481d372 hal!HalpTscQueryCounter+0x2
-    08 ffffd000`9835b390 fffff803`a4a8505d hal!KeQueryPerformanceCounter+0x62
-    09 ffffd000`9835b3c0 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2c5
-    0a ffffd000`9835b4d0 fffff803`a49db344 nt!KeBugCheck2+0xc14
-    0b ffffd000`9835bbe0 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
-    0c ffffd000`9835bc20 fffff803`a4896c26 nt! ?? ::FNODOBFM::`string’+0xa07a
-    0d ffffd000`9835bcb0 fffff803`a489766d nt!KiUpdateRunTime+0x56
-    0e ffffd000`9835bd10 fffff803`a481eaa6 nt!KeClockInterruptNotify+0x53d
-    0f ffffd000`9835bf40 fffff803`a495e257 hal!HalpTimerClockInterrupt+0x56
-    10 ffffd000`9835bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    11 ffffd000`9835bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    12 ffffd000`99786a50 fffff803`a4896d40 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    13 ffffd000`99786be0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x10
-    14 ffffd000`99786c10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    15 ffffd000`99786c40 fffff800`2ba095d3 vmnetbridge+0x70f8
+            4 ffffd00098323180 ffffe001d0edc040 (12) ffffe001d43ae080 (13) ffffd0009832fcc0 …………….
 
-    5 ffffd00098360180 ffffe001ccbfe040 (12) ffffd0009836ccc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`9832f8c8 fffff803`a48518fe nt!KeBugCheckEx
+            01 ffffd000`9832f8d0 fffff803`a4ae00e0 hal!HalBugCheckSystem+0x7e
+            02 ffffd000`9832f910 fffff803`a48528de nt!WheaReportHwError+0x258
+            03 ffffd000`9832f970 fffff803`a4a86c78 hal!HalHandleNMI+0xfe
+            04 ffffd000`9832f9a0 fffff803`a49e33c2 nt!KiProcessNMI+0x150
+            05 ffffd000`9832f9f0 fffff803`a49e3236 nt!KxNmiInterrupt+0x82
+            06 ffffd000`9832fb30 fffff803`a4831b62 nt!KiNmiInterrupt+0x176
+            07 ffffd000`9835b388 fffff803`a481d372 hal!HalpTscQueryCounter+0x2
+            08 ffffd000`9835b390 fffff803`a4a8505d hal!KeQueryPerformanceCounter+0x62
+            09 ffffd000`9835b3c0 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2c5
+            0a ffffd000`9835b4d0 fffff803`a49db344 nt!KeBugCheck2+0xc14
+            0b ffffd000`9835bbe0 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
+            0c ffffd000`9835bc20 fffff803`a4896c26 nt! ?? ::FNODOBFM::`string’+0xa07a
+            0d ffffd000`9835bcb0 fffff803`a489766d nt!KiUpdateRunTime+0x56
+            0e ffffd000`9835bd10 fffff803`a481eaa6 nt!KeClockInterruptNotify+0x53d
+            0f ffffd000`9835bf40 fffff803`a495e257 hal!HalpTimerClockInterrupt+0x56
+            10 ffffd000`9835bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            11 ffffd000`9835bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            12 ffffd000`99786a50 fffff803`a4896d40 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            13 ffffd000`99786be0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x10
+            14 ffffd000`99786c10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            15 ffffd000`99786c40 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`991fa530 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
-    01 ffffd000`991fa560 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    02 ffffd000`991fa590 fffff800`2ba095d3 vmnetbridge+0x70f8
+            5 ffffd00098360180 ffffe001ccbfe040 (12) ffffd0009836ccc0 …………….
 
-    6 ffffd000983dd180 ffffe001cdb55040 (12) ffffd000983e9cc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`991fa530 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
+            01 ffffd000`991fa560 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            02 ffffd000`991fa590 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`9845bc78 fffff803`a49f3e7a nt!KeBugCheckEx
-    01 ffffd000`9845bc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    02 ffffd000`9845bd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    03 ffffd000`9845bf40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    04 ffffd000`9845bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    05 ffffd000`9845bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    06 ffffd000`989dda50 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    07 ffffd000`989ddbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
-    08 ffffd000`989ddc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    09 ffffd000`989ddc40 fffff800`2ba095d3 vmnetbridge+0x70f8
+            6 ffffd000983dd180 ffffe001cdb55040 (12) ffffd000983e9cc0 …………….
 
-    7 ffffd0009849c180 ffffe001cba6d040 (12) ffffd000984a8cc0 …………….
+            # Child-SP RetAddr Call Site
+            00 ffffd000`9845bc78 fffff803`a49f3e7a nt!KeBugCheckEx
+            01 ffffd000`9845bc80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            02 ffffd000`9845bd10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            03 ffffd000`9845bf40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            04 ffffd000`9845bf70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            05 ffffd000`9845bfb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            06 ffffd000`989dda50 fffff803`a4896d53 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            07 ffffd000`989ddbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x23
+            08 ffffd000`989ddc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            09 ffffd000`989ddc40 fffff800`2ba095d3 vmnetbridge+0x70f8
 
-    # Child-SP RetAddr Call Site
-    00 ffffd000`984d4418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
-    01 ffffd000`984d4420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
-    02 ffffd000`984d4530 fffff803`a49db344 nt!KeBugCheck2+0xc14
-    03 ffffd000`984d4c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
-    04 ffffd000`984d4c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
-    05 ffffd000`984d4d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
-    06 ffffd000`984d4f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
-    07 ffffd000`984d4f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
-    08 ffffd000`984d4fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
-    09 ffffd000`9876fa50 fffff803`a4896d50 nt!KiInterruptDispatchNoLockNoEtw+0x37
-    0a ffffd000`9876fbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x20
-    0b ffffd000`9876fc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
-    0c ffffd000`9876fc40 fffff800`2ba095d3 vmnetbridge+0x70f8</p>
-    <br>
-    <p>So all CPUs are stuck in waiting to acquire a spinlock which eventually leads to the timeout mentioned in the BSOD. Since it is a VMware networking driver I would suspect the issue to be there. What to do to fix this now though?</p>
-    <br>
-    <h4><a id='solution-20201021'>The Solution</a></h4>
-	<p>I already tried putting the laptop into airplane mode so I was sure it was not the wifi driver conflicting here somehow. When I opened my network devices I saw something surprising though.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-2.webp' width='1012px' height='158px' alt='Shows Network devices in Windows settings'></button></div>
-	<p class='img-desc'>Figure 2: Network devices in Windows settings</p>
-	<br>
-	<p>Additionally to the ones shown here there was 1 more connection, a VirtualBox host local adapter. So I deactivated all network interfaces and booted into normal mode and this time it actually succeeded. I activated all VMware adapters again and surely no issues even with the next reboot. Activating the VirtualBox adapter though immediately caused the issue to be there again. So to me it seems like the Workstation network drivers get stuck in a deadlock as soon as another product’s Windows network adapter is present. I am currently working around the issue by using NAT-only networking in VirtualBox and I did indeed never restart the laptop after having installed VirtualBox. There is no issue when adding an adapter during runtime of the operating system but a reboot grinds it to a complete halt.</p>
-	<br>
-	<p>This process overall cost me 4 hours easily but on the upside I did not lose any of my data and I could actually find the cause without having to resort to guess work or reinstall, my inner nerd is satisfied!</p>
-	<hr>
-	<h4><a id='comments-20201021'>Closing Comments</a></h4>
-	<p>This section is the new 2020 addition from my old copy and paste... I managed to fight myself through the Hugo setup and initial struggles with the web hoster (still fighting one more battle with inconsistent path linkage that I cannot explain, so far their tech support is looking into it). Since this is also somewhat readable it looks like my 10 minutes spent on reading through Markdown syntax in 2020 was worth that time...</p>
-	<br>
-	<p>Big thanks to Chip Zoller (<a href='https://twitter.com/chipzoller' rel='noopener' target='_blank' aria-label="Go to @chipzoller's Twitter profile (opens in a new tab)">@chipzoller</a>) for providing the Clarity based Hugo theme for this!</p>
-</div>
-<hr>
+            7 ffffd0009849c180 ffffe001cba6d040 (12) ffffd000984a8cc0 …………….
+
+            # Child-SP RetAddr Call Site
+            00 ffffd000`984d4418 fffff803`a4a85055 nt!KiSaveProcessorControlState+0x97
+            01 ffffd000`984d4420 fffff803`a4a80d3c nt!KiFreezeTargetExecution+0x2bd
+            02 ffffd000`984d4530 fffff803`a49db344 nt!KeBugCheck2+0xc14
+            03 ffffd000`984d4c40 fffff803`a49f3e7a nt!KeBugCheckEx+0x104
+            04 ffffd000`984d4c80 fffff803`a48971cf nt! ?? ::FNODOBFM::`string’+0xa07a
+            05 ffffd000`984d4d10 fffff803`a481ed15 nt!KeClockInterruptNotify+0x9f
+            06 ffffd000`984d4f40 fffff803`a495e257 hal!HalpTimerClockIpiRoutine+0x15
+            07 ffffd000`984d4f70 fffff803`a49dc60a nt!KiCallInterruptServiceRoutine+0x87
+            08 ffffd000`984d4fb0 fffff803`a49dca37 nt!KiInterruptSubDispatchNoLockNoEtw+0xea
+            09 ffffd000`9876fa50 fffff803`a4896d50 nt!KiInterruptDispatchNoLockNoEtw+0x37
+            0a ffffd000`9876fbe0 fffff803`a48942af nt!KxWaitForSpinLockAndAcquire+0x20
+            0b ffffd000`9876fc10 fffff800`2dc570f8 nt!KeAcquireSpinLockAtDpcLevel+0x1f
+            0c ffffd000`9876fc40 fffff800`2ba095d3 vmnetbridge+0x70f8</p>
+            <br>
+            <p>So all CPUs are stuck in waiting to acquire a spinlock which eventually leads to the timeout mentioned in the BSOD. Since it is a VMware networking driver I would suspect the issue to be there. What to do to fix this now though?</p>
+            <br>
+            <h4><a id='solution-20201021'>The Solution</a></h4>
+        	<p>I already tried putting the laptop into airplane mode so I was sure it was not the wifi driver conflicting here somehow. When I opened my network devices I saw something surprising though.</p>
+        	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20201021-2.webp' width='1012' height='158' alt='Shows Network devices in Windows settings'></button></div>
+        	<p class='img-desc'>Figure 2: Network devices in Windows settings</p>
+        	<br>
+        	<p>Additionally to the ones shown here there was 1 more connection, a VirtualBox host local adapter. So I deactivated all network interfaces and booted into normal mode and this time it actually succeeded. I activated all VMware adapters again and surely no issues even with the next reboot. Activating the VirtualBox adapter though immediately caused the issue to be there again. So to me it seems like the Workstation network drivers get stuck in a deadlock as soon as another product’s Windows network adapter is present. I am currently working around the issue by using NAT-only networking in VirtualBox and I did indeed never restart the laptop after having installed VirtualBox. There is no issue when adding an adapter during runtime of the operating system but a reboot grinds it to a complete halt.</p>
+        	<br>
+        	<p>This process overall cost me 4 hours easily but on the upside I did not lose any of my data and I could actually find the cause without having to resort to guess work or reinstall, my inner nerd is satisfied!</p>
+        	<hr>
+        	<h4><a id='comments-20201021'>Closing Comments</a></h4>
+        	<p>This section is the new 2020 addition from my old copy and paste... I managed to fight myself through the Hugo setup and initial struggles with the web hoster (still fighting one more battle with inconsistent path linkage that I cannot explain, so far their tech support is looking into it). Since this is also somewhat readable it looks like my 10 minutes spent on reading through Markdown syntax in 2020 was worth that time...</p>
+        	<br>
+        	<p>Big thanks to Chip Zoller (<a href='https://twitter.com/chipzoller' rel='noopener' target='_blank' aria-label="Go to @chipzoller's Twitter profile (opens in a new tab)">@chipzoller</a>) for providing the Clarity based Hugo theme for this!</p>
+        </div>
+        <hr>
+    </body>
+</html>

@@ -1,96 +1,111 @@
-<h3>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</h3>
-<div class='blog-meta'>
-	<p><i class='fa-regular fa-calendar'></i> Jul 27, 2022</p>
-	<p class='tag'>TCA</p>
-	<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20What%27s%20new%20-%20Kubernetes%20Cluster%20Diagnosis&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
-		<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727=TCA%202.1%20What%27s%20new%20-%20Kubernetes%20Cluster%20Diagnosis' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
-		<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
-		<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220727")' title='Copy link'></i></span></p>
-</div>
-<div class='blog-content'>
-	<p>Telco Cloud Automation 2.1 introduced a new feature to be able to perform better health checks for deployed Kubernetes clusters. This post will explore that functionality.</p>
-	<br>
-	<p>The diagnosis can be run against management clusters, workload clusters or specific nodepools. When going into the details of each of those objects you will find a Diagnosis tab like in the picture below.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-1.webp' width='1600px' height='552px' alt='Cluster Diagnosis'></button></div>
-	<p class='img-desc'>Figure 1: Cluster Diagnosis</p>
-	<br>
-	<p>When you first run this you obviously would not have results listed, but still have the button to "Run Diagnosis". When that button is clicked a new wizard pops up which lets you choose if you only want to run a subset of tests (you can simply multi-select by clicking on each of the options you want) or if you leave the field blank (it does read optional) all of the tests at once as shown in the figure below.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-2.webp' width='1600px' height='927px' alt='Diagnosis Test Selection'></button></div>
-	<p class='img-desc'>Figure 2: Diagnosis Test Selection</p>
-	<br>
-	<p>The diagnosis itself will be run through a small helper pod which gets downloaded, the default timeout for this is 60 seconds, depending on the connection to the repository the first run may error out if by that timeout the pod is not fully downloaded or up and running as shown in the picture below. Simply repeat the run and everything should just work fine though.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-3.webp' width='2560px' height='624px' alt='Diagnosis run timeout'></button></div>
-	<p class='img-desc'>Figure 3: Diagnosis run timeout</p>
-	<br>
-	<p>Once the run completes you will see a summary of the run as well as the conducted tests with their respective pass or failure status.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-4.webp' width='1600px' height='646px' alt='Successfully completed diagnosis run'></button></div>
-	<p class='img-desc'>Figure 4: Successfully completed diagnosis run</p>
-	<br>
-	<p>If a test fails the overall status and the respective test will be marked as fail.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-5.webp' width='1600px' height='473px' alt='Failed diagnosis results'></button></div>
-	<p class='img-desc'>Figure 5: Failed diagnosis results</p>
-	<br>
-	<p>To get further insight into what made a test fail you can download the diagnosis report, which will download a tarball with a much more detailed html report, for this example one of the hosts in the cluster seems to be missing proper NTP configuration.</p>
-	<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-6.webp' width='1600px' height='425px' alt='Diagnosis test report'></button></div>
-	<p class='img-desc'>Figure 6: Diagnosis test report</p>
-	<br>
-	<p>When run against a management cluster the following test cases will be run if the whole test suite is selected:</p>
-	<ul class='blog-list'>
-		<li>Management Cluster VSphereVM Status Diagnosis</li>
-		<li>Management Cluster Machine Status Diagnosis</li>
-		<li>Cluster Control-Plane Nodes Diagnosis</li>
-		<li>Cluster Worker Nodes Diagnosis</li>
-		<li>Node IP address Diagnosis</li>
-		<li>CAPI System Pod Diagnosis</li>
-		<li>CAPV System Pod Diagnosis</li>
-		<li>Cert Manager Pod Diagnosis</li>
-		<li>VMConfig Operator Diagnosis</li>
-		<li>NodeConfig Operator Diagnosis</li>
-		<li>VSphere Controller Manager Diagnosis</li>
-		<li>Etcd Pods Status Diagnosis</li>
-		<li>Kube-apiserver Pods Status Diagnosis</li>
-		<li>Kube-scheduler Pods Status Diagnosis</li>
-		<li>Kube-controller-manager Pods Status Diagnosis</li>
-		<li>Kube-proxy Pods Status Diagnosis</li>
-		<li>CoreDNS Pods Status Diagnosis</li>
-		<li>CNI Antrea Pods Status Diagnosis</li>
-		<li>CSI Status Diagnosis</li>
-		<li>Kapp-controller Pods Status Diagnosis</li>
-		<li>Tanzu-addon-manager Pods Status Diagnosis</li>
-		<li>Tkr Status Diagnosis</li>
-		<li>NodeConfig certificate Diagnosis</li>
-		<li>Host Time Configuration Diagnosis On Prime VC</li>
-		<li>VIP address conflict detection</li>
-		<li>Etcd Status Diagnosis</li>
-	</ul>
-	<br>
-	<p>When run against a worklaod cluster the following test cases will be run if the whole test suite is selected:</p>
-	<ul class='blog-list'>
-		<li>VSphereVM Status Diagnosis</li>
-		<li>Machine Status Diagnosis</li>
-		<li>Cluster Control-Plane Nodes Diagnosis</li>
-		<li>Cluster Worker Nodes Diagnosis</li>
-		<li>Node IP address Diagnosis</li>
-		<li>VMConfig Diagnosis</li>
-		<li>NodeConfig Operator Diagnosis</li>
-		<li>VSphere Controller Manager Diagnosis</li>
-		<li>Etcd Pods Status Diagnosis</li>
-		<li>Kube-apiserver Pods Status Diagnosis</li>
-		<li>Kube-scheduler Pods Status Diagnosis</li>
-		<li>Kube-controller-manager Pods Status Diagnosis</li>
-		<li>Kube-proxy Pods Status Diagnosis</li>
-		<li>CoreDNS Pods Status Diagnosis</li>
-		<li>CNI Status Diagnosis</li>
-		<li>CSI Status Diagnosis</li>
-		<li>Kapp-controller Pods Status Diagnosis</li>
-		<li>NodeConfig certificate Diagnosis</li>
-		<li>VIP address conflict detection</li>
-		<li>Etcd Status Diagnosis</li>
-		<li>NodePolicy Diagnosis</li>
-		<li>NodePolicyMachineStatus Diagnosis</li>
-		<li>NodeProfileStatus Diagnosis</li>
-	</ul>
-	<br>
-	<p>Overall this for me is one of the best features which Telco Cloud Automation added. It's an extremely common ask to be able to perform a general health check on a cluster, especially prior to performing an upgrade, or validating the functional status after an onboarding or upgrade operation. Also having dealt with a high scale RAN deployment the last couple of weeks, simply being able to check the health of a cluster within a few seconds before diving deeper into troubleshooting something is an amazing time saver, as usually it's very simple things being broken.</p>
-</div>
-<hr>
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+<!-- Site metadata -->
+        <meta charset='UTF-8'>
+        <meta name='description' content='Random cloud and VMware ramblings, mainly focussing on the NFV space.'>
+        <meta name='keywords' content='vmware, vunhandledexception, nfv, vcloud-director, vid, tca, telco, vmware certification, technical, learning'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<!-- Load stylesheet -->
+        <title>vUnhandledException</title>
+    </head>
+
+    <body>
+	<h3>TCA 2.1 What's new - Kubernetes Cluster Diagnosis</h3>
+	<div class='blog-meta'>
+		<p><i class='fa-regular fa-calendar'></i> Jul 27, 2022</p>
+		<p class='tag'>TCA</p>
+		<p>Share on: <a href='https://twitter.com/intent/tweet?text=TCA%202.1%20What%27s%20new%20-%20Kubernetes%20Cluster%20Diagnosis&url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727' target='_blank' title='Share on Twitter' rel='noopener' aria-label='Share this blog post to Twitter (opens in a new tab)'><i class='fa-brands fa-twitter' style='color: #ffffff;'></i></a>
+			<a href='https://www.facebook.com/sharer.php?u=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727=TCA%202.1%20What%27s%20new%20-%20Kubernetes%20Cluster%20Diagnosis' target='_blank' title='Share on Facebook' rel='noopener' aria-label='Share this blog post to Facebook (opens in a new tab)'><i class='fa-brands fa-square-facebook' style='color: #ffffff;'></i></a>
+			<a href='https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fcrazycooky77.github.io%2fci_projects%2fblog.html%2320220727' target='_blank' title='Share on LinkedIn' rel='noopener' aria-label='Share this blog post to LinkedIn (opens in a new tab)'><i class='fa-brands fa-linkedin' style='color: #ffffff;'></i></a>
+			<span aria-label='Copy the link to this blog post to your clipboard'><i class='fa-solid fa-copy' style='color: #ffffff;' onclick='copyMe("https://crazycooky77.github.io/ci_projects/blog.html#20220727")' title='Copy link'></i></span></p>
+	</div>
+	<div class='blog-content'>
+		<p>Telco Cloud Automation 2.1 introduced a new feature to be able to perform better health checks for deployed Kubernetes clusters. This post will explore that functionality.</p>
+		<br>
+		<p>The diagnosis can be run against management clusters, workload clusters or specific nodepools. When going into the details of each of those objects you will find a Diagnosis tab like in the picture below.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-1.webp' width='1600' height='552' alt='Cluster Diagnosis'></button></div>
+		<p class='img-desc'>Figure 1: Cluster Diagnosis</p>
+		<br>
+		<p>When you first run this you obviously would not have results listed, but still have the button to "Run Diagnosis". When that button is clicked a new wizard pops up which lets you choose if you only want to run a subset of tests (you can simply multi-select by clicking on each of the options you want) or if you leave the field blank (it does read optional) all of the tests at once as shown in the figure below.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-2.webp' width='1600' height='927' alt='Diagnosis Test Selection'></button></div>
+		<p class='img-desc'>Figure 2: Diagnosis Test Selection</p>
+		<br>
+		<p>The diagnosis itself will be run through a small helper pod which gets downloaded, the default timeout for this is 60 seconds, depending on the connection to the repository the first run may error out if by that timeout the pod is not fully downloaded or up and running as shown in the picture below. Simply repeat the run and everything should just work fine though.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-3.webp' width='2560' height='624' alt='Diagnosis run timeout'></button></div>
+		<p class='img-desc'>Figure 3: Diagnosis run timeout</p>
+		<br>
+		<p>Once the run completes you will see a summary of the run as well as the conducted tests with their respective pass or failure status.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-4.webp' width='1600' height='646' alt='Successfully completed diagnosis run'></button></div>
+		<p class='img-desc'>Figure 4: Successfully completed diagnosis run</p>
+		<br>
+		<p>If a test fails the overall status and the respective test will be marked as fail.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-5.webp' width='1600' height='473' alt='Failed diagnosis results'></button></div>
+		<p class='img-desc'>Figure 5: Failed diagnosis results</p>
+		<br>
+		<p>To get further insight into what made a test fail you can download the diagnosis report, which will download a tarball with a much more detailed html report, for this example one of the hosts in the cluster seems to be missing proper NTP configuration.</p>
+		<div class='blog-img'><button class='img-scale' onclick='this.focus()' title='Click to enlarge image'><img src='assets/images/blog-images/20220727-6.webp' width='1600' height='425' alt='Diagnosis test report'></button></div>
+		<p class='img-desc'>Figure 6: Diagnosis test report</p>
+		<br>
+		<p>When run against a management cluster the following test cases will be run if the whole test suite is selected:</p>
+		<ul class='blog-list'>
+			<li>Management Cluster VSphereVM Status Diagnosis</li>
+			<li>Management Cluster Machine Status Diagnosis</li>
+			<li>Cluster Control-Plane Nodes Diagnosis</li>
+			<li>Cluster Worker Nodes Diagnosis</li>
+			<li>Node IP address Diagnosis</li>
+			<li>CAPI System Pod Diagnosis</li>
+			<li>CAPV System Pod Diagnosis</li>
+			<li>Cert Manager Pod Diagnosis</li>
+			<li>VMConfig Operator Diagnosis</li>
+			<li>NodeConfig Operator Diagnosis</li>
+			<li>VSphere Controller Manager Diagnosis</li>
+			<li>Etcd Pods Status Diagnosis</li>
+			<li>Kube-apiserver Pods Status Diagnosis</li>
+			<li>Kube-scheduler Pods Status Diagnosis</li>
+			<li>Kube-controller-manager Pods Status Diagnosis</li>
+			<li>Kube-proxy Pods Status Diagnosis</li>
+			<li>CoreDNS Pods Status Diagnosis</li>
+			<li>CNI Antrea Pods Status Diagnosis</li>
+			<li>CSI Status Diagnosis</li>
+			<li>Kapp-controller Pods Status Diagnosis</li>
+			<li>Tanzu-addon-manager Pods Status Diagnosis</li>
+			<li>Tkr Status Diagnosis</li>
+			<li>NodeConfig certificate Diagnosis</li>
+			<li>Host Time Configuration Diagnosis On Prime VC</li>
+			<li>VIP address conflict detection</li>
+			<li>Etcd Status Diagnosis</li>
+		</ul>
+		<br>
+		<p>When run against a worklaod cluster the following test cases will be run if the whole test suite is selected:</p>
+		<ul class='blog-list'>
+			<li>VSphereVM Status Diagnosis</li>
+			<li>Machine Status Diagnosis</li>
+			<li>Cluster Control-Plane Nodes Diagnosis</li>
+			<li>Cluster Worker Nodes Diagnosis</li>
+			<li>Node IP address Diagnosis</li>
+			<li>VMConfig Diagnosis</li>
+			<li>NodeConfig Operator Diagnosis</li>
+			<li>VSphere Controller Manager Diagnosis</li>
+			<li>Etcd Pods Status Diagnosis</li>
+			<li>Kube-apiserver Pods Status Diagnosis</li>
+			<li>Kube-scheduler Pods Status Diagnosis</li>
+			<li>Kube-controller-manager Pods Status Diagnosis</li>
+			<li>Kube-proxy Pods Status Diagnosis</li>
+			<li>CoreDNS Pods Status Diagnosis</li>
+			<li>CNI Status Diagnosis</li>
+			<li>CSI Status Diagnosis</li>
+			<li>Kapp-controller Pods Status Diagnosis</li>
+			<li>NodeConfig certificate Diagnosis</li>
+			<li>VIP address conflict detection</li>
+			<li>Etcd Status Diagnosis</li>
+			<li>NodePolicy Diagnosis</li>
+			<li>NodePolicyMachineStatus Diagnosis</li>
+			<li>NodeProfileStatus Diagnosis</li>
+		</ul>
+		<br>
+		<p>Overall this for me is one of the best features which Telco Cloud Automation added. It's an extremely common ask to be able to perform a general health check on a cluster, especially prior to performing an upgrade, or validating the functional status after an onboarding or upgrade operation. Also having dealt with a high scale RAN deployment the last couple of weeks, simply being able to check the health of a cluster within a few seconds before diving deeper into troubleshooting something is an amazing time saver, as usually it's very simple things being broken.</p>
+	</div>
+	<hr>
+    </body>
+</html>
