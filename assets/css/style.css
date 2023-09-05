@@ -27,3 +27,43 @@ img {
 	height: auto;
 	display: block;
 }
+
+/* Hero Image */
+#hero {
+	background: url('../images/logo.png') no-repeat center center;
+	height: 250px;
+	width: 100%;
+	position: relative;
+	top: 0;
+}
+
+.container {
+	display: flex;
+}
+
+.hangman-image {
+	height: 500px;
+	width: 30%;
+	margin: 30px auto;
+	display: flex;
+	justify-content: center;
+}
+
+.alphabet {
+	width: 30%;
+	margin: 30px auto;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-column-gap: 20px;
+}
+
+.puzzle {
+	display: flex;
+	justify-content: center;
+	width: 30%;
+}
+
+.puzzle img {
+	margin: auto;
+	width: 20%;
+}
