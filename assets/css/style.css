@@ -36,7 +36,7 @@ h1 {
 /* Blank puzzle styling */
 #puzzle {
 	width: 90%;
-	margin: 100px auto auto auto;
+	margin: 93px auto auto auto;
 	display: grid;
 	grid-template-columns: auto;
 	grid-column-gap: 20px;
@@ -47,11 +47,13 @@ h1 {
 	display: flex;
 	justify-content: center;
 	gap: 20px;
-	margin-bottom: 100px;
+	margin-bottom: 95px;
 }
 
 #puzzle img {
 	width: 5%;
+	margin-top: auto;
+/*	align-items: flex-end;*/
 }
 
 /* Hangman image, score, alphabet puzzle area */

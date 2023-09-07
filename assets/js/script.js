@@ -28,33 +28,36 @@ const movies = ['Rocky Horror Picture Show',
 
 // function blankPuzzle() {
 // Set necessary variables for movie name and length
-	let position = document.getElementById('puzzle')
-	let randomMovie = movies[Math.floor(Math.random() * movies.length)]
-	let words = randomMovie.split(' ')
+	let position = document.getElementById('puzzle');
+	let randomMovie = movies[Math.floor(Math.random() * movies.length)];
+	let words = randomMovie.split(' ');
 
-// TESTING ONLY
-	// console.log(randomMovie)
-	// console.log(words)
-	// console.log(words.length)
+// TESTING
+	console.log(randomMovie)
 
 // Count the number of words in the movie name to create separate divs
 	for (let word = 0; word < words.length; word++) {
-		let puzzleWord = document.createElement('div')
-		puzzleWord.classList.add('puzzle-word')
-		position.appendChild(puzzleWord)
+		let puzzleWord = document.createElement('div');
+		puzzleWord.classList.add('puzzle-word');
+		position.appendChild(puzzleWord);
 
 // Count the number of letters in each word to create the blank imagesfor each letter
 	  	for (let letter = 0; letter < words[word].length; letter++) {
 	 		let blank = document.createElement('img');
 	 		blank.src = 'assets/images/hangman-puzzle.png';
-	 		blank.classList.add(words[word][letter].toLowerCase())
+	 		blank.classList.add(words[word][letter].toLowerCase());
 	        puzzleWord.appendChild(blank);
 		}
 	}
 // }
 
-// Function to run when the user selects a letter for the puzzle
+// Function to fill out letter matches in the puzzle when the user selects a letter from the alphabet
 function letterSelection(event) {
-	let clickedLetter = event.className
-	console.log(clickedLetter)
+	let clickedLetter = event.className;
+	let blankMatch = document.getElementById('puzzle').getElementsByClassName(clickedLetter);
+
+	for (let i = 0; i < blankMatch.length; i++) {
+		let replaceLetter = blankMatch[i].src = 'assets/images/' + clickedLetter + '.png'
+		blankMatch[i].style.marginTop = '-43px';
+	}
 }
