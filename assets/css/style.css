@@ -87,3 +87,8 @@ h1 {
 	margin: auto;
 	width: 60%;
 }
+
+.alphabet button {
+	background-color: transparent;
+	cursor: pointer;
+}

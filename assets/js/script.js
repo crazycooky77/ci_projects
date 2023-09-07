@@ -33,9 +33,9 @@ const movies = ['Rocky Horror Picture Show',
 	let words = randomMovie.split(' ')
 
 // TESTING ONLY
-	console.log(randomMovie)
-	console.log(words)
-	console.log(words.length)
+	// console.log(randomMovie)
+	// console.log(words)
+	// console.log(words.length)
 
 // Count the number of words in the movie name to create separate divs
 	for (let word = 0; word < words.length; word++) {
@@ -47,7 +47,14 @@ const movies = ['Rocky Horror Picture Show',
 	  	for (let letter = 0; letter < words[word].length; letter++) {
 	 		let blank = document.createElement('img');
 	 		blank.src = 'assets/images/hangman-puzzle.png';
+	 		blank.classList.add(words[word][letter].toLowerCase())
 	        puzzleWord.appendChild(blank);
 		}
 	}
 // }
+
+// Function to run when the user selects a letter for the puzzle
+function letterSelection(event) {
+	let clickedLetter = event.className
+	console.log(clickedLetter)
+}
