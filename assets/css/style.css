@@ -63,7 +63,7 @@ h1 {
 }
 
 /* Hangman image puzzle */
-.hangman-image {
+#hangman-image {
 	height: 550px;
 	width: 45%;
 	margin: auto;
@@ -71,12 +71,12 @@ h1 {
 	justify-content: center;
 }
 
-.hangman-image img {
+#hangman-image img {
 	max-width: 100%;
 }
 
 /* Alphabet for user selection */
-.alphabet {
+#alphabet {
 	width: 45%;
 	margin: auto;
 	display: grid;
@@ -85,12 +85,12 @@ h1 {
 	grid-row-gap: 30px;
 }
 
-.alphabet img {
+#alphabet img {
 	margin: auto;
 	width: 60%;
 }
 
-.alphabet button {
+#alphabet button {
 	background-color: transparent;
 	cursor: pointer;
 }
