@@ -46,6 +46,7 @@ const movies = ['Rocky Horror Picture Show',
 	 		let blank = document.createElement('img');
 	 		blank.src = 'assets/images/blank.png';
 	 		blank.classList.add(words[word][letter].toLowerCase());
+	 		blank.classList.add('blank')
 	        puzzleWord.appendChild(blank);
 		}
 	}
@@ -56,10 +57,12 @@ function letterSelection(event) {
 // Get the class name for the clicked letter and the related blanks
 	let clickedLetter = event.className;
 	let blankMatch = document.getElementById('puzzle').getElementsByClassName(clickedLetter);
-// Disable the clicked alphabet button
+// Get the clicked alphabet button
 	let clickedButton = document.getElementById('alphabet').getElementsByClassName(clickedLetter)[0];
-// Get the letter clicked in the alphabet
+// Get the letter image clicked in the alphabet
 	let clickedAlphabet = document.getElementById('alphabet').getElementsByClassName(clickedLetter)[0].getElementsByTagName('img');	
+// Get the puzzle images
+	let puzzleImages = document.getElementById('puzzle').getElementsByTagName('img');	
 // Get the stage of the hangman image and set various variables
 	let hangman = document.getElementById('hangman-image').getElementsByTagName('img');
 	let hangmanAttr = hangman[0].getAttribute('src');
@@ -73,20 +76,45 @@ function letterSelection(event) {
 		clickedAlphabet[0].style.cursor = 'default';
 	}
 
-	if (blankMatch.length > 0 && hangmanNr < 8) {
+// Check to see if there are still blanks in the puzzle
+	function puzzleStage() {
+		let blankPresent = 0;
+		for (let pImg = 0; pImg < puzzleImages.length; pImg++) {
+			if (puzzleImages[pImg].classList.contains('blank')) {
+				blankPresent++
+			}
+		}
+		return blankPresent
+	}
+
+// Check the latest puzzle stage to get the blankPresent variable
+	let blankPresent = puzzleStage() 
+
+// If the user clicks a letter that is present in the puzzle...
+	if (blankMatch.length > 0 && hangmanNr < 8 && blankPresent > 0) {
 // Run functions to update the clicked button
 		clickActions()
 // Replace all relevant blank puzzle letters with the selected alphabet letter
-		for (let i = 0; i < blankMatch.length; i++) {
-			let replaceLetter = blankMatch[i].src = 'assets/images/' + clickedLetter + '.png';
-			blankMatch[i].style.marginTop = '-44px';
+		for (let match = 0; match < blankMatch.length; match++) {
+			let replaceLetter = blankMatch[match].src = 'assets/images/' + clickedLetter + '.png';
+			blankMatch[match].classList.remove('blank');
+			blankMatch[match].style.marginTop = '-44px';
 		}
-	} else if (blankMatch.length === 0 && hangmanNr < 7) {
+// Check if any blanks remain in the puzzle
+		blankPresent = puzzleStage()
+		if (blankPresent === 0) {
+			setTimeout(() => {
+// If none remain, the user won
+				alert('You won!')}, 200);
+		}
+// If the user clicks a letter that is not in the puzzle...
+	} else if (blankMatch.length === 0 && hangmanNr < 7 && blankPresent > 0) {
 // Run functions to update the clicked button
 		clickActions()
 // Replace the hangman image for every wrong answer
 		let hangmanHung = hangman[0].src = hangmanSrc + (hangmanNr + 1) + '.png';
-	} else if (blankMatch.length === 0 && hangmanNr === 7) {
+// If the user clicks a letter that is not in the puzzle and it's their last chance...
+	} else if (blankMatch.length === 0 && hangmanNr === 7 && blankPresent > 0) {
 // Run functions to update the clicked button
 		clickActions()
 // Replace the hangman image for the wrong answer and provide Game Over message
