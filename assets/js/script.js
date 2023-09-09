@@ -97,8 +97,7 @@ function letterSelection(event) {
 // Replace all relevant blank puzzle letters with the selected alphabet letter
 		for (let match = 0; match < blankMatch.length; match++) {
 			let replaceLetter = blankMatch[match].src = 'assets/images/' + clickedLetter + '.png';
-			blankMatch[match].classList.remove('blank');
-			blankMatch[match].style.marginTop = '-44px';
+			blankMatch[match].classList.remove('blank');			
 		}
 // Check if any blanks remain in the puzzle
 		blankPresent = puzzleStage()
