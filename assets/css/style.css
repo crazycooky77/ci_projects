@@ -59,7 +59,6 @@ h1 {
 #hangman-image {
 	height: 550px;
 	width: 45%;
-/*	margin: auto;*/
 	display: flex;
 	justify-content: center;
 }
@@ -83,6 +82,7 @@ h1 {
 #alphabet img {
 	margin: auto;
 	width: 60%;
+	padding-bottom: 50px;
 }
 
 #alphabet button {
