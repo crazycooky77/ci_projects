@@ -44,7 +44,7 @@ h1 {
 }
 
 /* Default new game page styling */
-#new-game {
+#new-game, #won-game, #lost-game {
 	text-align: center;
 	font-size: 28px;
 }
@@ -62,6 +62,12 @@ h1 {
 
 .new:hover {
 	background-color: transparent;
+}
+
+/* Styling for H2s on new game pages */
+
+#won-game h2, #lost-game h2 {
+	margin-bottom: 20px;
 }
 
 /* Styling for the puzzle area and instructions */
