@@ -22,7 +22,7 @@ body {
 	background-size: cover;
 }
 
-/* Header and instructions */
+/* Header */
 h1 {
 	font-size: 56px;
 	text-align: center;
@@ -30,7 +30,41 @@ h1 {
 	margin-bottom: 50px;
 }
 
-/* Styling for the puzzle area */
+/* Hide all page sections except the first new game area for new users */
+#won-game {
+	display: none;
+}
+
+#lost-game {
+	display: none;
+}
+
+#puzzle-areas {
+	display: none;
+}
+
+/* Default new game page styling */
+#new-game {
+	text-align: center;
+	font-size: 28px;
+}
+
+/* Styling for new game button */
+.new {
+	margin-top: 25px;
+	font-size: 25px;
+	margin-bottom: 100px;
+	background-color: #1f1b18;
+	border: 2px solid;
+	padding: 10px 15px;
+	border-radius: 15px;
+}
+
+.new:hover {
+	background-color: transparent;
+}
+
+/* Styling for the puzzle area and instructions */
 #puzzle p {
 	text-align: center;
 	font-size: 28px;
