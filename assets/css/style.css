@@ -30,13 +30,13 @@ h1 {
 	margin-bottom: 50px;
 }
 
-#hero p {
+/* Styling for the puzzle area */
+#puzzle p {
 	text-align: center;
 	font-size: 28px;
 	margin-bottom: 50px;
 }
 
-/* Styling for the puzzle area */
 .puzzle-word {
 	display: flex;
 	justify-content: center;
