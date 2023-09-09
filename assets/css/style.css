@@ -10,50 +10,43 @@
 	color: white;
 }
 
-body {
+/* Background colour for the site behind the image */
+html {
 	background-color: #1f1b18;
-	font-size: 20px;
 }
 
-/* Hero Image and header */
+/* Background image */
+body {
+	font-size: 20px;
+	background: url('../images/logo.png') no-repeat;
+	background-size: cover;
+}
+
+/* Header and instructions */
 h1 {
 	font-size: 56px;
 	text-align: center;
-	margin-top: 30px;
+	padding-top: 30px;
 	margin-bottom: 50px;
 }
 
-#hero {
-	background: url('../images/logo.png') no-repeat center center;
-	height: 250px;
-	width: 100%;
-	position: relative;
-	top: 0;
+#hero p {
+	text-align: center;
+	font-size: 28px;
 	margin-bottom: 50px;
 }
 
 /* Styling for the puzzle area */
-/* Blank puzzle styling */
-#puzzle {
-	width: 90%;
-	margin: 93px auto auto auto;
-	display: grid;
-	grid-template-columns: auto;
-	grid-column-gap: 20px;
-	grid-row-gap: -80px;
-}
-
 .puzzle-word {
 	display: flex;
 	justify-content: center;
 	gap: 20px;
-	margin-bottom: 95px;
+	margin-bottom: 50px;
 }
 
 #puzzle img {
 	width: 5%;
 	margin-top: auto;
-/*	align-items: flex-end;*/
 }
 
 /* Hangman image, score, alphabet puzzle area */
@@ -66,13 +59,15 @@ h1 {
 #hangman-image {
 	height: 550px;
 	width: 45%;
-	margin: auto;
+/*	margin: auto;*/
 	display: flex;
 	justify-content: center;
 }
 
 #hangman-image img {
+	margin-top: 25px;
 	max-width: 100%;
+	padding-bottom: 50px;
 }
 
 /* Alphabet for user selection */
