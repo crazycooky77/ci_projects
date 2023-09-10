@@ -58,6 +58,7 @@ h1 {
 	border: 2px solid;
 	padding: 10px 15px;
 	border-radius: 15px;
+	cursor: pointer;
 }
 
 .new:hover {
@@ -105,8 +106,8 @@ h1 {
 
 #hangman-image img {
 	margin-top: 25px;
-	max-width: 100%;
 	padding-bottom: 50px;
+	max-width: 100%;
 }
 
 /* Alphabet for user selection */
@@ -120,7 +121,7 @@ h1 {
 }
 
 #alphabet img {
-	margin: auto;
+	margin: 25px auto auto auto;
 	width: 60%;
 	padding-bottom: 50px;
 }
